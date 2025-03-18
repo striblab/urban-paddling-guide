@@ -18,7 +18,15 @@
         routeID
     } = $derived(routeData)
 
-    $inspect(routeData)
+    const grafify = (copy) => {
+        return copy.split("\n")
+    }
+
+
 </script>
 
 <h1 class="font-utility-heading-01">{headline}</h1>
+
+{#each grafify(narrative) as graf}
+    <p class="mb-5">{@html graf}</p>
+{/each}
