@@ -206,3 +206,24 @@
   font-style: normal;
   font-display: swap;
 }
+
+@font-face {
+  font-family: "publico-headline-black";
+  src: url("/fonts/PublicoHeadlineBlack/PublicoHeadline-Black-Web.woff2") format("woff2");
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "publico-banner-black";
+  src: url("/fonts/PublicoBannerBlack/PublicoBanner-Black-Web.woff2") format("woff2");
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "publico-headline-light";
+  src: url("/fonts/PublicoHeadlineLight/PublicoHeadline-Light-Web.woff2") format("woff2");
+  font-style: normal;
+  font-display: swap;
+}

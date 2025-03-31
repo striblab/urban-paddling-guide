@@ -23,15 +23,25 @@
     })
 
 </script>
+
 <svelte:window on:hashchange={()=>{hash=window.location.hash}} />
-<main class="px-4 lg:px-20 pt-8">
+
+<main class="">
     {#if selectedRoute}
         <Route routeData={routeData.filter(r => r.headline === selectedRoute)[0]}/>
     {:else}
-    <ul>
-    {#each routeData as route}
-        <li><a href="#/{slugify(route.headline)}">{slugify(route.headline)}</a></li>
-    {/each}
-    </ul>
+        <ul>
+            {#each routeData as route}
+                <li class="font-publico-banner-black"><a href="#/{slugify(route.headline)}">{slugify(route.headline)}</a></li>
+            {/each}
+        </ul>
     {/if}
 </main>
+
+<style global>
+    body {
+        padding: 0px !important;
+        margin: 0px !important;
+        background: #fffbf4;
+    }
+</style>

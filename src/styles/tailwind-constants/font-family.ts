@@ -28,6 +28,18 @@ export const fontFamily = {
     "publico-headline-light-italic",
     fallbackFont,
   ],
+  "publico-headline-black": [
+    "publico-headline-black",
+    fallbackFont,
+  ],
+  "publico-headline-light": [
+    "publico-headline-light",
+    fallbackFont,
+  ],
+  "publico-banner-black": [
+    "publico-banner-black",
+    fallbackFont,
+  ],
   "font-publico-headline-medium": [
     "font-publico-headline-medium",
     fallbackFont,
