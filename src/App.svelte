@@ -1,5 +1,6 @@
 <script>
     import Route from "./Route.svelte";
+    import Hero from "./Hero.svelte";
     let selectedRoute = $state("");
     import routeData from "./data/routes.json"
 
@@ -26,15 +27,32 @@
 
 <svelte:window on:hashchange={()=>{hash=window.location.hash}} />
 
-<main class="">
+
+
+<main class="bg-[#fffbf4] pb-12">
+
     {#if selectedRoute}
         <Route routeData={routeData.filter(r => r.headline === selectedRoute)[0]}/>
     {:else}
-        <ul>
+        <Hero/>
+        <div class="route-preview-wrapper md:flex flex-wrap w-[90%] justify-between mx-auto max-w-8xl">
             {#each routeData as route}
-                <li class="font-publico-banner-black"><a href="#/{slugify(route.headline)}">{slugify(route.headline)}</a></li>
+                <a href="#/{slugify(route.headline)}" class="block md:w-[49%] lg:w-[32%] mb-8">
+                    <div class="route-preview font-publico-banner-black bg-white border rounded-xl  border-[#05442e]">
+                        <img src="{route.heroImg}?w=600&h=400&fit=crop" class="w-full">
+                        <div class="text-wrapper p-6">
+                            <h3 class="text-[28px] md:text-[32px] mb-2">{route.headline}</h3>
+                            <h5 class="text-[13px] uppercase font-graphik-regular tracking-widest">{route.subhead}</h5>
+                            <!-- <div class="tag-wrapper flex flex-wrap mb-2">
+                                {#each route.tags as tag}
+                                    <p class="tag leading-[0.7]"><span class="inline-block p-2 mr-1 mb-1 text-[#05442e] rounded-2xl border-[#05442e] border uppercase font-graphik-medium tracking-widest text-[12px]">{@html tag}</span></p>
+                                {/each}
+                            </div> -->
+                        </div>
+                    </div>
+                </a>
             {/each}
-        </ul>
+        </div>
     {/if}
 </main>
 
@@ -43,5 +61,9 @@
         padding: 0px !important;
         margin: 0px !important;
         background: #fffbf4;
+    }
+
+    div.route-preview {
+        overflow: hidden;
     }
 </style>

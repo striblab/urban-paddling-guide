@@ -26,11 +26,17 @@
 </script>
 
 <div class="route w-full">
-    <div class="hero-photo w-full h-[60vh] mb-8 md:mb-12 md:max-w-full md:h-[80vh] md:mx-auto relative"  style="background: url({heroImg}); background-size: cover;background-position: 50% 50%;">
+    <div class="headline-wrapper w-[90%] mx-auto max-w-2xl pt-[10vh]">
+        <h1 class="font-publico-headline-black text-[35px] md:text-[50px] md:mb-6 mb-4">{headline}</h1>
+        <div class="tag-wrapper flex flex-wrap mb-12">    {#each tags as tag}
+                <p class="tag leading-[0.7]"><span class="inline-block p-2 mr-1 md:mr-2 mb-1 text-[#05442e] rounded-2xl border-[#05442e] border uppercase font-graphik-medium tracking-widest text-[12px] md:text-[14px]">{@html tag}</span></p>
+            {/each}
+        </div>
+    </div>
+    <div class="hero-photo w-full h-[60vh] mb-8 md:mb-12 md:max-w-full md:h-screen md:mx-auto relative"  style="background: url({heroImg}); background-size: cover;background-position: 50% 50%;">
 
     </div>
     <div class="headline-wrapper w-[90%] mx-auto max-w-2xl">
-        <h1 class="font-publico-headline-black text-[35px] md:text-[50px] mb-3">{headline}</h1>
         <div class="byline font-graphik-semibold text-[15px] mt-6 mb-6">
             {#if authors.length > 1}
                 <p class="byline">Guide by 
@@ -43,32 +49,29 @@
                 <span class="author">{heroImgCredit}</span></p>
             {/if}
         </div>
-        <div class="tag-wrapper flex flex-wrap mb-4">    
-            {#each tags as tag}
-                <p class="tag leading-[0.7]"><span class="inline-block p-2 mr-1 mb-1 text-[#05442e] rounded-2xl border-[#05442e] border-2 uppercase font-graphik-semibold tracking-widest text-[11px]">{@html tag}</span></p>
-            {/each}
-        </div>
         
         <div class="subhead">
-            <h2 class="font-publico-headline-light text-xl">{subhead} but weren't we thinking this would be longer? did I miss it when i transfered the arc body? This is just to fill it out and Anna needs to look into it</h2>
+            <h2 class="font-publico-headline-light text-2xl">{subhead} but weren't we thinking this would be longer? did I miss it when i transfered the arc body? This is just to fill it out and Anna needs to look into it</h2>
         </div>
     </div>
 
     <div class="flex-module w-[90%] mx-auto max-w-2xl md:flex border-t-2 border-[#05442e] border-b-2
-    py-6 my-6">
-        <div class="completion-time item border-b border-[#05442e] w-full md:w-1/3 mb-4 pb-4">
+    py-6 my-12 justify-start">
+        <div class="completion-time item border-b md:border-b-0 md:border-r border-[#05442e] w-full md:w-1/3 mb-6 md:mb-0 pb-6 md:px-8 md:pl-0">
             <h5 class="font-graphik-bold uppercase tracking-widest text-[14px] mb-2">Time to complete</h5>
-            <p class="font-graphik-regular text-[17px]">{timeToComplete}</p>
+            <p class="font-graphik-regular text-[18px]">{timeToComplete}</p>
         </div>
-        <div class="nearbyCities item border-b border-[#05442e] w-full md:w-1/3 mb-4 pb-4">
+        <div class="nearbyCities item border-b md:border-b-0 md:border-r border-[#05442e] w-full md:w-1/3 mb-6 md:mb-0 pb-6 md:px-8">
             <h5 class="font-graphik-bold uppercase tracking-widest text-[14px] mb-2">Nearby Cities</h5>
-            {#each nearbyCities as city}
-                <p class="tag font-graphik-regular text-[17px]"><span>{@html city}, </span></p>
-            {/each}
+            <p class="tag font-graphik-regular text-[18px]">
+                {#each nearbyCities as city}
+                    <span class="inline-block mr-2">{@html city},</span>
+                {/each}
+            </p>
         </div>
-        <div class="recommended-conditions item w-full md:w-1/3">
+        <div class="recommended-conditions item w-full md:w-1/3 md:px-6 md:pr-0 md:mb-0">
             <h5 class="font-graphik-bold uppercase tracking-widest text-[14px] mb-2">Recommended conditions</h5>
-            <p class="tag font-graphik-regular text-[17px] mb-0"><span>{@html recommendedConditions}</span></p>
+            <p class="tag font-graphik-regular text-[18px] mb-0"><span>{@html recommendedConditions}</span></p>
         </div>
     </div>
 
@@ -88,8 +91,8 @@
         <p class="caption w-[90%] mx-auto max-w-2xl font-graphik-regular text-[14px] mt-2">This will be the caption for the image. It will be a couple sentences describing waht is in it.</p>
     </div>
 
-    <div class="know-before flex-module w-[90%] mx-auto max-w-2xl md:flex border-t-2 border-[#05442e] border-b-2 py-6 my-6">
-        <h5 class="font-graphik-bold uppercase tracking-widest text-[14px] mb-2">Know before you go</h5>
+    <div class="know-before flex-module w-[90%] mx-auto max-w-2xl md:flex border-t-2 border-[#05442e] border-b-2 py-6 my-4 flex-wrap">
+        <h5 class="font-graphik-bold uppercase tracking-widest text-[14px] mb-2 w-full">Know before you go</h5>
         {#each grafify(knowBeforeYouGo) as know}
             <p class="mb-5">{@html know}</p>
         {/each}
