@@ -1,6 +1,7 @@
 <script>
     import Route from "./Route.svelte";
     import Hero from "./Hero.svelte";
+    import Credits from "./Credits.svelte";
     let selectedRoute = $state("");
     import routeData from "./data/routes.json"
 
@@ -53,6 +54,7 @@
                 </a>
             {/each}
         </div>
+        <Credits/>
     {/if}
 </main>
 
