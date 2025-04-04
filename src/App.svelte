@@ -2,6 +2,8 @@
     import Route from "./Route.svelte";
     import Hero from "./Hero.svelte";
     import Credits from "./Credits.svelte";
+    import Filters from "./Filters.svelte";
+
     let selectedRoute = $state("");
     import routeData from "./data/routes.json"
 
@@ -35,7 +37,8 @@
     {#if selectedRoute}
         <Route routeData={routeData.filter(r => r.headline === selectedRoute)[0]}/>
     {:else}
-        <Hero/>
+        <Hero />
+        <Filters />
         <div class="route-preview-wrapper md:flex flex-wrap w-[90%] justify-between mx-auto max-w-8xl">
             {#each routeData as route}
                 <a href="#/{slugify(route.headline)}" class="block md:w-[49%] lg:w-[32%] mb-8">
