@@ -62,7 +62,7 @@
 </main>
 
 <style global>
-    body {
+    :global(body) {
         padding: 0px !important;
         margin: 0px !important;
         background: #fffbf4;
