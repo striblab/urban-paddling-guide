@@ -30,7 +30,7 @@
         <h1 class="font-publico-headline-black text-[35px] md:text-[50px] md:mb-6 mb-4">{headline}</h1>
         <div class="tag-wrapper flex flex-wrap mb-12">
             {#each tags as tag}
-                <p class="tag leading-[0.7]"><span class="inline-block p-2 mr-1 md:mr-2 mb-1 text-[#05442e] rounded-2xl border-[#05442e] border uppercase font-graphik-medium tracking-widest text-[12px] md:text-[14px]">{@html tag}</span></p>
+                <p class="tag leading-[0.7]"><span class="inline-block p-2 mr-1 md:mr-2 mb-1 text-[#05442e] rounded-2xl border-[#05442e] border uppercase font-graphik-medium tracking-widest text-[12px] md:text-[14px] bg-white">{@html tag}</span></p>
             {/each}
         </div>
     </div>
