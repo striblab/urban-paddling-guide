@@ -1,4 +1,8 @@
 <script>
+    import { onMount } from "svelte";
+
+    let topElement;
+
     let { routeData } = $props();
     let {
         headline,
@@ -29,9 +33,13 @@
             return `<span class="author">${authors.join('</span> and <span class="author">')}</span>`;
         return `<span class="author">${authors.slice(0, -1).join('</span>, <span class="author">')}</span> and <span class="author">${authors[authors.length-1]}</span>`;
     };
+
+    onMount(()=>{
+        topElement.scrollIntoView()
+    })
 </script>
 
-<div class="route w-full">
+<div class="route w-full" bind:this={topElement}>
     <div class="headline-wrapper w-[90%] mx-auto max-w-2xl pt-[10vh]">
         <h1
             class="font-publico-headline-black text-[35px] md:text-[50px] md:mb-6 mb-4"
