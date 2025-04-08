@@ -23,7 +23,7 @@
     } = $derived(routeData);
 
     const grafify = (copy) => {
-        return copy.split("\n");
+        return copy.split("\n\n");
     };
 
     const getAuthorMarkup = (authors) => {
@@ -33,6 +33,10 @@
             return `<span class="author">${authors.join('</span> and <span class="author">')}</span>`;
         return `<span class="author">${authors.slice(0, -1).join('</span>, <span class="author">')}</span> and <span class="author">${authors[authors.length-1]}</span>`;
     };
+
+    const getKnowMarkup = (text) => {
+
+    }
 
     onMount(()=>{
         topElement.scrollIntoView()
