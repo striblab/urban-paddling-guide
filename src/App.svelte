@@ -5,31 +5,45 @@
     import Filters from "./Filters.svelte";
 
     let selectedRoute = $state("");
-    import routeData from "./data/routes.json";
+
+    let routesLoaded = $state(false);
+    let routeData = $state([]);
+
+    const loadRoutes = async () => {
+        const req = await fetch(
+            "https://static.startribune.com/news/projects/all/urban-paddling-guide/data/routes.json"
+        );
+        if (req.ok) {
+            routeData = await req.json();
+            routesLoaded = true;
+        }
+    };
 
     const slugify = (routeTitle) => routeTitle.toLowerCase().replace(/ /g, "-");
-    const slugs = routeData.map((r) => slugify(r.headline));
+    const slugs = $derived(routeData.map((r) => slugify(r.headline)));
     let hash = $state(window.location.hash);
 
     $effect(() => {
-        if (hash) {
-            console.log(hash.replace("#/", ""));
-            if (slugs.includes(hash.replace("#/", ""))) {
-                selectedRoute = routeData.filter(
-                    (r) => slugify(r.headline) === hash.replace("#/", "")
-                )[0]?.headline;
+        if (routesLoaded) {
+            if (hash) {
+                if (slugs.includes(hash.replace("#/", ""))) {
+                    selectedRoute = routeData.filter(
+                        (r) => slugify(r.headline) === hash.replace("#/", "")
+                    )[0]?.headline;
+                } else {
+                    window.location.hash = "";
+                    window.location.href = window.location.href.replace("#", "");
+                }
             } else {
-                window.location.hash = "";
-                window.location.href = window.location.href.replace("#", "");
+                selectedRoute = "";
             }
-        } else {
-            selectedRoute = "";
         }
     });
 
     let difficultyFilter = $state("");
     let watercraftFilter = $state("");
-    $inspect(difficultyFilter, watercraftFilter);
+
+    loadRoutes();
 </script>
 
 <svelte:window
@@ -43,7 +57,7 @@
         <Route
             routeData={routeData.filter((r) => r.headline === selectedRoute)[0]}
         />
-    {:else}
+    {:else if routesLoaded}
         <Hero />
         <Filters
             {routeData}
@@ -59,7 +73,9 @@
         <div
             class="route-preview-wrapper md:flex flex-wrap w-[90%] justify-between mx-auto max-w-8xl"
         >
-            {#each routeData.filter(r => r.tags.includes(difficultyFilter) || !difficultyFilter).filter(r => r.tags.includes(watercraftFilter) || !watercraftFilter) as route}
+            {#each routeData
+                .filter((r) => r.tags.includes(difficultyFilter) || !difficultyFilter)
+                .filter((r) => r.tags.includes(watercraftFilter) || !watercraftFilter) as route}
                 <a
                     href="#/{slugify(route.headline)}"
                     class="block md:w-[49%] lg:w-[32%] mb-8"
@@ -68,8 +84,10 @@
                         class="route-preview font-publico-banner-black bg-white border rounded-xl border-[#05442e]"
                     >
                         <img
-                            src={route.heroImg ? `${route.heroImg}?w=600&h=400&fit=crop` : "https://placehold.co/600x400"}
-                            alt="{route.heroImgAltText}"
+                            src={route.heroImg
+                                ? `${route.heroImg}?w=600&h=400&fit=crop`
+                                : "https://placehold.co/600x400"}
+                            alt={route.heroImgAltText}
                             class="w-full"
                         />
                         <div class="text-wrapper p-6">
@@ -81,17 +99,15 @@
                             >
                                 {route.subhead}
                             </h5>
-                            <!-- <div class="tag-wrapper flex flex-wrap mb-2">
-                                {#each route.tags as tag}
-                                    <p class="tag leading-[0.7]"><span class="inline-block p-2 mr-1 mb-1 text-[#05442e] rounded-2xl border-[#05442e] border uppercase font-graphik-medium tracking-widest text-[12px]">{@html tag}</span></p>
-                                {/each}
-                            </div> -->
                         </div>
                     </div>
                 </a>
             {/each}
         </div>
         <Credits />
+    {:else}
+        <!--Todo: style loading thing-->
+        Loading...
     {/if}
 </main>
 
