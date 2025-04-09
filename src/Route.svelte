@@ -1,5 +1,6 @@
 <script>
     import { onMount } from "svelte";
+    import { Parent } from "pym.js";
 
     let topElement;
 
@@ -41,7 +42,8 @@
 
     onMount(()=>{
         topElement.scrollIntoView()
-    })
+        const pymParent = new Parent("pymFrame", mapUrl, {})
+    });
 </script>
 
 <div class="route w-full" bind:this={topElement}>
@@ -121,43 +123,16 @@
     </div>
 
     
-    <!-- {#if mapUrl}
-        {#if mapWidth == "vertical"}
+    {#if mapUrl}
             <div class="map mt-8 mb-8 w-[90%] mx-auto max-w-2xl">
-                <iframe
-                    src="{mapUrl}"
-                    width="672"
-                    height="100%"
-                ></iframe>
+                <div
+                    title="route map"
+                    id="pymFrame"
+                    style="width: {mapWidth === "vertical" ? 672 : 1200}px;"
+                ></div>
             </div>
-        {:else}
-            <div class="map mt-8 mb-8 w-[90%] mx-auto max-w-6xl">
-                <iframe
-                    src="{mapUrl}"
-                    width="1200"
-                    height="100%"
-                ></iframe>
-            </div>
-        {/if}
-    {/if} -->
-    {#if headline == "Upper Mississippi River"}
-        <div class="map mt-8 mb-8 w-[90%] mx-auto max-w-2xl">
-            <iframe
-                src="https://static.startribune.com/news/newsgraphics/ai2html-projects/051825-PADDLE/051825-PADDLE-upper-mississippi/051825-PADDLE-upper_mississippi.html"
-                width="672"
-                height="1981"
-            ></iframe>
-        </div>
     {/if}
-    {#if headline == "Mississippi River Gorge"}
-        <div class="map mt-8 mb-8 w-[90%] mx-auto max-w-2xl">
-            <iframe
-                src="https://static.startribune.com/news/newsgraphics/ai2html-projects/051825-PADDLE/051825-PADDLE-mississippi_gorge/051825-PADDLE-mississippi_gorge.html"
-                width="672"
-                height="1130"
-            ></iframe>
-        </div>
-    {/if}
+
     <div class="narrative w-[90%] mx-auto max-w-2xl">
         {#each grafify(narrative) as graf}
             <p

@@ -32,7 +32,10 @@
                     )[0]?.headline;
                 } else {
                     window.location.hash = "";
-                    window.location.href = window.location.href.replace("#", "");
+                    window.location.href = window.location.href.replace(
+                        "#",
+                        ""
+                    );
                 }
             } else {
                 selectedRoute = "";
