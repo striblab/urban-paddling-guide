@@ -20,6 +20,7 @@
         knowBeforeYouGo,
         Photos,
         routeID,
+        mapWidth,
     } = $derived(routeData);
 
     const grafify = (copy) => {
@@ -44,14 +45,14 @@
 </script>
 
 <div class="route w-full" bind:this={topElement}>
-    <div class="headline-wrapper w-[90%] mx-auto max-w-2xl pt-[10vh]">
+    <div class="headline-wrapper text-center w-[90%] mx-auto max-w-2xl pt-[10vh]">
         <h1
             class="font-publico-headline-black text-[35px] md:text-[50px] md:mb-6 mb-4"
         >
             {headline}
         </h1>
 
-        <div class="tag-wrapper flex flex-wrap mb-12">
+        <div class="tag-wrapper flex flex-wrap mb-12 justify-center">
             {#each tags as tag}
                 <p class="tag leading-[0.7]">
                     <span
@@ -61,42 +62,43 @@
                 </p>
             {/each}
         </div>
+    </div>
 
-        <div class="flex-module mx-auto max-w-6xl md:flex border-[#05442e] py-6 my-12 justify-start">
-            <div class="completion-time item border-b md:border-b-0 md:border-r border-[#05442e] w-full md:w-1/3 mb-6 md:mb-0 pb-6 md:px-8 md:pl-0">
-                <h5 class="font-graphik-bold uppercase tracking-widest text-[14px] mb-2" >
-                    Time to complete
-                </h5>
-                <p class="font-graphik-regular text-[18px]">{timeToComplete}</p>
-            </div>
-            <div
-                class="nearbyCities item border-b md:border-b-0 md:border-r border-[#05442e] w-full md:w-1/3 mb-6 md:mb-0 pb-6 md:px-8"
+    <div class="w-[90%] flex-module mx-auto max-w-6xl md:flex border-[#05442e] py-6 my-12 justify-start border-t-2 pt-8 text-center">
+        <div class="completion-time item border-b md:border-b-0 md:border-r border-[#05442e] w-full md:w-1/3 mb-6 md:mb-0 pb-6 md:px-8 md:pl-0">
+            <h5 class="font-graphik-bold uppercase tracking-widest text-[14px] mb-2" >
+                Time to complete
+            </h5>
+            <p class="font-graphik-regular text-[18px]">{timeToComplete}</p>
+        </div>
+        <div
+            class="nearbyCities item border-b md:border-b-0 md:border-r border-[#05442e] w-full md:w-1/3 mb-6 md:mb-0 pb-6 md:px-8"
+        >
+            <h5
+                class="font-graphik-bold uppercase tracking-widest text-[14px] mb-2"
             >
-                <h5
-                    class="font-graphik-bold uppercase tracking-widest text-[14px] mb-2"
-                >
-                    Nearby Cities
-                </h5>
-                <p class="tag font-graphik-regular text-[18px]">
-                    {#each nearbyCities as city}
-                        <span class="inline-block mr-2">{@html city},</span>
-                    {/each}
-                </p>
-            </div>
-            <div
-                class="recommended-conditions item w-full md:w-1/3 md:px-6 md:pr-0 md:mb-0"
+                Nearby Cities
+            </h5>
+            <p class="tag font-graphik-regular text-[18px]">
+                {#each nearbyCities as city}
+                    <span class="inline-block mr-2">{@html city},</span>
+                {/each}
+            </p>
+        </div>
+        <div
+            class="recommended-conditions item w-full md:w-1/3 md:px-6 md:pr-0 md:mb-0"
+        >
+            <h5
+                class="font-graphik-bold uppercase tracking-widest text-[14px] mb-2"
             >
-                <h5
-                    class="font-graphik-bold uppercase tracking-widest text-[14px] mb-2"
-                >
-                    Recommended conditions
-                </h5>
-                <p class="tag font-graphik-regular text-[18px] mb-0">
-                    <span>{@html recommendedConditions}</span>
-                </p>
-            </div>
+                Recommended conditions
+            </h5>
+            <p class="tag font-graphik-regular text-[18px] mb-0">
+                <span>{@html recommendedConditions}</span>
+            </p>
         </div>
     </div>
+    
     <div
         class="hero-photo w-full h-[60vh] mb-8 md:mb-12 md:max-w-full md:h-screen md:mx-auto relative"
         style="background: url({heroImg}); background-size: cover;background-position: 50% 50%;"
@@ -119,16 +121,43 @@
     </div>
 
     
-
-    <div class="map mt-8 mb-8 w-[90%] mx-auto max-w-2xl">
-        {#if headline === "Upper Mississippi River"}
+    <!-- {#if mapUrl}
+        {#if mapWidth == "vertical"}
+            <div class="map mt-8 mb-8 w-[90%] mx-auto max-w-2xl">
+                <iframe
+                    src="{mapUrl}"
+                    width="672"
+                    height="100%"
+                ></iframe>
+            </div>
+        {:else}
+            <div class="map mt-8 mb-8 w-[90%] mx-auto max-w-6xl">
+                <iframe
+                    src="{mapUrl}"
+                    width="1200"
+                    height="100%"
+                ></iframe>
+            </div>
+        {/if}
+    {/if} -->
+    {#if headline == "Upper Mississippi River"}
+        <div class="map mt-8 mb-8 w-[90%] mx-auto max-w-2xl">
             <iframe
                 src="https://static.startribune.com/news/newsgraphics/ai2html-projects/051825-PADDLE/051825-PADDLE-upper-mississippi/051825-PADDLE-upper_mississippi.html"
                 width="672"
                 height="1981"
             ></iframe>
-        {/if}
-    </div>
+        </div>
+    {/if}
+    {#if headline == "Mississippi River Gorge"}
+        <div class="map mt-8 mb-8 w-[90%] mx-auto max-w-2xl">
+            <iframe
+                src="https://static.startribune.com/news/newsgraphics/ai2html-projects/051825-PADDLE/051825-PADDLE-mississippi_gorge/051825-PADDLE-mississippi_gorge.html"
+                width="672"
+                height="1130"
+            ></iframe>
+        </div>
+    {/if}
     <div class="narrative w-[90%] mx-auto max-w-2xl">
         {#each grafify(narrative) as graf}
             <p
