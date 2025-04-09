@@ -1,5 +1,5 @@
 <script>
-    const { routeData } = $props();
+    const { routeData, filterByTag } = $props();
 
     let selectedDifficultyTags = $state([]);
 	let selectedWatercraftTags = $state([]);
@@ -39,6 +39,7 @@
                     : 'bg-[#05442e]'} hover:bg-[#05442e] rounded-2xl border-[#05442e] border uppercase font-graphik-medium tracking-widest text-[12px] md:text-[14px]"
                 onclick={() => {
                     selectedDifficultyTags = [];
+                    filterByTag("", "difficulty");
                 }}
             >
                 Any
@@ -58,6 +59,7 @@
                         : 'bg-[#05442e]'} hover:bg-[#05442e] rounded-2xl border-[#05442e] border uppercase font-graphik-medium tracking-widest text-[12px] md:text-[14px]"
                     onclick={() => {
                         selectedDifficultyTags = [tag];
+                        filterByTag(tag, "difficulty");
                     }}
                 >
                     {tag}
@@ -83,6 +85,7 @@
                     : 'bg-[#05442e]'} hover:bg-[#05442e] rounded-2xl border-[#05442e] border uppercase font-graphik-medium tracking-widest text-[12px] md:text-[14px]"
                 onclick={() => {
                     selectedWatercraftTags = [];
+                    filterByTag("", "watercraft");
                 }}
             >
                 Any
@@ -102,6 +105,7 @@
                         : 'bg-[#05442e]'} hover:bg-[#05442e] rounded-2xl border-[#05442e] border uppercase font-graphik-medium tracking-widest text-[12px] md:text-[14px]"
                     onclick={() => {
                         selectedWatercraftTags = [tag];
+                        filterByTag(tag, "watercraft");
                     }}
                 >
                     {tag}
