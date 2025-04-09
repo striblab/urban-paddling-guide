@@ -50,6 +50,7 @@
         >
             {headline}
         </h1>
+
         <div class="tag-wrapper flex flex-wrap mb-12">
             {#each tags as tag}
                 <p class="tag leading-[0.7]">
@@ -59,6 +60,41 @@
                     >
                 </p>
             {/each}
+        </div>
+
+        <div class="flex-module mx-auto max-w-6xl md:flex border-[#05442e] py-6 my-12 justify-start">
+            <div class="completion-time item border-b md:border-b-0 md:border-r border-[#05442e] w-full md:w-1/3 mb-6 md:mb-0 pb-6 md:px-8 md:pl-0">
+                <h5 class="font-graphik-bold uppercase tracking-widest text-[14px] mb-2" >
+                    Time to complete
+                </h5>
+                <p class="font-graphik-regular text-[18px]">{timeToComplete}</p>
+            </div>
+            <div
+                class="nearbyCities item border-b md:border-b-0 md:border-r border-[#05442e] w-full md:w-1/3 mb-6 md:mb-0 pb-6 md:px-8"
+            >
+                <h5
+                    class="font-graphik-bold uppercase tracking-widest text-[14px] mb-2"
+                >
+                    Nearby Cities
+                </h5>
+                <p class="tag font-graphik-regular text-[18px]">
+                    {#each nearbyCities as city}
+                        <span class="inline-block mr-2">{@html city},</span>
+                    {/each}
+                </p>
+            </div>
+            <div
+                class="recommended-conditions item w-full md:w-1/3 md:px-6 md:pr-0 md:mb-0"
+            >
+                <h5
+                    class="font-graphik-bold uppercase tracking-widest text-[14px] mb-2"
+                >
+                    Recommended conditions
+                </h5>
+                <p class="tag font-graphik-regular text-[18px] mb-0">
+                    <span>{@html recommendedConditions}</span>
+                </p>
+            </div>
         </div>
     </div>
     <div
@@ -82,54 +118,14 @@
         </div>
     </div>
 
-    <div
-        class="flex-module w-[90%] mx-auto max-w-6xl md:flex border-t-2 border-[#05442e] border-b-2
-    py-6 my-12 justify-start"
-    >
-        <div
-            class="completion-time item border-b md:border-b-0 md:border-r border-[#05442e] w-full md:w-1/3 mb-6 md:mb-0 pb-6 md:px-8 md:pl-0"
-        >
-            <h5
-                class="font-graphik-bold uppercase tracking-widest text-[14px] mb-2"
-            >
-                Time to complete
-            </h5>
-            <p class="font-graphik-regular text-[18px]">{timeToComplete}</p>
-        </div>
-        <div
-            class="nearbyCities item border-b md:border-b-0 md:border-r border-[#05442e] w-full md:w-1/3 mb-6 md:mb-0 pb-6 md:px-8"
-        >
-            <h5
-                class="font-graphik-bold uppercase tracking-widest text-[14px] mb-2"
-            >
-                Nearby Cities
-            </h5>
-            <p class="tag font-graphik-regular text-[18px]">
-                {#each nearbyCities as city}
-                    <span class="inline-block mr-2">{@html city},</span>
-                {/each}
-            </p>
-        </div>
-        <div
-            class="recommended-conditions item w-full md:w-1/3 md:px-6 md:pr-0 md:mb-0"
-        >
-            <h5
-                class="font-graphik-bold uppercase tracking-widest text-[14px] mb-2"
-            >
-                Recommended conditions
-            </h5>
-            <p class="tag font-graphik-regular text-[18px] mb-0">
-                <span>{@html recommendedConditions}</span>
-            </p>
-        </div>
-    </div>
+    
 
     <div class="map mt-8 mb-8 w-[90%] mx-auto max-w-2xl">
         {#if headline === "Upper Mississippi River"}
             <iframe
-                src="//static.startribune.com/news/newsgraphics/ai2html-projects/051825-PADDLE/051825-PADDLE-upper_mississippi/051825-PADDLE-upper_mississippi.html"
-                width="415"
-                height="1150"
+                src="https://static.startribune.com/news/newsgraphics/ai2html-projects/051825-PADDLE/051825-PADDLE-upper-mississippi/051825-PADDLE-upper_mississippi.html"
+                width="672"
+                height="1981"
             ></iframe>
         {/if}
     </div>
