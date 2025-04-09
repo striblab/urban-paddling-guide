@@ -7,8 +7,6 @@
 
 {#if route === "Upper Mississippi River"}
     <UpperMississippi />
-{/if}
-
-{#if route === "Mississippi River Gorge"}
+{:else if route === "Mississippi River Gorge"}
     <MississippiRiverGorge />
 {/if}
