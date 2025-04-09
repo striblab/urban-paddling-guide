@@ -38,7 +38,7 @@
         <Route routeData={routeData.filter(r => r.headline === selectedRoute)[0]}/>
     {:else}
         <Hero />
-        <Filters />
+        <Filters {routeData}/>
         <div class="route-preview-wrapper md:flex flex-wrap w-[90%] justify-between mx-auto max-w-8xl">
             {#each routeData as route}
                 <a href="#/{slugify(route.headline)}" class="block md:w-[49%] lg:w-[32%] mb-8">
