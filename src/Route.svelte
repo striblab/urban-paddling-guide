@@ -1,6 +1,6 @@
 <script>
     import { onMount } from "svelte";
-    import { Parent } from "pym.js";
+    import RouteMap from "./RouteMap.svelte";
 
     let topElement;
 
@@ -40,7 +40,6 @@
 
     onMount(() => {
         topElement.scrollIntoView();
-        const pymParent = new Parent("pymFrame", mapUrl, {});
     });
 </script>
 
@@ -130,7 +129,7 @@
 
     {#if mapUrl}
         <div class="map mt-8 mb-8 w-[90%] mx-auto max-w-2xl">
-            <div title="route map" id="pymFrame" style="width: 110%;"></div>
+            <RouteMap route={headline}/>
         </div>
     {/if}
 
