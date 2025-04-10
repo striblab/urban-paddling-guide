@@ -12,6 +12,7 @@
             id="g-051825-PADDLE-mississippi_gorge-375px-lg-mobile-img"
             class="g-aiImg g-aiAbs"
             src="https://static.startribune.com/news/newsgraphics/ai2html-projects/051825-PADDLE/051825-PADDLE-mississippi_gorge/051825-PADDLE-mississippi_gorge-375px-lg-mobile.png"
+            alt="route map"
         />
         <div
             id="g-ai1-1"
@@ -209,23 +210,6 @@
         >
             <p class="g-pstyle16">55</p>
         </div>
-        <div
-            id="g-ai1-28"
-            class="g-mobile g-aiAbs g-aiPointText"
-            style="top:96.5174%;margin-top:-6.4px;left:0.4324%;width:389px;"
-        >
-            <p class="g-pstyle17">
-                Source: Minnesoa Department of Natural Resources, OpenStreetMap
-                contributors
-            </p>
-        </div>
-        <div
-            id="g-ai1-29"
-            class="g-mobile g-aiAbs g-aiPointText"
-            style="top:98.6643%;margin-top:-6.4px;left:0.5585%;width:216px;"
-        >
-            <p class="g-pstyle17">Jake Steinberg, The Minnesota Star Tribune</p>
-        </div>
     </div>
 
     <!-- Artboard: Artboard_17 -->
@@ -240,6 +224,7 @@
             id="g-051825-PADDLE-mississippi_gorge-Artboard_17-img"
             class="g-aiImg g-aiAbs"
             src="https://static.startribune.com/news/newsgraphics/ai2html-projects/051825-PADDLE/051825-PADDLE-mississippi_gorge/051825-PADDLE-mississippi_gorge-Artboard_17.png"
+            alt="route map"
         />
         <div
             id="g-ai3-1"

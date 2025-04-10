@@ -17,11 +17,13 @@
         nearbyCities,
         recommendedConditions,
         mapUrl,
+        mapWidth,
+        mapCredit,
+        mapSource,
         narrative,
         knowBeforeYouGo,
         Photos,
         routeID,
-        mapWidth,
     } = $derived(routeData);
 
     const grafify = (copy) => {
@@ -128,8 +130,18 @@
     </div>
 
     {#if mapUrl}
-        <div class="map mt-8 mb-8 w-[90%] mx-auto max-w-2xl">
-            <RouteMap route={headline}/>
+        <div class="map mt-8 mb-8 w-[95%] mx-auto max-w-2xl overflow-x-auto">
+            <RouteMap route={headline} />
+            <div
+                class="font-utility-body-reg-05 flex flex-row flex-wrap justify-between"
+            >
+                <p>
+                    Source: {mapSource}
+                </p>
+                <p>
+                    {mapCredit}
+                </p>
+            </div>
         </div>
     {/if}
 
@@ -144,7 +156,7 @@
     </div>
 
     <div class="photos w-full md:w-[90%] mx-auto max-w-6xl mt-12 mb-12">
-        <img src="https://placehold.co/1200x800" alt="placeholder"/>
+        <img src="https://placehold.co/1200x800" alt="placeholder" />
         <p
             class="caption w-[90%] mx-auto max-w-2xl font-graphik-regular text-[14px] mt-2"
         >

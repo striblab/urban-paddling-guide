@@ -3,7 +3,7 @@
     <div
         id="g-051825-PADDLE-upper_mississippi-375px-lg-mobile"
         class="g-artboard sm:block md:hidden"
-        style="width:375px; height:1129.09276912915px;"
+        style="width:375px; height:1075px;"
         data-aspect-ratio="0.332"
         data-min-width="375"
         data-max-width="671"
@@ -12,6 +12,7 @@
             id="g-051825-PADDLE-upper_mississippi-375px-lg-mobile-img"
             class="g-aiImg g-aiAbs"
             src="/img/051825-PADDLE-upper_mississippi-375px-lg-mobile.png"
+            alt="route map"
         />
         <div
             id="g-ai1-1"
@@ -269,23 +270,6 @@
         >
             <p class="g-pstyle4">St. Anthony Falls</p>
         </div>
-        <div
-            id="g-ai1-36"
-            class="g-mobile g-aiAbs g-aiPointText"
-            style="top:97.9893%;margin-top:-6.4px;left:0.2546%;width:389px;"
-        >
-            <p class="g-pstyle16">
-                Source: Minnesoa Department of Natural Resources, OpenStreetMap
-                contributors
-            </p>
-        </div>
-        <div
-            id="g-ai1-37"
-            class="g-mobile g-aiAbs g-aiPointText"
-            style="top:99.3178%;margin-top:-6.4px;left:-0.0587%;width:216px;"
-        >
-            <p class="g-pstyle16">Jake Steinberg, The Minnesota Star Tribune</p>
-        </div>
     </div>
 
     <!-- Artboard: Artboard_17 -->
@@ -300,6 +284,7 @@
             id="g-051825-PADDLE-upper_mississippi-Artboard_17-img"
             class="g-aiImg g-aiAbs"
             src="/img/051825-PADDLE-upper_mississippi-Artboard_17.png"
+            alt="route map"
         />
         <div
             id="g-ai3-1"
@@ -554,23 +539,6 @@
             style="top:96.7804%;margin-top:-10.1px;left:63.4431%;width:133px;"
         >
             <p class="g-pstyle9">St. Anthony Falls</p>
-        </div>
-        <div
-            id="g-ai3-36"
-            class="g-Artwork g-aiAbs g-aiPointText"
-            style="top:99.4723%;margin-top:-6.4px;left:70.9378%;width:216px;"
-        >
-            <p class="g-pstyle13">Jake Steinberg, The Minnesota Star Tribune</p>
-        </div>
-        <div
-            id="g-ai3-37"
-            class="g-Artwork g-aiAbs g-aiPointText"
-            style="top:99.5228%;margin-top:-6.4px;left:0.3326%;width:389px;"
-        >
-            <p class="g-pstyle13">
-                Source: Minnesoa Department of Natural Resources, OpenStreetMap
-                contributors
-            </p>
         </div>
     </div>
 
