@@ -53,38 +53,38 @@
 
 <div class="route w-full" bind:this={topElement}>
     <div
-        class="headline-wrapper text-center w-[90%] mx-auto max-w-2xl pt-[10vh]"
+        class="headline-wrapper text-left md:text-center w-[90%] mx-auto max-w-2xl pt-[10vh]"
     >
         <h1
             class="font-publico-headline-black text-[35px] md:text-[50px] mb-4"
         >
             {headline}
         </h1>
-        <h2 class="font-graphik-regular uppercase text-[18px] tracking-widest mb-6">{subhead}</h2>
+        <h2 class="font-graphik-regular uppercase text-[16px] md:text-[18px] tracking-widest mb-6">{subhead}</h2>
     </div>
 
     <div
-        class="w-[90%] flex-module mx-auto max-w-6xl md:flex border-[#05442e] py-6 my-12 mb-8 justify-start border-t-1 pt-8 text-center border-t flex-wrap"
+        class="w-[90%] flex-module mx-auto max-w-6xl md:flex border-[#b4c7c0] py-6 my-8 mb-8 justify-start pt-8 border-t flex-wrap md:text-center text-left"
     >
         <div
-            class="completion-time item border-b md:border-b-0 md:border-r border-[#05442e] w-full md:w-1/3 mb-6 md:mb-0 pb-6 md:px-8 md:pl-0"
+            class="completion-time item border-b md:border-b-0 md:border-r border-[#b4c7c0] w-full md:w-1/3 mb-6 md:mb-0 pb-6 md:px-8 md:pl-0"
         >
             <h5
-                class="font-graphik-bold uppercase tracking-widest text-[14px] mb-2"
+                class="font-graphik-bold uppercase tracking-widest text-[12px] md:text-[14px] mb-2"
             >
                 Time to complete
             </h5>
-            <p class="font-graphik-regular text-[18px]">{timeToComplete}</p>
+            <p class="font-graphik-regular text-[16px] md:text-[18px]">{timeToComplete}</p>
         </div>
         <div
-            class="nearbyCities item border-b md:border-b-0 md:border-r border-[#05442e] w-full md:w-1/3 mb-6 md:mb-0 pb-6 md:px-8"
+            class="nearbyCities item border-b md:border-b-0 md:border-r border-[#b4c7c0] w-full md:w-1/3 mb-6 md:mb-0 pb-6 md:px-8"
         >
             <h5
-                class="font-graphik-bold uppercase tracking-widest text-[14px] mb-2"
+                class="font-graphik-bold uppercase tracking-widest text-[12px] md:text-[14px] mb-2"
             >
                 Nearby Cities
             </h5>
-            <p class="tag font-graphik-regular text-[18px]">
+            <p class="tag font-graphik-regular text-[16px] md:text-[18px]">
                 {#each nearbyCities as city}
                     <span class="inline-block mr-2">{@html city},</span>
                 {/each}
@@ -94,21 +94,21 @@
             class="recommended-conditions item w-full md:w-1/3 md:px-6 md:pr-0 md:mb-0"
         >
             <h5
-                class="font-graphik-bold uppercase tracking-widest text-[14px] mb-2"
+                class="font-graphik-bold uppercase tracking-widest text-[12px] md:text-[14px] mb-2"
             >
                 Recommended conditions
             </h5>
-            <p class="tag font-graphik-regular text-[18px] mb-0">
+            <p class="tag font-graphik-regular text-[16px] md:text-[18px] mb-0">
                 <span>{@html recommendedConditions}</span>
             </p>
 
         </div>
-        <div class="w-full border-[#05442e] border-t mt-8 pt-8">
+        <div class="w-full border-[#b4c7c0] border-t mt-6 pt-6">
             <p class="tags">
                 <span class="font-graphik-bold uppercase tracking-widest text-[14px] md:inline-block hidden">Good for: </span>
-                <span class="font-graphik-bold uppercase tracking-widest text-[14px] md:hidden block mb-2">Good for</span>
+                <span class="font-graphik-bold uppercase tracking-widest text-[12px] md:hidden block mb-2">Good for</span>
             {#each tags as tag}
-                <span  class="font-graphik-regular text-[18px] inline-block mr-2" >
+                <span  class="font-graphik-regular text-[16px] md:text-[18px] inline-block mr-2" >
                     {@html tag},
                 </span
                 >
@@ -119,7 +119,7 @@
      
 
     <div
-        class="hero-photo w-full h-[60vh] mb-8 md:mb-12 md:max-w-full md:h-screen md:mx-auto relative"
+        class="hero-photo w-full h-[100vh] mb-8 md:mb-12 md:max-w-full md:h-screen md:mx-auto relative"
         style="background: url({heroImg}); background-size: cover;background-position: 50% 100%;"
     ></div>
     <div class="headline-wrapper w-[90%] mx-auto max-w-2xl">
@@ -135,20 +135,62 @@
             <!-- <p class="byline uppercase font-graphik-regular text-[13px] tracking-widest mb-8">The Minnesota Star Tribune</p> -->
         </div>
 
-        <div class="subhead font-publico-text-roman text-[18px] md:text-[21px] leading-[1.8] mb-12">
+        <div class="subhead font-publico-text-roman text-[18px] md:text-[21px] leading-[1.8] mb-0">
             <h3>{summary}</h3>
         </div>
     </div>
 
     {#if mapUrl}
-        <div class="map mt-8 mb-8 w-[95%] mx-auto max-w-2xl overflow-x-auto">
-            <RouteMap route={headline} />
-            <div
-                class="font-utility-body-reg-05 flex flex-row flex-wrap justify-between"
+        <div class="map mt-8 mb-4 w-[90%] mx-auto max-w-2xl overflow-x-auto font-graphik-regular text-[18px] border-[#b4c7c0] py-10 my-12 ">
+            
+            <div class="flex-module mx-auto flex justify-start py-8 mb-8 flex-wrap text-left border-t border-b border-[#b4c7c0] flex-wrap"
             >
+                <div
+                    class="put-in item border-r border-[#b4c7c0] w-1/2 md:w-2/5 mb-0 md:px-6 px-4 pl-0 md:pl-0"
+                >
+                    <h5
+                        class="font-graphik-bold uppercase tracking-widest text-[12px] md:text-[14px] mb-2"
+                    >
+                        Put in
+                    </h5>
+                    <p class="font-graphik-regular text-[16px] md:text-[18px]">{startAddress}</p>
+                </div>
+                <div
+                    class="take-out item border-b-0 md:border-r border-[#b4c7c0] w-1/2 md:w-2/5 mb-0 px-6 pr-0"
+                >
+                    <h5
+                        class="font-graphik-bold uppercase tracking-widest text-[12px] md:text-[14px] mb-2"
+                    >
+                        Take out
+                    </h5>
+                    <p class="tag font-graphik-regular text-[16px] md:text-[18px]">
+                        {endAddress}
+                    </p>
+                </div>
+                <div
+                    class="distance item w-full md:w-1/5 pl-0 md:px-6 pr-0 mb-0 border-t md:border-t-0 border-[#b4c7c0] pt-6 mt-6 md:pl-6 md:pt-0 md:mt-0 pb-0"
+                >
+                    <h5
+                        class="font-graphik-bold uppercase tracking-widest text-[12px] md:text-[14px] mb-2"
+                    >
+                        Distance
+                    </h5>
+                    <p class="tag font-graphik-regular text-[16px] md:text-[18px] mb-0">
+                        <span>{mileage} miles</span>
+                    </p>
+
+                </div>
+            </div>
+
+            <RouteMap route={headline} />
+            <div class="font-utility-body-reg-05 flex flex-row flex-wrap justify-between mt-2">
                 <p>
-                    Source: {mapSource}
+                    <strong>Source</strong> {mapSource}
                 </p>
+            </div>
+
+            <div class="flex font-graphik-regular uppercase tracking-widest text-[12px] mt-8">
+                <p class="mr-4 leading-[1.5]"><a href="{gmapsRouteLink}" class="border-b border-[#05442e]">Show in Google Maps</a> •  <a href="{stravaRouteLink}" class="border-b border-[#05442e]">Show route in Strava</a> • <a href="{gpxLink}" class="border-b border-[#05442e]">Download GPX</a></p> 
             </div>
         </div>
     {/if}
