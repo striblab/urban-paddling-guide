@@ -64,10 +64,10 @@
     </div>
 
     <div
-        class="w-[90%] flex-module mx-auto max-w-6xl md:flex border-[#b4c7c0] py-6 my-8 mb-8 justify-start pt-8 border-t flex-wrap md:text-center text-left"
+        class="w-[90%] flex-module mx-auto max-w-6xl md:flex border-[#b4c7c0] py-4 my-4 md:py-8 md:my-8 mb-4 justify-start pt-4 border-t flex-wrap md:text-center text-left"
     >
         <div
-            class="completion-time item border-b md:border-b-0 md:border-r border-[#b4c7c0] w-full md:w-1/3 mb-6 md:mb-0 pb-6 md:px-8 md:pl-0"
+            class="completion-time item border-b md:border-b-0 md:border-r border-[#b4c7c0] w-full md:w-1/3 mb-4 md:mb-0 pb-4 md:px-8 md:pl-0"
         >
             <h5
                 class="font-graphik-bold uppercase tracking-widest text-[12px] md:text-[14px] mb-2"
@@ -77,7 +77,7 @@
             <p class="font-graphik-regular text-[16px] md:text-[18px]">{timeToComplete}</p>
         </div>
         <div
-            class="nearbyCities item border-b md:border-b-0 md:border-r border-[#b4c7c0] w-full md:w-1/3 mb-6 md:mb-0 pb-6 md:px-8"
+            class="nearbyCities item border-b md:border-b-0 md:border-r border-[#b4c7c0] w-full md:w-1/3 mb-4 md:mb-0 pb-4 md:px-8"
         >
             <h5
                 class="font-graphik-bold uppercase tracking-widest text-[12px] md:text-[14px] mb-2"
@@ -86,7 +86,7 @@
             </h5>
             <p class="tag font-graphik-regular text-[16px] md:text-[18px]">
                 {#each nearbyCities as city}
-                    <span class="inline-block mr-2">{@html city},</span>
+                    <span class="inline-block mr-1">{@html city},</span>
                 {/each}
             </p>
         </div>
@@ -103,12 +103,12 @@
             </p>
 
         </div>
-        <div class="w-full border-[#b4c7c0] border-t mt-6 pt-6">
+        <div class="w-full border-[#b4c7c0] border-t mt-4 pt-4 md:pt-8 md:mt-8">
             <p class="tags">
                 <span class="font-graphik-bold uppercase tracking-widest text-[14px] md:inline-block hidden">Good for: </span>
                 <span class="font-graphik-bold uppercase tracking-widest text-[12px] md:hidden block mb-2">Good for</span>
             {#each tags as tag}
-                <span  class="font-graphik-regular text-[16px] md:text-[18px] inline-block mr-2" >
+                <span  class="font-graphik-regular text-[16px] md:text-[18px] inline-block mr-1" >
                     {@html tag},
                 </span
                 >
@@ -135,13 +135,13 @@
             <!-- <p class="byline uppercase font-graphik-regular text-[13px] tracking-widest mb-8">The Minnesota Star Tribune</p> -->
         </div>
 
-        <div class="subhead font-publico-text-roman text-[18px] md:text-[21px] leading-[1.8] mb-0">
+        <div class="subhead font-publico-headline-roman text-[21px] md:text-[24px] leading-[1.8] mb-0">
             <h3>{summary}</h3>
         </div>
     </div>
 
     {#if mapUrl}
-        <div class="map mt-8 mb-4 w-[90%] mx-auto max-w-2xl overflow-x-auto font-graphik-regular text-[18px] border-[#b4c7c0] py-10 my-12 ">
+        <div class="map mt-0 mb-4 w-[90%] mx-auto max-w-2xl overflow-x-auto font-graphik-regular text-[18px] border-[#b4c7c0] py-10 my-12 ">
             
             <div class="flex-module mx-auto flex justify-start py-8 mb-8 flex-wrap text-left border-t border-b border-[#b4c7c0] flex-wrap"
             >
