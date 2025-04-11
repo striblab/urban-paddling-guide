@@ -64,7 +64,7 @@
     </div>
 
     <div
-        class="w-[90%] flex-module mx-auto max-w-6xl md:flex border-[#b4c7c0] py-4 my-4 md:py-8 md:my-8 mb-4 justify-start pt-4 border-t flex-wrap md:text-center text-left"
+        class="w-[90%] flex-module mx-auto max-w-4xl md:flex border-[#b4c7c0] py-4 my-4 md:py-8 md:my-8 mb-4 justify-start pt-4 border-t flex-wrap md:text-center text-left"
     >
         <div
             class="completion-time item border-b md:border-b-0 md:border-r border-[#b4c7c0] w-full md:w-1/3 mb-4 md:mb-0 pb-4 md:px-8 md:pl-0"
@@ -96,24 +96,23 @@
             <h5
                 class="font-graphik-bold uppercase tracking-widest text-[12px] md:text-[14px] mb-2"
             >
-                Recommended conditions
+                Good for
             </h5>
             <p class="tag font-graphik-regular text-[16px] md:text-[18px] mb-0">
-                <span>{@html recommendedConditions}</span>
+                {#each tags as tag}
+                    <span  class="font-graphik-regular text-[16px] md:text-[18px] inline-block mr-1" >
+                        {@html tag},
+                    </span
+                    >
+                {/each}
             </p>
 
         </div>
         <div class="w-full border-[#b4c7c0] border-t mt-4 pt-4 md:pt-8 md:mt-8">
-            <p class="tags">
-                <span class="font-graphik-bold uppercase tracking-widest text-[14px] md:inline-block hidden">Good for: </span>
-                <span class="font-graphik-bold uppercase tracking-widest text-[12px] md:hidden block mb-2">Good for</span>
-            {#each tags as tag}
-                <span  class="font-graphik-regular text-[16px] md:text-[18px] inline-block mr-1" >
-                    {@html tag},
-                </span
-                >
-            {/each}
-        </p>
+            <h5
+                class="font-graphik-bold uppercase tracking-widest text-[12px] md:text-[14px] mb-2"
+            > Recommended conditions </h5>
+            <p class="max-w-3xl mx-auto font-graphik-regular text-[16px] md:text-[18px] mb-0">{@html recommendedConditions}</p>
         </div>
     </div>
      
@@ -234,7 +233,7 @@
 </div>
 
 <style type="text/css">
-    p a {
+    a {
         border-bottom: 1px solid #05442e;
     }
 </style>
