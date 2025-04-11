@@ -155,10 +155,10 @@
         {/each}
     </div>
 
-    <div class="photos w-full md:w-[90%] mx-auto max-w-6xl mt-12 mb-12">
+    <div class="photos w-full w-[90%] mx-auto max-w-2xl mt-12 mb-12">
         <img src="https://placehold.co/1200x800" alt="placeholder" />
         <p
-            class="caption w-[90%] mx-auto max-w-2xl font-graphik-regular text-[14px] mt-2"
+            class="text-left caption mx-auto max-w-2xl font-graphik-regular text-[14px] mt-2 md:w-full w-[90%]"
         >
             This will be the caption for the image. It will be a couple
             sentences describing waht is in it.
