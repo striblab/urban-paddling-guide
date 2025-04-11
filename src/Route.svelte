@@ -50,10 +50,11 @@
         class="headline-wrapper text-center w-[90%] mx-auto max-w-2xl pt-[10vh]"
     >
         <h1
-            class="font-publico-headline-black text-[35px] md:text-[50px] md:mb-6 mb-4"
+            class="font-publico-headline-black text-[35px] md:text-[50px] mb-4"
         >
             {headline}
         </h1>
+        <h2 class="font-graphik-regular uppercase text-[16px] tracking-widest mb-6">{subhead}</h2>
 
         <div class="tag-wrapper flex flex-wrap mb-12 justify-center">
             {#each tags as tag}
@@ -121,11 +122,11 @@
         </div>
 
         <div class="subhead">
-            <h2 class="font-publico-headline-light text-2xl">
+            <!-- <h2 class="font-publico-headline-light text-2xl">
                 {subhead} but weren't we thinking this would be longer? did I miss
                 it when i transfered the arc body? This is just to fill it out and
                 Anna needs to look into it
-            </h2>
+            </h2> -->
         </div>
     </div>
 
