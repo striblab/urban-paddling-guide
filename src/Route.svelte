@@ -20,6 +20,12 @@
         mapWidth,
         mapCredit,
         mapSource,
+        startAddress,
+        endAddress,
+        mileage,
+        gmapsRouteLink,
+        stravaRouteLink,
+        gpxLink,
         narrative,
         knowBeforeYouGo,
         Photos,
@@ -39,8 +45,6 @@
     };
 
     const getKnowMarkup = (text) => {};
-
-    let narrativeGrafs = $derived(grafify(narrative))
 
     onMount(() => {
         topElement.scrollIntoView();
@@ -150,7 +154,7 @@
     {/if}
 
     <div class="narrative w-[90%] mx-auto max-w-2xl">
-        {#each narrativeGrafs as graf}
+        {#each grafify(narrative) as graf}
             <p
                 class="mb-5 font-publico-text-roman text-[16px] md:text-[18px] leading-[1.3]"
             >
@@ -159,7 +163,7 @@
         {/each}
     </div>
 
-    <div class="photos w-full w-[90%] mx-auto max-w-2xl mt-12 mb-12">
+    <div class="photos w-[90%] mx-auto max-w-2xl mt-12 mb-12">
         <img src="https://placehold.co/1200x800" alt="placeholder" />
         <p
             class="text-left caption mx-auto max-w-2xl font-graphik-regular text-[14px] mt-2 md:w-full w-[90%]"
