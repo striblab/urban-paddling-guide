@@ -129,7 +129,7 @@
             </p>
             <p class="byline md:block hidden leading-[1.8]"><span class="inline-block">
                 Guide by <span class="font-graphik-semibold">{@html getAuthorMarkup(authors)}</span></span> <span class="inline-block">• Photo by
-                <span class="font-graphik-semibold">{heroImgCredit}</span> • </span><span class="inline-block">Map by <span class="font-graphik-semibold">{mapCredit}</span></span>
+                <span class="font-graphik-semibold">{heroImgCredit}</span> • </span><span class="inline-block">Map by <span class="font-graphik-semibold">{mapCredit}</span></span>
             </p>
             <!-- <p class="byline uppercase font-graphik-regular text-[13px] tracking-widest mb-8">The Minnesota Star Tribune</p> -->
         </div>
