@@ -56,25 +56,14 @@
         >
             {headline}
         </h1>
-        <h2 class="font-graphik-regular uppercase text-[16px] tracking-widest mb-6">{subhead}</h2>
-
-        <div class="tag-wrapper flex flex-wrap mb-12 justify-center">
-            {#each tags as tag}
-                <p class="tag leading-[0.7]">
-                    <span
-                        class="inline-block p-2 mr-1 md:mr-2 mb-1 text-[#05442e] rounded-2xl border-[#05442e] border uppercase font-graphik-medium tracking-widest text-[12px] md:text-[14px]"
-                        >{@html tag}</span
-                    >
-                </p>
-            {/each}
-        </div>
+        <h2 class="font-graphik-regular uppercase text-[18px] tracking-widest mb-6">{subhead}</h2>
     </div>
 
     <div
-        class="w-[90%] flex-module mx-auto max-w-6xl md:flex border-[#05442e] py-6 my-12 justify-start border-t-2 pt-8 text-center"
+        class="w-[90%] flex-module mx-auto max-w-6xl md:flex border-[#05442e] py-6 my-12 mb-8 justify-start border-t-1 pt-8 text-center border-t flex-wrap"
     >
         <div
-            class="completion-time item border-b md:border-b-0 md:border-r border-[#05442e] w-full md:w-1/3 mb-6 md:mb-0 pb-6 md:px-8 md:pl-0"
+            class="completion-time item border-b md:border-b-0 md:border-r border-[#cddad5] w-full md:w-1/3 mb-6 md:mb-0 pb-6 md:px-8 md:pl-0"
         >
             <h5
                 class="font-graphik-bold uppercase tracking-widest text-[14px] mb-2"
@@ -84,7 +73,7 @@
             <p class="font-graphik-regular text-[18px]">{timeToComplete}</p>
         </div>
         <div
-            class="nearbyCities item border-b md:border-b-0 md:border-r border-[#05442e] w-full md:w-1/3 mb-6 md:mb-0 pb-6 md:px-8"
+            class="nearbyCities item border-b md:border-b-0 md:border-r border-[#cddad5] w-full md:w-1/3 mb-6 md:mb-0 pb-6 md:px-8"
         >
             <h5
                 class="font-graphik-bold uppercase tracking-widest text-[14px] mb-2"
@@ -108,23 +97,41 @@
             <p class="tag font-graphik-regular text-[18px] mb-0">
                 <span>{@html recommendedConditions}</span>
             </p>
+
+        </div>
+        <div class="w-full border-[#cddad5] border-t mt-8 pt-8">
+            <p class="tags">
+                <span class="font-graphik-bold uppercase tracking-widest text-[14px] md:inline-block hidden">Good for: </span>
+                <span class="font-graphik-bold uppercase tracking-widest text-[14px] md:hidden block mb-2">Good for</span>
+            {#each tags as tag}
+                <span
+                    class="font-graphik-regular text-[18px] inline-block mr-2"
+                    >{@html tag}, </span
+                >
+            {/each}
+        </p>
         </div>
     </div>
+     
 
     <div
         class="hero-photo w-full h-[60vh] mb-8 md:mb-12 md:max-w-full md:h-screen md:mx-auto relative"
         style="background: url({heroImg}); background-size: cover;background-position: 50% 50%;"
     ></div>
     <div class="headline-wrapper w-[90%] mx-auto max-w-2xl">
-        <div class="byline font-graphik-semibold text-[15px] mt-6 mb-6">
-            <span class="byline">
-                Guide by {@html getAuthorMarkup(authors)} • Photo by
-                <span class="author">{heroImgCredit}</span> • Map by <span class="">{mapCredit}
-                </span>
-            </span>
+        <div class="byline font-graphik-regular text-[16px] mt-6 mb-6">
+            <p class="byline block md:hidden">
+                Guide by <span class="font-graphik-semibold">{@html getAuthorMarkup(authors)}</span><br>Photo by
+                <span class="font-graphik-semibold">{heroImgCredit}</span><br>Map by <span class="font-graphik-semibold">{mapCredit}</span>
+            </p>
+            <p class="byline md:block hidden">
+                Guide by <span class="font-graphik-semibold">{@html getAuthorMarkup(authors)}</span> • Photo by
+                <span class="font-graphik-semibold">{heroImgCredit}</span> • Map by <span class="font-graphik-semibold">{mapCredit}</span>
+            </p>
+            <p class="byline uppercase font-graphik-regular text-[13px] tracking-widest mb-8">The Minnesota Star Tribune</p>
         </div>
 
-        <div class="subhead font-publico-text-roman text-[16px] md:text-[20px] leading-[1.8]">
+        <div class="subhead font-publico-text-roman text-[18px] md:text-[20px] leading-[1.8]">
             <h3>{summary}</h3>
         </div>
     </div>

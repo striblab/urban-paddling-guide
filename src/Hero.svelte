@@ -9,7 +9,7 @@
 	<div class="subhead w-[90%] mx-auto">
 		<h1 class="font-publico-banner-black text-[40px] md:text-[60px] text-center mx-auto text-white mt-[-100vh] pt-[33vh] md:pt-[38vh] max-w-4xl">Your ultimate guide to paddling in the Twin Cities</h1>
 		<div class="font-publico-text-roman text-[18px] md:text-[20px] leading-[1.6] text-left max-w-xl mx-auto p-8 bg-white mb-[110vh] mt-[100vh] rounded-xl">
-			<p class="byline text-center font-graphik-bold text-[16px] mb-1"><span class="font-graphik-bold">By Jake Steinberg, Tom Nehil and Greta Kaul</span></p>
+			<p class="byline text-center font-graphik-semibold text-[16px] mb-1"><span class="font-graphik-bold">By Jake Steinberg, Tom Nehil and Greta Kaul</span></p>
 	      	<p class="byline text-center uppercase font-graphik-regular text-[13px] tracking-widest mb-8">The Minnesota Star Tribune •  May XX, 2025</p>
 			<h2 class="mb-6">You don’t have to go to the Boundary Waters to have fun paddling a canoe.</h2>
 			<h2 class="mb-6">In Minnesota, we pride ourselves on being connected to water. But getting out there in the Twin Cities metro area is easier said than done. Where do I put in my boat? How fast is too fast for moving water? How long will this take? Are there rentals? The information you need is all over the place, if you can find it at all.</h2>

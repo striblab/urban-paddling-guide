@@ -10,3 +10,9 @@
 {:else if route === "Mississippi River Gorge"}
     <MississippiRiverGorge />
 {/if}
+
+<style>
+    .ai2html {
+        overflow: hidden;
+    }
+</style>

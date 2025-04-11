@@ -724,4 +724,8 @@
     body {
         margin: 0;
     }
+
+    .ai2html {
+        overflow: hidden;
+    }
 </style>
