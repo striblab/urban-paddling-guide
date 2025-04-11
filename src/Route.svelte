@@ -119,12 +119,13 @@
         <div class="byline font-graphik-semibold text-[15px] mt-6 mb-6">
             <span class="byline">
                 Guide by {@html getAuthorMarkup(authors)} • Photo by
-                <span class="author">{heroImgCredit}</span>
+                <span class="author">{heroImgCredit}</span> • Map by <span class="">{mapCredit}
+                </span>
             </span>
         </div>
 
-        <div class="subhead">
-            {narrativeGrafs[0]}
+        <div class="subhead font-publico-text-roman text-[16px] md:text-[20px] leading-[1.8]">
+            <h3>{summary}</h3>
         </div>
     </div>
 
@@ -137,15 +138,12 @@
                 <p>
                     Source: {mapSource}
                 </p>
-                <p>
-                    {mapCredit}
-                </p>
             </div>
         </div>
     {/if}
 
     <div class="narrative w-[90%] mx-auto max-w-2xl">
-        {#each narrativeGrafs.slice(1) as graf}
+        {#each narrativeGrafs as graf}
             <p
                 class="mb-5 font-publico-text-roman text-[16px] md:text-[18px] leading-[1.3]"
             >
