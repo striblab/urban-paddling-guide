@@ -12,7 +12,5 @@
 {/if}
 
 <style>
-    .ai2html {
-        overflow: hidden;
-    }
+    
 </style>
