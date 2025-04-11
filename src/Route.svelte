@@ -40,6 +40,8 @@
 
     const getKnowMarkup = (text) => {};
 
+    let narrativeGrafs = $derived(grafify(narrative))
+
     onMount(() => {
         topElement.scrollIntoView();
     });
@@ -122,11 +124,7 @@
         </div>
 
         <div class="subhead">
-            <!-- <h2 class="font-publico-headline-light text-2xl">
-                {subhead} but weren't we thinking this would be longer? did I miss
-                it when i transfered the arc body? This is just to fill it out and
-                Anna needs to look into it
-            </h2> -->
+            {narrativeGrafs[0]}
         </div>
     </div>
 
@@ -147,7 +145,7 @@
     {/if}
 
     <div class="narrative w-[90%] mx-auto max-w-2xl">
-        {#each grafify(narrative) as graf}
+        {#each narrativeGrafs.slice(1) as graf}
             <p
                 class="mb-5 font-publico-text-roman text-[16px] md:text-[18px] leading-[1.3]"
             >
@@ -187,9 +185,5 @@
 <style type="text/css">
     p a {
         border-bottom: 1px solid #05442e;
-    }
-
-    iframe {
-        width: 100%;
     }
 </style>
