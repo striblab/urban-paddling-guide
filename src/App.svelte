@@ -60,6 +60,9 @@
         <Route
             routeData={routeData.filter((r) => r.headline === selectedRoute)[0]}
         />
+        <div class="md:w-[90%] w-full mx-auto max-w-2xl">
+            <Credits />
+        </div>
     {:else if routesLoaded}
         <Hero />
         <Filters
@@ -107,7 +110,9 @@
                 </a>
             {/each}
         </div>
-        <Credits />
+         <div class="md:w-[90%] w-full mx-auto">
+            <Credits />
+        </div>
     {:else}
         <!--Todo: style loading thing-->
         Loading...
