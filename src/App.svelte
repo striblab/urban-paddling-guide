@@ -58,7 +58,6 @@
 
     loadRoutes();
     loadPhotos();
-
 </script>
 
 <svelte:window
@@ -92,8 +91,7 @@
         <div
             class="route-preview-wrapper md:flex flex-wrap w-[90%] justify-between mx-auto max-w-8xl"
         >
-            {#each routeData
-                .filter((r) => tagFilter ? r.tags.includes(tagFilter) : true) as route}
+            {#each routeData.filter( (r) => (tagFilter ? r.tags.includes(tagFilter) : true) ) as route}
                 <a
                     href="#/{slugify(route.headline)}"
                     class="block md:w-[49%] lg:w-[32%] mb-8"
