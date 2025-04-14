@@ -3,6 +3,7 @@
     import Hero from "./Hero.svelte";
     import Credits from "./Credits.svelte";
     import Filters from "./Filters.svelte";
+    import RoutePageNav from "./RoutePageNav.svelte";
 
     let selectedRoute = $state("");
 
@@ -77,6 +78,7 @@
                 )
             )}
         />
+        <RoutePageNav routes={routeData.filter((r) => r.headline !== selectedRoute)} />
         <div class="md:w-[90%] w-full mx-auto max-w-2xl">
             <Credits />
         </div>

@@ -42,8 +42,10 @@
         return `<span class="author">${authors.slice(0, -1).join('</span>, <span class="author">')}</span> and <span class="author">${authors[authors.length - 1]}</span>`;
     };
 
-    onMount(() => {
-        topElement.scrollIntoView();
+    $effect(()=>{
+        if (headline) {
+            topElement.scrollIntoView();
+        }
     });
 </script>
 
