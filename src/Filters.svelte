@@ -4,7 +4,7 @@
     let selectedDifficultyTags = $state([]);
 	let selectedWatercraftTags = $state([]);
 
-    const difficultyTags = ["beginner", "easy", "intermediate"];
+    const difficultyTags = ["beginners", "intermediate paddlers"];
     const watercraftTags = ["canoes", "kayaks", "paddleboards"];
 
     let tags = new Set();

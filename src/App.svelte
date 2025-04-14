@@ -8,6 +8,7 @@
 
     let routesLoaded = $state(false);
     let routeData = $state([]);
+    let photoData = $state([]);
 
     const loadRoutes = async () => {
         const req = await fetch(
@@ -16,6 +17,15 @@
         if (req.ok) {
             routeData = await req.json();
             routesLoaded = true;
+        }
+    };
+
+    const loadPhotos = async () => {
+        const req = await fetch(
+            "https://static.startribune.com/news/projects/all/urban-paddling-guide/data/photos.json"
+        );
+        if (req.ok) {
+            photoData = await req.json();
         }
     };
 
@@ -47,6 +57,8 @@
     let watercraftFilter = $state("");
 
     loadRoutes();
+    loadPhotos();
+    $inspect(photoData)
 </script>
 
 <svelte:window
@@ -59,6 +71,12 @@
     {#if selectedRoute}
         <Route
             routeData={routeData.filter((r) => r.headline === selectedRoute)[0]}
+            secondaryPhotos={photoData.filter((p) =>
+                p.route?.includes(
+                    routeData.filter((r) => r.headline === selectedRoute)[0]
+                        .routeID
+                )
+            )}
         />
         <div class="md:w-[90%] w-full mx-auto max-w-2xl">
             <Credits />
@@ -110,7 +128,7 @@
                 </a>
             {/each}
         </div>
-         <div class="md:w-[90%] w-full mx-auto">
+        <div class="md:w-[90%] w-full mx-auto">
             <Credits />
         </div>
     {:else}
@@ -131,15 +149,15 @@
     }
 
     div.route-preview-wrapper::after {
-      content: "";
-      flex: auto;
+        content: "";
+        flex: auto;
     }
     div.route-preview-wrapper a:last-child {
-      margin-left: 2%;
+        margin-left: 2%;
     }
     @media only screen and (max-width: 1023px) {
         div.route-preview-wrapper a:last-child {
-          margin-left: 0%;
+            margin-left: 0%;
         }
     }
 </style>

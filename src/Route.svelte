@@ -4,7 +4,7 @@
 
     let topElement;
 
-    let { routeData } = $props();
+    let { routeData, secondaryPhotos } = $props();
     let {
         headline,
         heroImg,
@@ -198,15 +198,16 @@
         {/each}
     </div>
 
+    {#if secondaryPhotos.length > 0}
     <div class="photos w-[90%] mx-auto max-w-2xl mt-12 mb-12">
-        <img src="https://placehold.co/1200x800" alt="placeholder" />
+        <img src="{secondaryPhotos[0].url}" alt="{secondaryPhotos[0].altText}" />
         <p
             class="text-left caption mx-auto max-w-2xl font-graphik-regular text-[14px] mt-2 md:w-full w-[90%]"
         >
-            This will be the caption for the image. It will be a couple
-            sentences describing waht is in it.
+            {secondaryPhotos[0].caption} • Photo by {secondaryPhotos[0].credit}, {secondaryPhotos[0].Publication}
         </p>
     </div>
+    {/if}
 
     <div
         class="know-before flex-module w-[90%] mx-auto max-w-2xl md:flex border-[#05442e] py-6 my-4 flex-wrap"
@@ -228,7 +229,7 @@
 </div>
 
 <style>
-    #proj-container p a {
+    :global(.route p a) {
         border-bottom: 1px solid #05442e;
         color: green;
     }
