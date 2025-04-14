@@ -108,12 +108,7 @@
             </p>
 
         </div>
-        <div class="w-full border-[#b4c7c0] border-t mt-4 pt-4 md:pt-8 md:mt-8">
-            <h5
-                class="font-graphik-bold uppercase tracking-widest text-[12px] md:text-[14px] mb-2"
-            > Recommended conditions </h5>
-            <p class="max-w-3xl mx-auto font-graphik-regular text-[16px] md:text-[18px] mb-0">{@html recommendedConditions}</p>
-        </div>
+       
     </div>
      
 
@@ -179,6 +174,12 @@
                     </p>
 
                 </div>
+                 <div class="w-full border-[#b4c7c0] border-t mt-4 pt-4 md:pt-8 md:mt-8">
+            <h5
+                class="font-graphik-bold uppercase tracking-widest text-[12px] md:text-[14px] mb-2"
+            > Recommended conditions </h5>
+            <p class="max-w-3xl mx-auto font-graphik-regular text-[16px] md:text-[18px] mb-0">{@html recommendedConditions}</p>
+        </div>
             </div>
 
             <RouteMap route={headline} />
@@ -223,17 +224,19 @@
             Know before you go
         </h5>
         {#each grafify(knowBeforeYouGo) as know}
-            <p
-                class="font-publico-text-roman text-[16px] md:text-[18px] leading-[1.3] mb-4"
-            >
-                {@html know}
-            </p>
+            <ul>
+                <li class="font-graphik-regular text-[16px] md:text-[18px] leading-[1.3] mb-3"
+                >
+                    {@html know}
+                </li>
+            </ul>
         {/each}
     </div>
 </div>
 
-<style type="text/css">
-    a {
+<style>
+    #proj-container p a {
         border-bottom: 1px solid #05442e;
+        color: green;
     }
 </style>
