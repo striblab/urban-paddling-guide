@@ -18,7 +18,6 @@
         nearbyCities,
         recommendedConditions,
         mapUrl,
-        mapWidth,
         mapCredit,
         mapSource,
         startAddress,
@@ -29,8 +28,6 @@
         gpxLink,
         narrative,
         knowBeforeYouGo,
-        Photos,
-        routeID,
     } = $derived(routeData);
 
     const grafify = (copy) => {
@@ -148,7 +145,7 @@
             class="map mt-0 mb-4 w-[90%] mx-auto max-w-2xl overflow-x-auto font-graphik-regular text-[18px] border-[#b4c7c0] py-10 my-12"
         >
             <div
-                class="flex-module mx-auto flex justify-start py-8 mb-8 flex-wrap text-left border-t border-b border-[#b4c7c0] flex-wrap"
+                class="flex-module mx-auto flex justify-start py-8 mb-8 flex-wrap text-left border-t border-b border-[#b4c7c0]"
             >
                 <div
                     class="put-in item border-r border-[#b4c7c0] w-1/2 md:w-2/5 mb-0 md:px-6 px-4 pl-0 md:pl-0"
