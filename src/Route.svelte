@@ -85,9 +85,7 @@
                 Nearby Cities
             </h5>
             <p class="tag font-graphik-regular text-[16px] md:text-[18px]">
-                {#each nearbyCities as city}
-                    <span class="inline-block mr-1">{@html city},</span>
-                {/each}
+                {nearbyCities.join(", ")}
             </p>
         </div>
         <div
@@ -99,12 +97,7 @@
                 Good for
             </h5>
             <p class="tag font-graphik-regular text-[16px] md:text-[18px] mb-0">
-                {#each tags as tag}
-                    <span  class="font-graphik-regular text-[16px] md:text-[18px] inline-block mr-1" >
-                        {@html tag},
-                    </span
-                    >
-                {/each}
+                {tags.join(", ")}
             </p>
 
         </div>
