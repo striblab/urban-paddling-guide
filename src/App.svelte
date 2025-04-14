@@ -53,12 +53,11 @@
         }
     });
 
-    let difficultyFilter = $state("");
-    let watercraftFilter = $state("");
+    let tagFilter = $state("");
 
     loadRoutes();
     loadPhotos();
-    $inspect(photoData)
+
 </script>
 
 <svelte:window
@@ -85,21 +84,15 @@
         <Hero />
         <Filters
             {routeData}
-            filterByTag={(tag, type) => {
-                if (type === "difficulty") {
-                    difficultyFilter = tag;
-                }
-                if (type === "watercraft") {
-                    watercraftFilter = tag;
-                }
+            filterByTag={(tag) => {
+                tagFilter = tag;
             }}
         />
         <div
             class="route-preview-wrapper md:flex flex-wrap w-[90%] justify-between mx-auto max-w-8xl"
         >
             {#each routeData
-                .filter((r) => r.tags.includes(difficultyFilter) || !difficultyFilter)
-                .filter((r) => r.tags.includes(watercraftFilter) || !watercraftFilter) as route}
+                .filter((r) => tagFilter ? r.tags.includes(tagFilter) : true) as route}
                 <a
                     href="#/{slugify(route.headline)}"
                     class="block md:w-[49%] lg:w-[32%] mb-8"
