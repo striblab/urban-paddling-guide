@@ -1,5 +1,6 @@
 <script>
     import { onMount } from "svelte";
+    import { fade } from "svelte/transition";
     import RouteMap from "./RouteMap.svelte";
 
     let topElement;
@@ -44,14 +45,12 @@
         return `<span class="author">${authors.slice(0, -1).join('</span>, <span class="author">')}</span> and <span class="author">${authors[authors.length - 1]}</span>`;
     };
 
-    const getKnowMarkup = (text) => {};
-
     onMount(() => {
         topElement.scrollIntoView();
     });
 </script>
 
-<div class="route w-full" bind:this={topElement}>
+<div class="route w-full" bind:this={topElement} in:fade>
     <div
         class="headline-wrapper text-left md:text-center w-[90%] mx-auto max-w-2xl pt-[10vh]"
     >
