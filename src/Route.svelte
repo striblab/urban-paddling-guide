@@ -204,7 +204,7 @@
         <p
             class="text-left caption mx-auto max-w-2xl font-graphik-regular text-[14px] mt-2 md:w-full w-[90%]"
         >
-            {secondaryPhotos[0].caption} • Photo by {secondaryPhotos[0].credit}, {secondaryPhotos[0].Publication}
+            {secondaryPhotos[0].caption} Photo by {secondaryPhotos[0].credit}, {secondaryPhotos[0].Publication}.
         </p>
     </div>
     {/if}
@@ -219,7 +219,7 @@
         </h5>
         {#each grafify(knowBeforeYouGo) as know}
             <ul>
-                <li class="font-graphik-regular text-[16px] md:text-[18px] leading-[1.3] mb-3"
+                <li class="font-graphik-regular text-[16px] md:text-[18px] leading-[1.3] mb-4 relative"
                 >
                     {@html know}
                 </li>
@@ -231,6 +231,17 @@
 <style>
     :global(.route p a) {
         border-bottom: 1px solid #05442e;
-        color: green;
+    }
+
+    :global(.route li strong) {
+        font-family: 'graphik-bold';
+        display: inline-block;
+    }
+
+    li:before {
+        position: absolute;
+        top: 0px;
+        content: '•';
+        left: -12.5px;
     }
 </style>
