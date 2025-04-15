@@ -5,12 +5,19 @@
     import Filters from "./Filters.svelte";
     import RoutePageNav from "./RoutePageNav.svelte";
 
+    const slugify = (routeTitle) => routeTitle.toLowerCase().replace(/ /g, "-");
+
+
     let selectedRoute = $state("");
     let routesLoaded = $state(false);
     let routeData = $state([]);
     let photoData = $state([]);
+    const slugs = $derived(routeData.map((r) => slugify(r.headline)));
     let topEl = $state(undefined);
     let hashCount = $state(0)
+    let tagFilter = $state("");
+    let hash = $state(window.location.hash);
+
 
     const loadRoutes = async () => {
         const req = await fetch(
@@ -30,10 +37,6 @@
             photoData = await req.json();
         }
     };
-
-    const slugify = (routeTitle) => routeTitle.toLowerCase().replace(/ /g, "-");
-    const slugs = $derived(routeData.map((r) => slugify(r.headline)));
-    let hash = $state(window.location.hash);
 
     $effect(() => {
         if (routesLoaded) {
@@ -56,8 +59,6 @@
             tagFilter = "";
         }
     });
-
-    let tagFilter = $state("");
 
     loadRoutes();
     loadPhotos();
@@ -82,9 +83,7 @@
             )}
         />
         <RoutePageNav routes={routeData.filter((r) => r.headline !== selectedRoute)} />
-        <div class="md:w-[90%] w-full mx-auto max-w-2xl">
-            <Credits />
-        </div>
+        <Credits />
     {:else if routesLoaded}
         <Hero />
         <div bind:this={topEl}></div>
@@ -125,9 +124,7 @@
                 </a>
             {/each}
         </div>
-        <div class="md:w-[90%] w-full mx-auto">
-            <Credits />
-        </div>
+        <Credits wide={true} />
     {:else}
         <!--Todo: style loading thing-->
         Loading...
