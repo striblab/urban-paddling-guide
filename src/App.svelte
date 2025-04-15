@@ -3,6 +3,7 @@
     import Hero from "./Hero.svelte";
     import Credits from "./Credits.svelte";
     import Filters from "./Filters.svelte";
+    import RoutePageNav from "./RoutePageNav.svelte";
 
     let selectedRoute = $state("");
 
@@ -50,15 +51,14 @@
             } else {
                 selectedRoute = "";
             }
+            tagFilter = "";
         }
     });
 
-    let difficultyFilter = $state("");
-    let watercraftFilter = $state("");
+    let tagFilter = $state("");
 
     loadRoutes();
     loadPhotos();
-    $inspect(photoData)
 </script>
 
 <svelte:window
@@ -78,6 +78,7 @@
                 )
             )}
         />
+        <RoutePageNav routes={routeData.filter((r) => r.headline !== selectedRoute)} />
         <div class="md:w-[90%] w-full mx-auto max-w-2xl">
             <Credits />
         </div>
@@ -85,21 +86,14 @@
         <Hero />
         <Filters
             {routeData}
-            filterByTag={(tag, type) => {
-                if (type === "difficulty") {
-                    difficultyFilter = tag;
-                }
-                if (type === "watercraft") {
-                    watercraftFilter = tag;
-                }
+            filterByTag={(tag) => {
+                tagFilter = tag;
             }}
         />
         <div
             class="route-preview-wrapper md:flex flex-wrap w-[90%] justify-between mx-auto max-w-8xl"
         >
-            {#each routeData
-                .filter((r) => r.tags.includes(difficultyFilter) || !difficultyFilter)
-                .filter((r) => r.tags.includes(watercraftFilter) || !watercraftFilter) as route}
+            {#each routeData.filter( (r) => (tagFilter ? r.tags.includes(tagFilter) : true) ) as route}
                 <a
                     href="#/{slugify(route.headline)}"
                     class="block md:w-[49%] lg:w-[32%] mb-8"
