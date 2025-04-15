@@ -51,48 +51,44 @@
                 Tribune staff members set out to create an urban paddling guide.
                 We researched, paddled and mapped our favorite routes within the
                 metro area.
-			</p>
+            </p>
             <p class="mb-6">
                 Whether by canoe, kayak or paddleboard, we hope this guide helps
                 you see the Twin Cities in new ways: take a lazy river ride
                 toward the Minneapolis skyline; explore a little-seen part of
                 St. Paul; practice portaging at Lebanon Hills in the southern
                 suburbs.
-			</p>
-            <p >
-                While you’re out there, don’t forget to:
             </p>
-			<ul class="mb-6">
-				<li class="ml-4 md:ml-6">
-					<span class="font-publico-headline-black"
-						>Bring a life jacket.</span
-					> State law requires one for each person on board your watercraft.
-				</li>
-				<li class="ml-4 md:ml-6">
-					<span class="font-publico-headline-black"
-						>Think twice</span
-					> before paddling in winds over 10 mph.
-				</li>
-				<li class="ml-4 md:ml-6">
-					<span class="font-publico-headline-black"
-						>Watch water levels</span
-					> on rivers and creeks.
-				</li>
-				<li class="ml-4 md:ml-6">
-					<span class="font-publico-headline-black"
-						>Swim with care.</span
-					>
-				</li>
-				<li class="ml-4 md:ml-6">
-					<span class="font-publico-headline-black"
-						>Be mindful</span
-					> of private property.
-				</li>
-			</ul>
+            <p>While you’re out there, don’t forget to:</p>
+            <ul class="mb-6">
+                <li class="ml-4 md:ml-6">
+                    <span class="font-publico-headline-black"
+                        >Bring a life jacket.</span
+                    > State law requires one for each person on board your watercraft.
+                </li>
+                <li class="ml-4 md:ml-6">
+                    <span class="font-publico-headline-black">Think twice</span>
+                    before paddling in winds over 10 mph.
+                </li>
+                <li class="ml-4 md:ml-6">
+                    <span class="font-publico-headline-black"
+                        >Watch water levels</span
+                    > on rivers and creeks.
+                </li>
+                <li class="ml-4 md:ml-6">
+                    <span class="font-publico-headline-black"
+                        >Swim with care.</span
+                    >
+                </li>
+                <li class="ml-4 md:ml-6">
+                    <span class="font-publico-headline-black">Be mindful</span> of
+                    private property.
+                </li>
+            </ul>
             <p class="">
                 See you on the water, and please tag @startribune in your urban
                 paddling photos.
-			</p>
+            </p>
         </div>
     </div>
 </div>
