@@ -8,7 +8,7 @@
 
     <div class="flex flex-row flex-wrap gap-3 md:gap-6 justify-center">
         {#each routes as route}
-            <a href="#/{slugify(route.headline)}" class="grid-item max-w-[200px] md:max-w-[250px]">
+            <a href="#/{slugify(route.headline)}" class="grid-item max-w-[200px] md:max-w-[250px] hover:scale-[1.02] duration-500">
                 <div
                     class="route-preview font-publico-banner-black bg-white border rounded-xl border-[#05442e] overflow-hidden"
                 >
