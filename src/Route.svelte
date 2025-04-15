@@ -4,6 +4,7 @@
     import RouteMap from "./RouteMap.svelte";
 
     let topElement;
+    let newPage = $state("");
 
     let { routeData, secondaryPhotos } = $props();
     let {
@@ -44,11 +45,13 @@
 
     $effect(()=>{
         if (headline) {
+            newPage = headline;
             topElement.scrollIntoView();
         }
     });
 </script>
 
+{#key newPage}
 <div class="route w-full" bind:this={topElement} in:fade>
     <div
         class="headline-wrapper text-left md:text-center w-[90%] mx-auto max-w-2xl pt-[10vh]"
@@ -278,6 +281,7 @@
         {/each}
     </div>
 </div>
+{/key}
 
 <style>
     :global(.route p a) {
