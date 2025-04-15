@@ -6,10 +6,11 @@
     import RoutePageNav from "./RoutePageNav.svelte";
 
     let selectedRoute = $state("");
-
     let routesLoaded = $state(false);
     let routeData = $state([]);
     let photoData = $state([]);
+    let topEl = $state(undefined);
+    let hashCount = $state(0)
 
     const loadRoutes = async () => {
         const req = await fetch(
@@ -50,6 +51,7 @@
                 }
             } else {
                 selectedRoute = "";
+                if (hashCount > 1) {setTimeout(()=>topEl.scrollIntoView()),0}
             }
             tagFilter = "";
         }
@@ -64,6 +66,7 @@
 <svelte:window
     on:hashchange={() => {
         hash = window.location.hash;
+        hashCount += 1;
     }}
 />
 
@@ -84,8 +87,8 @@
         </div>
     {:else if routesLoaded}
         <Hero />
+        <div bind:this={topEl}></div>
         <Filters
-            {routeData}
             filterByTag={(tag) => {
                 tagFilter = tag;
             }}
