@@ -3,12 +3,12 @@
     const slugify = (routeTitle) => routeTitle.toLowerCase().replace(/ /g, "-");
 </script>
 
-<div class="md:w-[80%] mx-auto">
-    <h4 class="font-publico-headline-black text-[22px] md:text-[25px] mb-4 w-full mx-6">Explore more routes</h4>
+<div class="md:w-[60%] mx-auto">
+    <h4 class="font-publico-headline-black text-[22px] md:text-[25px] p-6 text-center border-t border-[#05442e] max-w-2xl mx-auto">Explore more routes</h4>
 
-    <div class="flex flex-row flex-wrap gap-6 justify-center">
+    <div class="flex flex-row flex-wrap gap-3 md:gap-6 justify-center">
         {#each routes as route}
-            <a href="#/{slugify(route.headline)}" class="block w-[100%] max-w-[400px] md:max-w-[300px] md:mb-8">
+            <a href="#/{slugify(route.headline)}" class="grid-item max-w-[200px] md:max-w-[250px]">
                 <div
                     class="route-preview font-publico-banner-black bg-white border rounded-xl border-[#05442e] overflow-hidden"
                 >
@@ -19,8 +19,8 @@
                         alt={route.heroImgAltText}
                         class="w-full"
                     />
-                    <div class="text-wrapper p-6">
-                        <h3 class="text-[13px] md:text-[18px] mb-2">
+                    <div class="text-wrapper p-2 md:p-4">
+                        <h3 class="text-[12px] md:text-[16px]">
                             {route.headline}
                         </h3>
                     </div>

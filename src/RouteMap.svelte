@@ -1,5 +1,5 @@
 <script>
-    const { route } = $props();
+    let { route } = $props();
 
     import UpperMississippi from "./route-maps/UpperMississippi.svelte";
     import MississippiRiverGorge from "./route-maps/MississippiRiverGorge.svelte";
