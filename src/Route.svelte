@@ -3,7 +3,7 @@
     import { fade } from "svelte/transition";
     import RouteMap from "./RouteMap.svelte";
 
-    let topElement;
+    let topElement = $state();
     let newPage = $state("");
 
     let { routeData, secondaryPhotos } = $props();
