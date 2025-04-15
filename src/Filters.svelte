@@ -1,6 +1,13 @@
 <script>
+    import FilterButton from "./FilterButton.svelte";
+
     const { filterByTag } = $props();
     let activeFilter = $state("");
+
+    const activateFilter = (tag) => {
+        activeFilter = tag;
+        filterByTag(tag);
+    }
 </script>
 
 <div class="filters-wrapper w-[90%] mx-auto max-w-2xl my-12 mb-20 text-center">
@@ -16,62 +23,29 @@
         >
             Filter by
         </h5>
-        <div class="tag leading-[0.7]">
-            <button
-                class="inline-block p-2 mr-1 md:mr-2 mb-1 {activeFilter !== "rentals"
-                    ? 'text-[#05442e]'
-                    : 'text-white'} hover:text-white {activeFilter !== "rentals"
-                    ? 'bg-[#fffbf4]'
-                    : 'bg-[#05442e]'} hover:bg-[#05442e] rounded-2xl border-[#05442e] border uppercase font-graphik-medium tracking-widest text-[12px] md:text-[14px]"
-                onclick={() => {
-                    activeFilter = "rentals";
-                    filterByTag("rentals");
-                }}
-            >
-                Rentals available
-            </button>
-        </div>
-        <div class="tag leading-[0.7]">
-            <button
-                class="inline-block p-2 mr-1 md:mr-2 mb-1 {activeFilter !== "paddleboards"
-                    ? 'text-[#05442e]'
-                    : 'text-white'} hover:text-white {activeFilter !== "paddleboards"
-                    ? 'bg-[#fffbf4]'
-                    : 'bg-[#05442e]'} hover:bg-[#05442e] rounded-2xl border-[#05442e] border uppercase font-graphik-medium tracking-widest text-[12px] md:text-[14px]"
-                onclick={() => {
-                    activeFilter = "paddleboards";
-                    filterByTag("paddleboards");
-                }}
-            >
-                Paddleboard-friendly
-            </button>
-        </div>
-        <div class="tag leading-[0.7]">
-            <button
-                class="inline-block p-2 mr-1 md:mr-2 mb-1 {activeFilter !== "intermediate paddlers"
-                    ? 'text-[#05442e]'
-                    : 'text-white'} hover:text-white {activeFilter !== "intermediate paddlers"
-                    ? 'bg-[#fffbf4]'
-                    : 'bg-[#05442e]'} hover:bg-[#05442e] rounded-2xl border-[#05442e] border uppercase font-graphik-medium tracking-widest text-[12px] md:text-[14px]"
-                onclick={() => {
-                    activeFilter ="intermediate paddlers";
-                    filterByTag("intermediate paddlers");
-                }}
-            >
-                Intermediate skill level
-            </button>
-        </div>
-        <div class="tag leading-[0.7]">
-            <button
-                class="inline-block p-2 mr-1 md:mr-2 mb-1 text-[#05442e] hover:text-white bg-[#fffbf4]
-                    hover:bg-[#05442e] rounded-2xl border-[#05442e] border uppercase font-graphik-medium tracking-widest text-[12px] md:text-[14px]"
-                onclick={() => {
-                    activeFilter = "";
-                    filterByTag("");
-                }}
-            >
-                Show all
-            </button>
-        </div>
+        <FilterButton
+            tag={"rentals"}
+            label={"Rentals available"}
+            {activeFilter}
+            doFilter={(tag)=>{activateFilter(tag)}}
+        />
+        <FilterButton
+            tag={"paddleboards"}
+            label={"Paddleboard-friendly"}
+            {activeFilter}
+            doFilter={(tag)=>{activateFilter(tag)}}
+        />
+        <FilterButton
+            tag={"intermediate paddlers"}
+            label={"Intermediate skill level"}
+            {activeFilter}
+            doFilter={(tag)=>{activateFilter(tag)}}
+        />
+        <FilterButton
+            tag={""}
+            label={"Show all"}
+            activeFilter={false}
+            doFilter={(tag)=>{activateFilter(tag)}}
+        />
     </div>
 </div>
