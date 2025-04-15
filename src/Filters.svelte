@@ -1,12 +1,12 @@
 <script>
-    const { routeData, filterByTag } = $props();
+    const { filterByTag } = $props();
     let activeFilter = $state("");
 </script>
 
 <div class="filters-wrapper w-[90%] mx-auto max-w-2xl my-12 mb-20 text-center">
     <h4 class="font-publico-headline-black md:text-[26px] text-[20px]">
         Click a route to read its detailed paddle guide, or use our filters to
-        sort by difficulty and watercraft.
+        narrow down the choice of routes.
     </h4>
     <div
         class="flex flex-wrap items-center justify-center mt-8"
@@ -21,7 +21,7 @@
                 class="inline-block p-2 mr-1 md:mr-2 mb-1 {activeFilter !== "rentals"
                     ? 'text-[#05442e]'
                     : 'text-white'} hover:text-white {activeFilter !== "rentals"
-                    ? 'bg-white'
+                    ? 'bg-[#fffbf4]'
                     : 'bg-[#05442e]'} hover:bg-[#05442e] rounded-2xl border-[#05442e] border uppercase font-graphik-medium tracking-widest text-[12px] md:text-[14px]"
                 onclick={() => {
                     activeFilter = "rentals";
@@ -36,7 +36,7 @@
                 class="inline-block p-2 mr-1 md:mr-2 mb-1 {activeFilter !== "paddleboards"
                     ? 'text-[#05442e]'
                     : 'text-white'} hover:text-white {activeFilter !== "paddleboards"
-                    ? 'bg-white'
+                    ? 'bg-[#fffbf4]'
                     : 'bg-[#05442e]'} hover:bg-[#05442e] rounded-2xl border-[#05442e] border uppercase font-graphik-medium tracking-widest text-[12px] md:text-[14px]"
                 onclick={() => {
                     activeFilter = "paddleboards";
@@ -51,7 +51,7 @@
                 class="inline-block p-2 mr-1 md:mr-2 mb-1 {activeFilter !== "intermediate paddlers"
                     ? 'text-[#05442e]'
                     : 'text-white'} hover:text-white {activeFilter !== "intermediate paddlers"
-                    ? 'bg-white'
+                    ? 'bg-[#fffbf4]'
                     : 'bg-[#05442e]'} hover:bg-[#05442e] rounded-2xl border-[#05442e] border uppercase font-graphik-medium tracking-widest text-[12px] md:text-[14px]"
                 onclick={() => {
                     activeFilter ="intermediate paddlers";
@@ -63,7 +63,7 @@
         </div>
         <div class="tag leading-[0.7]">
             <button
-                class="inline-block p-2 mr-1 md:mr-2 mb-1 text-[#05442e] hover:text-white bg-white
+                class="inline-block p-2 mr-1 md:mr-2 mb-1 text-[#05442e] hover:text-white bg-[#fffbf4]
                     hover:bg-[#05442e] rounded-2xl border-[#05442e] border uppercase font-graphik-medium tracking-widest text-[12px] md:text-[14px]"
                 onclick={() => {
                     activeFilter = "";
