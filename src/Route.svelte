@@ -270,7 +270,7 @@
         </h5>
         {#each grafify(knowBeforeYouGo) as know}
             <ul>
-                <li class="font-graphik-regular text-[16px] md:text-[18px] leading-[1.3] mb-4 relative"
+                <li class="font-graphik-regular text-[16px] md:text-[18px] leading-[1.3] mb-4 relative">
 
                     {@html know}
                 </li>
