@@ -55,7 +55,9 @@
     <div class="pt-5 md:p-0" bind:this={topElement}>
         <button
             class="md:absolute md:top-[15px] md:right-[25px] block p-2 px-4 mb-1 mx-auto text-[#05442e] hover:text-[#fffbf4] bg-[#fffbf4] hover:bg-[#05442e] rounded-2xl border-[#05442e] border uppercase font-graphik-medium tracking-widest text-[12px] md:text-[14px]"
-            onclick={()=>{window.location.hash="#"}}
+            onclick={() => {
+                window.location.hash = "#";
+            }}
         >
             Back to all routes 🛶
         </button>
@@ -307,7 +309,7 @@
 {/key}
 
 <style>
-    :global(.route p a) {
+    :global(.route a) {
         border-bottom: 1px solid #05442e;
     }
 
