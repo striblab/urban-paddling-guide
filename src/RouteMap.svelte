@@ -8,6 +8,10 @@
     import LowerMississippi from "./route-maps/LowerMississippi.svelte";
     import MinnesotaRiver from "./route-maps/MinnesotaRiver.svelte";
     import UpperRiceCreek from "./route-maps/UpperRiceCreek.svelte";
+    import LowerRiceCreek from "./route-maps/LowerRiceCreek.svelte";
+    import LebanonHills from "./route-maps/LebanonHills.svelte";
+    import MinneapolisLakes from "./route-maps/MinneapolisLakes.svelte";
+    import EastMetroLakes from "./route-maps/EastMetroLakes.svelte";
 </script>
 
 {#if route === "Upper Mississippi River"}
@@ -24,8 +28,12 @@
     <MinnesotaRiver />
 {:else if route === "Upper Rice Creek"}
     <UpperRiceCreek />
+{:else if route === "Lower Rice Creek"}
+    <LowerRiceCreek />
+{:else if route === "Lebanon Hills"}
+    <LebanonHills />
+{:else if route === "Minneapolis Chain of Lakes"}
+    <MinneapolisLakes />
+{:else if route === "East Metro Chain of Lakes"}
+    <EastMetroLakes />
 {/if}
-
-<style>
-    
-</style>

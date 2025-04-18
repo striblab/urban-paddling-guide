@@ -3,7 +3,7 @@
     <div
         id="g-051825-PADDLE-upper_rice-375px-lg-mobile"
         class="g-artboard block md:hidden"
-        style="width:375px; height:839.418238279733px;"
+        style="width:375px; height:839.418238279737px;"
         data-aspect-ratio="0.447"
         data-min-width="375"
         data-max-width="671"
@@ -53,169 +53,120 @@
         <div
             id="g-ai1-6"
             class="g-Layer_14 g-aiAbs g-aiPointText"
-            style="transform: matrix(0.7071,0.7071,-0.7071,0.7071,0,0);transform-origin: 50% 60.2246630054918%;-webkit-transform: matrix(0.7071,0.7071,-0.7071,0.7071,0,0);-webkit-transform-origin: 50% 60.2246630054918%;-ms-transform: matrix(0.7071,0.7071,-0.7071,0.7071,0,0);-ms-transform-origin: 50% 60.2246630054918%;top:10.2321%;margin-top:-4.9px;left:57.2767%;width:58px;"
+            style="top:11.4066%;margin-top:-17.7px;left:8.7389%;width:86px;"
         >
-            <p class="g-pstyle4">Main St.</p>
+            <p class="g-pstyle4">Mile marker</p>
+            <p class="g-pstyle5">Each dot is one</p>
+            <p class="g-pstyle5">mile apart</p>
         </div>
         <div
             id="g-ai1-7"
             class="g-Layer_14 g-aiAbs g-aiPointText"
-            style="top:11.4066%;margin-top:-17.7px;left:8.7389%;width:86px;"
+            style="top:15.4186%;margin-top:-12.4px;left:7.2769%;width:67px;"
         >
-            <p class="g-pstyle5">Mile marker</p>
-            <p class="g-pstyle6">Each dot is one</p>
-            <p class="g-pstyle6">mile apart</p>
+            <p class="g-pstyle6">Potential</p>
+            <p class="g-pstyle6">hazard</p>
         </div>
         <div
             id="g-ai1-8"
             class="g-Layer_14 g-aiAbs g-aiPointText"
-            style="top:15.4186%;margin-top:-12.4px;left:7.2769%;width:67px;"
+            style="top:15.0016%;margin-top:-4.9px;left:71.9415%;width:120px;"
         >
-            <p class="g-pstyle7">Potential</p>
-            <p class="g-pstyle7">hazard</p>
+            <p class="g-pstyle7">Peltier Boat Landing</p>
         </div>
         <div
             id="g-ai1-9"
             class="g-Layer_14 g-aiAbs g-aiPointText"
-            style="top:15.0016%;margin-top:-4.9px;left:71.9415%;width:120px;"
+            style="top:18.5036%;margin-top:-11.3px;left:8.971%;width:60px;"
         >
-            <p class="g-pstyle8">Peltier Boat Landing</p>
+            <p class="g-pstyle8">Point of</p>
+            <p class="g-pstyle8">interest</p>
         </div>
         <div
             id="g-ai1-10"
             class="g-Layer_14 g-aiAbs g-aiPointText"
-            style="top:18.5036%;margin-top:-11.3px;left:8.971%;width:60px;"
+            style="top:18.0394%;margin-top:-10.4px;left:77.9368%;margin-left:-67.5px;width:135px;"
         >
-            <p class="g-pstyle9">Point of</p>
-            <p class="g-pstyle9">interest</p>
+            <p class="g-pstyle9">CENTERVILLE</p>
         </div>
         <div
             id="g-ai1-11"
             class="g-Layer_14 g-aiAbs g-aiPointText"
-            style="top:18.0394%;margin-top:-10.4px;left:77.9368%;margin-left:-67.5px;width:135px;"
+            style="top:20.6603%;margin-top:-18.4px;left:28.885%;width:55px;"
         >
-            <p class="g-pstyle10">CENTERVILLE</p>
+            <p class="g-pstyle10">Wargo</p>
+            <p class="g-pstyle10">Nature</p>
+            <p class="g-pstyle10">Center</p>
         </div>
         <div
             id="g-ai1-12"
             class="g-Layer_14 g-aiAbs g-aiPointText"
-            style="top:20.6603%;margin-top:-18.4px;left:28.885%;width:55px;"
+            style="top:24.5916%;margin-top:-27.4px;left:45.4004%;margin-left:-30px;width:60px;"
         >
-            <p class="g-pstyle11">Wargo</p>
-            <p class="g-pstyle11">Nature</p>
-            <p class="g-pstyle11">Center</p>
+            <p class="g-pstyle11">George</p>
+            <p class="g-pstyle11">Watch</p>
+            <p class="g-pstyle11">Lake</p>
         </div>
         <div
             id="g-ai1-13"
             class="g-Layer_14 g-aiAbs g-aiPointText"
-            style="top:24.5916%;margin-top:-27.4px;left:45.4004%;margin-left:-30px;width:60px;"
+            style="top:43.9826%;margin-top:-20.2px;left:54.99%;margin-left:-36px;width:72px;"
         >
-            <p class="g-pstyle12">George</p>
-            <p class="g-pstyle12">Watch</p>
-            <p class="g-pstyle12">Lake</p>
+            <p class="g-pstyle9">LINO</p>
+            <p class="g-pstyle9">LAKES</p>
         </div>
         <div
             id="g-ai1-14"
             class="g-Layer_14 g-aiAbs g-aiPointText"
-            style="top:24.4725%;margin-top:-10.4px;left:66.0144%;margin-left:-50px;width:100px;"
+            style="top:46.6902%;margin-top:-4.9px;left:37.4447%;width:65px;"
         >
-            <p class="g-pstyle13">RICE CREEK</p>
+            <p class="g-pstyle7">Aqua Ln.</p>
         </div>
         <div
             id="g-ai1-15"
             class="g-Layer_14 g-aiAbs g-aiPointText"
-            style="top:30.1907%;margin-top:-10.4px;left:65.0717%;margin-left:-67px;width:134px;"
-        >
-            <p class="g-pstyle13">CHAIN OF LAKES</p>
-        </div>
-        <div
-            id="g-ai1-16"
-            class="g-Layer_14 g-aiAbs g-aiPointText"
-            style="top:35.7898%;margin-top:-10.4px;left:65.0319%;margin-left:-59.5px;width:119px;"
-        >
-            <p class="g-pstyle13">PARK RESERVE</p>
-        </div>
-        <div
-            id="g-ai1-17"
-            class="g-Layer_14 g-aiAbs g-aiPointText"
-            style="top:43.9826%;margin-top:-20.2px;left:54.99%;margin-left:-36px;width:72px;"
-        >
-            <p class="g-pstyle10">LINO</p>
-            <p class="g-pstyle10">LAKES</p>
-        </div>
-        <div
-            id="g-ai1-18"
-            class="g-Layer_14 g-aiAbs g-aiPointText"
-            style="top:46.6902%;margin-top:-4.9px;left:37.4447%;width:65px;"
-        >
-            <p class="g-pstyle8">Aqua Ln.</p>
-        </div>
-        <div
-            id="g-ai1-19"
-            class="g-Layer_14 g-aiAbs g-aiPointText"
             style="top:50.2516%;margin-top:-11.8px;left:39.728%;width:213px;"
         >
-            <p class="g-pstyle14">Thick brush</p>
-            <p class="g-pstyle15">
+            <p class="g-pstyle12">Thick brush</p>
+            <p class="g-pstyle13">
                 May be difficult to pass at low creek levels.
             </p>
         </div>
         <div
-            id="g-ai1-20"
+            id="g-ai1-16"
             class="g-Layer_14 g-aiAbs g-aiPointText"
             style="top:52.9446%;margin-top:-5.4px;left:2.0598%;width:137px;"
         >
-            <p class="g-pstyle16">Surfside Seaplane Base</p>
+            <p class="g-pstyle14">Surfside Seaplane Base</p>
         </div>
         <div
-            id="g-ai1-21"
+            id="g-ai1-17"
             class="g-Layer_14 g-aiAbs g-aiPointText"
             style="top:57.0555%;margin-top:-6.9px;left:30.29%;margin-left:-17px;width:34px;"
         >
-            <p class="g-pstyle17">23</p>
+            <p class="g-pstyle15">23</p>
         </div>
         <div
-            id="g-ai1-22"
+            id="g-ai1-18"
             class="g-Layer_14 g-aiAbs g-aiPointText"
             style="top:63.9701%;margin-top:-6px;left:72.6215%;margin-left:-16.5px;width:33px;"
         >
             <p class="g-pstyle3">34</p>
         </div>
         <div
-            id="g-ai1-23"
-            class="g-Layer_14 g-aiAbs g-aiPointText"
-            style="transform: matrix(0.7071,-0.7071,0.7071,0.7071,0,0);transform-origin: 50% 60.223642172524%;-webkit-transform: matrix(0.7071,-0.7071,0.7071,0.7071,0,0);-webkit-transform-origin: 50% 60.223642172524%;-ms-transform: matrix(0.7071,-0.7071,0.7071,0.7071,0,0);-ms-transform-origin: 50% 60.223642172524%;top:66.3424%;margin-top:-4.9px;left:59.9837%;width:60px;"
-        >
-            <p class="g-pstyle4">Birch St.</p>
-        </div>
-        <div
-            id="g-ai1-24"
-            class="g-Layer_14 g-aiAbs g-aiPointText"
-            style="transform: matrix(0.2503,-0.9682,0.9682,0.2503,0,0);transform-origin: 50% 60.223642172524%;-webkit-transform: matrix(0.2503,-0.9682,0.9682,0.2503,0,0);-webkit-transform-origin: 50% 60.223642172524%;-ms-transform: matrix(0.2503,-0.9682,0.9682,0.2503,0,0);-ms-transform-origin: 50% 60.223642172524%;top:68.4868%;margin-top:-4.9px;left:20.691%;width:58px;"
-        >
-            <p class="g-pstyle4">Lake Dr.</p>
-        </div>
-        <div
-            id="g-ai1-25"
-            class="g-Layer_14 g-aiAbs g-aiPointText"
-            style="transform: matrix(0.6281,0.7781,-0.7781,0.6281,0,0);transform-origin: 50% 60.223642172524%;-webkit-transform: matrix(0.6281,0.7781,-0.7781,0.6281,0,0);-webkit-transform-origin: 50% 60.223642172524%;-ms-transform: matrix(0.6281,0.7781,-0.7781,0.6281,0,0);-ms-transform-origin: 50% 60.223642172524%;top:72.299%;margin-top:-4.9px;left:58.4939%;width:80px;"
-        >
-            <p class="g-pstyle4">Hodgson Rd.</p>
-        </div>
-        <div
-            id="g-ai1-26"
+            id="g-ai1-19"
             class="g-Layer_14 g-aiAbs g-aiPointText"
             style="top:80.7938%;margin-top:-20.2px;left:26.7564%;margin-left:-40.5px;width:81px;"
         >
-            <p class="g-pstyle10">CIRCLE</p>
-            <p class="g-pstyle10">PINES</p>
+            <p class="g-pstyle9">CIRCLE</p>
+            <p class="g-pstyle9">PINES</p>
         </div>
         <div
-            id="g-ai1-27"
+            id="g-ai1-20"
             class="g-Layer_14 g-aiAbs g-aiPointText"
             style="top:87.4327%;margin-top:-4.9px;left:29.0556%;width:100px;"
         >
-            <p class="g-pstyle8">Golden Lake Ln.</p>
+            <p class="g-pstyle7">Golden Lake Ln.</p>
         </div>
     </div>
 
@@ -223,7 +174,7 @@
     <div
         id="g-051825-PADDLE-upper_rice-Artboard_17"
         class="g-artboard hidden md:block"
-        style="width:672px; height:1503.66592007887px;"
+        style="width:672px; height:1503.66592007888px;"
         data-aspect-ratio="0.447"
         data-min-width="672"
     >
@@ -386,9 +337,9 @@
     </div>
 </div>
 
-<!-- End ai2html - 2025-04-11 14:58 -->
+<!-- End ai2html - 2025-04-11 16:09 -->
 
-<!-- Generated by ai2html v0.77.0 - 2025-04-11 14:58 -->
+<!-- Generated by ai2html v0.77.0 - 2025-04-11 16:09 -->
 <!-- ai file: upper_rice.ai -->
 <style type="text/css" media="screen,print">
     #g-051825-PADDLE-upper_rice-box .g-artboard {
@@ -464,37 +415,32 @@
         color: rgb(119, 120, 123);
     }
     #g-051825-PADDLE-upper_rice-375px-lg-mobile .g-pstyle4 {
-        line-height: 9px;
-        height: 9px;
-        color: rgb(126, 126, 126);
-    }
-    #g-051825-PADDLE-upper_rice-375px-lg-mobile .g-pstyle5 {
         font-size: 12px;
         line-height: 11px;
         height: 11px;
         color: rgb(0, 0, 0);
     }
-    #g-051825-PADDLE-upper_rice-375px-lg-mobile .g-pstyle6 {
+    #g-051825-PADDLE-upper_rice-375px-lg-mobile .g-pstyle5 {
         font-family: "graphikcompact-lightitalic", "graphikcompact lightitalic",
             arial, helvetica, sans-serif;
         line-height: 12px;
         height: 12px;
         color: rgb(0, 0, 0);
     }
-    #g-051825-PADDLE-upper_rice-375px-lg-mobile .g-pstyle7 {
+    #g-051825-PADDLE-upper_rice-375px-lg-mobile .g-pstyle6 {
         font-family: "graphikcompact-medium", "graphikcompact medium", arial,
             helvetica, sans-serif;
         font-size: 12px;
         line-height: 12px;
         height: 12px;
     }
-    #g-051825-PADDLE-upper_rice-375px-lg-mobile .g-pstyle8 {
+    #g-051825-PADDLE-upper_rice-375px-lg-mobile .g-pstyle7 {
         font-size: 12px;
         line-height: 9px;
         height: 9px;
         color: rgb(0, 0, 0);
     }
-    #g-051825-PADDLE-upper_rice-375px-lg-mobile .g-pstyle9 {
+    #g-051825-PADDLE-upper_rice-375px-lg-mobile .g-pstyle8 {
         font-family: "graphikcompact-regularitalic",
             "graphikcompact regularitalic", arial, helvetica, sans-serif;
         font-size: 12px;
@@ -502,7 +448,7 @@
         height: 11px;
         color: rgb(0, 0, 0);
     }
-    #g-051825-PADDLE-upper_rice-375px-lg-mobile .g-pstyle10 {
+    #g-051825-PADDLE-upper_rice-375px-lg-mobile .g-pstyle9 {
         font-size: 12px;
         line-height: 20px;
         height: 20px;
@@ -510,13 +456,13 @@
         text-align: center;
         color: rgb(119, 120, 123);
     }
-    #g-051825-PADDLE-upper_rice-375px-lg-mobile .g-pstyle11 {
+    #g-051825-PADDLE-upper_rice-375px-lg-mobile .g-pstyle10 {
         font-size: 12px;
         line-height: 12px;
         height: 12px;
         color: rgb(0, 0, 0);
     }
-    #g-051825-PADDLE-upper_rice-375px-lg-mobile .g-pstyle12 {
+    #g-051825-PADDLE-upper_rice-375px-lg-mobile .g-pstyle11 {
         font-family: "graphikcompact-regularitalic",
             "graphikcompact regularitalic", arial, helvetica, sans-serif;
         font-size: 12px;
@@ -526,25 +472,17 @@
         text-align: center;
         color: rgb(0, 0, 0);
     }
-    #g-051825-PADDLE-upper_rice-375px-lg-mobile .g-pstyle13 {
-        font-size: 12px;
-        line-height: 20px;
-        height: 20px;
-        letter-spacing: 0.2em;
-        text-align: center;
-        color: rgb(122, 153, 30);
-    }
-    #g-051825-PADDLE-upper_rice-375px-lg-mobile .g-pstyle14 {
+    #g-051825-PADDLE-upper_rice-375px-lg-mobile .g-pstyle12 {
         font-family: "graphikcompact-medium", "graphikcompact medium", arial,
             helvetica, sans-serif;
         font-size: 12px;
         line-height: 10px;
         height: 10px;
     }
-    #g-051825-PADDLE-upper_rice-375px-lg-mobile .g-pstyle15 {
+    #g-051825-PADDLE-upper_rice-375px-lg-mobile .g-pstyle13 {
         height: 13px;
     }
-    #g-051825-PADDLE-upper_rice-375px-lg-mobile .g-pstyle16 {
+    #g-051825-PADDLE-upper_rice-375px-lg-mobile .g-pstyle14 {
         font-family: "graphikcompact-regularitalic",
             "graphikcompact regularitalic", arial, helvetica, sans-serif;
         font-size: 12px;
@@ -552,7 +490,7 @@
         height: 10px;
         color: rgb(0, 0, 0);
     }
-    #g-051825-PADDLE-upper_rice-375px-lg-mobile .g-pstyle17 {
+    #g-051825-PADDLE-upper_rice-375px-lg-mobile .g-pstyle15 {
         font-size: 12px;
         height: 13px;
         letter-spacing: 0em;
