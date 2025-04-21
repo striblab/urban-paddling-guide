@@ -4,6 +4,7 @@
     import Credits from "./Credits.svelte";
     import Filters from "./Filters.svelte";
     import RoutePageNav from "./RoutePageNav.svelte";
+    import Map from "./Map.svelte";
 
     const slugify = (routeTitle) => routeTitle.toLowerCase().replace(/ /g, "-");
 
@@ -124,6 +125,7 @@
                 </a>
             {/each}
         </div>
+        <Map />
         <Credits wide={true} />
     {:else}
         <!--Todo: style loading thing-->
