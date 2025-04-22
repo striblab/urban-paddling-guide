@@ -21,7 +21,9 @@
         mapCredit,
         mapSource,
         startAddress,
+        startAddressLinkOverride,
         endAddress,
+        endAddressLinkOverride,
         mileage,
         gmapsRouteLink,
         stravaRouteLink,
@@ -148,7 +150,6 @@
                         > •
                     </span>
                 </p>
-                <!-- <p class="byline uppercase font-graphik-regular text-[13px] tracking-widest mb-8">The Minnesota Star Tribune</p> -->
             </div>
 
             <div
@@ -166,33 +167,55 @@
                     class="flex-module mx-auto flex justify-start py-8 mb-8 flex-wrap text-left border-t border-b border-[#b4c7c0]"
                 >
                     <div
-                        class="put-in item border-r border-[#b4c7c0] w-1/2 md:w-2/5 mb-0 md:px-6 px-4 pl-0 md:pl-0"
+                        class="put-in item border-r border-[#b4c7c0] {endAddress
+                            ? 'w-1/2'
+                            : 'w-full'} {endAddress
+                            ? 'md:w-2/5'
+                            : 'md:w-1/2'} mb-0 md:px-6 px-4 pl-0 md:pl-0"
                     >
                         <h5
                             class="font-graphik-bold uppercase tracking-widest text-[12px] md:text-[14px] mb-2"
                         >
-                            Put in
+                            {endAddress ? "Put in" : "Boat launch"}
                         </h5>
                         <p
                             class="font-graphik-regular text-[16px] md:text-[18px]"
                         >
-                            {startAddress}
+                            <a
+                                href="https://www.google.com/maps?q={startAddressLinkOverride
+                                    ? startAddressLinkOverride
+                                    : startAddress.replace('\n', ',')}"
+                                target="_blank"
+                                rel="noreferrer noopener"
+                            >
+                                {@html startAddress.replace("\n", "<br/>")}
+                            </a>
                         </p>
                     </div>
-                    <div
-                        class="take-out item border-b-0 md:border-r border-[#b4c7c0] w-1/2 md:w-2/5 mb-0 px-6 pr-0"
-                    >
-                        <h5
-                            class="font-graphik-bold uppercase tracking-widest text-[12px] md:text-[14px] mb-2"
+                    {#if endAddress}
+                        <div
+                            class="take-out item border-b-0 md:border-r border-[#b4c7c0] w-1/2 md:w-2/5 mb-0 px-6 pr-0"
                         >
-                            Take out
-                        </h5>
-                        <p
-                            class="tag font-graphik-regular text-[16px] md:text-[18px]"
-                        >
-                            {endAddress}
-                        </p>
-                    </div>
+                            <h5
+                                class="font-graphik-bold uppercase tracking-widest text-[12px] md:text-[14px] mb-2"
+                            >
+                                Take out
+                            </h5>
+                            <p
+                                class="tag font-graphik-regular text-[16px] md:text-[18px]"
+                            >
+                                <a
+                                    href="https://www.google.com/maps?q={endAddressLinkOverride
+                                        ? endAddressLinkOverride
+                                        : endAddress.replace('\n', ',')}"
+                                    target="_blank"
+                                    rel="noreferrer noopener"
+                                >
+                                    {@html endAddress.replace("\n", "<br/>")}
+                                </a>
+                            </p>
+                        </div>
+                    {/if}
                     <div
                         class="distance item w-full md:w-1/5 pl-0 md:px-6 pr-0 mb-0 border-t md:border-t-0 border-[#b4c7c0] pt-6 mt-6 md:pl-6 md:pt-0 md:mt-0 pb-0"
                     >
