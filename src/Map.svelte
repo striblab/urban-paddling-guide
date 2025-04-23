@@ -7,6 +7,7 @@
     import mississippiGorge from './routes/mississippi_gorge.json';
     import lowerMississippi from './routes/lower_mississippi.json';
     import lowerMinnehaha from './routes/lower_minnehaha.json';
+    import minnesota from './routes/minnesota.json';
     let mapContainer;
 
     onMount(() => {
@@ -94,6 +95,25 @@
                 id: 'lower-minnehaha-line',
                 type: 'line',
                 source: 'lower-minnehaha',
+                layout: {
+                    'line-join': 'round',
+                    'line-cap': 'round'
+                },
+                paint: {
+                    'line-color': '#EA8B8B',
+                    'line-width': 3
+                }
+            }, 'road_footway-case');
+            map.addSource('minnesota', {
+                type: 'geojson',
+                // @ts-ignore
+                data: minnesota
+            });
+            // add a line layer to visualize the route
+            map.addLayer({
+                id: 'minnesota-line',
+                type: 'line',
+                source: 'minnesota',
                 layout: {
                     'line-join': 'round',
                     'line-cap': 'round'
