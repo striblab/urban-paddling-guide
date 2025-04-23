@@ -67,7 +67,7 @@
             class="headline-wrapper text-left md:text-center w-[90%] mx-auto max-w-2xl pt-[3vh] md:pt-[10vh]"
         >
             <h1
-                class="font-publico-headline-black text-[35px] md:text-[50px] mb-4"
+                class="font-publico-headline-medium text-[35px] md:text-[50px] mb-4"
             >
                 {headline}
             </h1>

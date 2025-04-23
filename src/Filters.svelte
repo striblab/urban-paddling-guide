@@ -10,11 +10,7 @@
     }
 </script>
 
-<div class="filters-wrapper w-[90%] mx-auto max-w-2xl my-12 mb-20 text-center">
-    <h4 class="font-publico-headline-black md:text-[26px] text-[20px]">
-        Click a route to read its detailed paddle guide, or use our filters to
-        narrow down the choice of routes.
-    </h4>
+<div class="filters-wrapper w-[90%] mx-auto max-w-7xl py-4 mb-0 text-center sticky top-0 bg-[#fffbf4] z-[100] border-[#05442e] border-b">
     <div
         class="flex flex-wrap items-center justify-center mt-8"
     >

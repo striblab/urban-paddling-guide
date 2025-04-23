@@ -133,4 +133,4 @@
     
 </script>
 
-<div bind:this={mapContainer} class="map-container mx-auto my-6 h-[80vh] w-[90%] max-w-7xl mb-20"></div>
+<div bind:this={mapContainer} class="map-container mx-auto h-[80vh] w-[90%] max-w-7xl mb-20 relative"></div>
