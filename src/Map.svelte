@@ -6,6 +6,7 @@
     import upperMississippi from './routes/upper_mississippi.json'; 
     import mississippiGorge from './routes/mississippi_gorge.json';
     import lowerMississippi from './routes/lower_mississippi.json';
+    import upperMinnehaha from './routes/upper_minnehaha.json';
     import lowerMinnehaha from './routes/lower_minnehaha.json';
     import minnesota from './routes/minnesota.json';
     let mapContainer;
@@ -33,7 +34,6 @@
                 // @ts-ignore
                 data: upperMississippi
             });
-            // add a line layer to visualize the route
             map.addLayer({
                 id: 'upper-mississippi-line',
                 type: 'line',
@@ -52,7 +52,6 @@
                 // @ts-ignore
                 data: mississippiGorge
             });
-            // add a line layer to visualize the route
             map.addLayer({
                 id: 'mississippi-gorge-line',
                 type: 'line',
@@ -71,11 +70,28 @@
                 // @ts-ignore
                 data: lowerMississippi
             });
-            // add a line layer to visualize the route
             map.addLayer({
                 id: 'lower-mississippi-line',
                 type: 'line',
                 source: 'lower-mississippi',
+                layout: {
+                    'line-join': 'round',
+                    'line-cap': 'round'
+                },
+                paint: {
+                    'line-color': '#EA8B8B',
+                    'line-width': 3
+                }
+            }, 'road_footway-case');
+            map.addSource('upper-minnehaha', {
+                type: 'geojson',
+                // @ts-ignore
+                data: upperMinnehaha
+            });
+            map.addLayer({
+                id: 'upper-minnehaha-line',
+                type: 'line',
+                source: 'upper-minnehaha',
                 layout: {
                     'line-join': 'round',
                     'line-cap': 'round'
@@ -90,7 +106,6 @@
                 // @ts-ignore
                 data: lowerMinnehaha
             });
-            // add a line layer to visualize the route
             map.addLayer({
                 id: 'lower-minnehaha-line',
                 type: 'line',
@@ -109,7 +124,6 @@
                 // @ts-ignore
                 data: minnesota
             });
-            // add a line layer to visualize the route
             map.addLayer({
                 id: 'minnesota-line',
                 type: 'line',
