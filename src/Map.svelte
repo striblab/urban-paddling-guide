@@ -9,6 +9,7 @@
     import upperMinnehaha from './routes/upper_minnehaha.json';
     import lowerMinnehaha from './routes/lower_minnehaha.json';
     import minnesota from './routes/minnesota.json';
+    import lebanonHills from './routes/lebanon_hills.json';
     let mapContainer;
 
     onMount(() => {
@@ -128,6 +129,24 @@
                 id: 'minnesota-line',
                 type: 'line',
                 source: 'minnesota',
+                layout: {
+                    'line-join': 'round',
+                    'line-cap': 'round'
+                },
+                paint: {
+                    'line-color': '#EA8B8B',
+                    'line-width': 3
+                }
+            }, 'road_footway-case');
+            map.addSource('lebanon-hills', {
+                type: 'geojson',
+                // @ts-ignore
+                data: lebanonHills
+            });
+            map.addLayer({
+                id: 'lebanon-hills-line',
+                type: 'line',
+                source: 'lebanon-hills',
                 layout: {
                     'line-join': 'round',
                     'line-cap': 'round'
