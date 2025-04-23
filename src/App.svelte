@@ -93,6 +93,7 @@
                 tagFilter = tag;
             }}
         />
+        <Map />
         <div
             class="route-preview-wrapper md:flex flex-wrap w-[90%] justify-between mx-auto max-w-8xl"
         >
@@ -125,7 +126,6 @@
                 </a>
             {/each}
         </div>
-        <Map />
         <Credits wide={true} />
     {:else}
         <!--Todo: style loading thing-->
