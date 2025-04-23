@@ -6,7 +6,10 @@
     import upperMississippi from './routes/upper_mississippi.json'; 
     import mississippiGorge from './routes/mississippi_gorge.json';
     import lowerMississippi from './routes/lower_mississippi.json';
+    import upperMinnehaha from './routes/upper_minnehaha.json';
     import lowerMinnehaha from './routes/lower_minnehaha.json';
+    import minnesota from './routes/minnesota.json';
+    import lebanonHills from './routes/lebanon_hills.json';
     let mapContainer;
 
     onMount(() => {
@@ -32,7 +35,6 @@
                 // @ts-ignore
                 data: upperMississippi
             });
-            // add a line layer to visualize the route
             map.addLayer({
                 id: 'upper-mississippi-line',
                 type: 'line',
@@ -51,7 +53,6 @@
                 // @ts-ignore
                 data: mississippiGorge
             });
-            // add a line layer to visualize the route
             map.addLayer({
                 id: 'mississippi-gorge-line',
                 type: 'line',
@@ -70,11 +71,28 @@
                 // @ts-ignore
                 data: lowerMississippi
             });
-            // add a line layer to visualize the route
             map.addLayer({
                 id: 'lower-mississippi-line',
                 type: 'line',
                 source: 'lower-mississippi',
+                layout: {
+                    'line-join': 'round',
+                    'line-cap': 'round'
+                },
+                paint: {
+                    'line-color': '#EA8B8B',
+                    'line-width': 3
+                }
+            }, 'road_footway-case');
+            map.addSource('upper-minnehaha', {
+                type: 'geojson',
+                // @ts-ignore
+                data: upperMinnehaha
+            });
+            map.addLayer({
+                id: 'upper-minnehaha-line',
+                type: 'line',
+                source: 'upper-minnehaha',
                 layout: {
                     'line-join': 'round',
                     'line-cap': 'round'
@@ -89,11 +107,46 @@
                 // @ts-ignore
                 data: lowerMinnehaha
             });
-            // add a line layer to visualize the route
             map.addLayer({
                 id: 'lower-minnehaha-line',
                 type: 'line',
                 source: 'lower-minnehaha',
+                layout: {
+                    'line-join': 'round',
+                    'line-cap': 'round'
+                },
+                paint: {
+                    'line-color': '#EA8B8B',
+                    'line-width': 3
+                }
+            }, 'road_footway-case');
+            map.addSource('minnesota', {
+                type: 'geojson',
+                // @ts-ignore
+                data: minnesota
+            });
+            map.addLayer({
+                id: 'minnesota-line',
+                type: 'line',
+                source: 'minnesota',
+                layout: {
+                    'line-join': 'round',
+                    'line-cap': 'round'
+                },
+                paint: {
+                    'line-color': '#EA8B8B',
+                    'line-width': 3
+                }
+            }, 'road_footway-case');
+            map.addSource('lebanon-hills', {
+                type: 'geojson',
+                // @ts-ignore
+                data: lebanonHills
+            });
+            map.addLayer({
+                id: 'lebanon-hills-line',
+                type: 'line',
+                source: 'lebanon-hills',
                 layout: {
                     'line-join': 'round',
                     'line-cap': 'round'
