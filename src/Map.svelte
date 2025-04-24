@@ -10,6 +10,9 @@
     import lowerMinnehaha from './routes/lower_minnehaha.json';
     import minnesota from './routes/minnesota.json';
     import lebanonHills from './routes/lebanon_hills.json';
+    import mplsLakes from './routes/mpls_lakes.json';
+    import eastLakes from './routes/east_lakes.json';
+    
     let mapContainer;
 
     onMount(() => {
@@ -147,6 +150,42 @@
                 id: 'lebanon-hills-line',
                 type: 'line',
                 source: 'lebanon-hills',
+                layout: {
+                    'line-join': 'round',
+                    'line-cap': 'round'
+                },
+                paint: {
+                    'line-color': '#EA8B8B',
+                    'line-width': 3
+                }
+            }, 'road_footway-case');
+            map.addSource('mpls-lakes', {
+                type: 'geojson',
+                // @ts-ignore
+                data: mplsLakes
+            });
+            map.addLayer({
+                id: 'mpls-lakes-line',
+                type: 'line',
+                source: 'mpls-lakes',
+                layout: {
+                    'line-join': 'round',
+                    'line-cap': 'round'
+                },
+                paint: {
+                    'line-color': '#EA8B8B',
+                    'line-width': 3
+                }
+            }, 'road_footway-case');
+            map.addSource('east-lakes', {
+                type: 'geojson',
+                // @ts-ignore
+                data: eastLakes
+            });
+            map.addLayer({
+                id: 'east-lakes-line',
+                type: 'line',
+                source: 'east-lakes',
                 layout: {
                     'line-join': 'round',
                     'line-cap': 'round'
