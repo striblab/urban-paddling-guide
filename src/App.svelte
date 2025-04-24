@@ -8,17 +8,15 @@
 
     const slugify = (routeTitle) => routeTitle.toLowerCase().replace(/ /g, "-");
 
-
     let selectedRoute = $state("");
     let routesLoaded = $state(false);
     let routeData = $state([]);
     let photoData = $state([]);
     const slugs = $derived(routeData.map((r) => slugify(r.headline)));
     let topEl = $state(undefined);
-    let hashCount = $state(0)
+    let hashCount = $state(0);
     let tagFilter = $state("");
     let hash = $state(window.location.hash);
-
 
     const loadRoutes = async () => {
         const req = await fetch(
@@ -55,7 +53,9 @@
                 }
             } else {
                 selectedRoute = "";
-                if (hashCount > 1) {setTimeout(()=>topEl.scrollIntoView()),0}
+                if (hashCount > 1) {
+                    setTimeout(() => topEl.scrollIntoView()), 0;
+                }
             }
             tagFilter = "";
         }
@@ -83,16 +83,20 @@
                 )
             )}
         />
-        <RoutePageNav routes={routeData.filter((r) => r.headline !== selectedRoute)} />
+        <RoutePageNav
+            routes={routeData.filter((r) => r.headline !== selectedRoute)}
+        />
         <Credits />
     {:else if routesLoaded}
         <Hero />
         <div bind:this={topEl}></div>
 
         <div class="filters-sticky-wrapper relative">
-            <h4 class="font-publico-headline-medium md:text-[24px] text-[20px] w-[90%] mx-auto max-w-2xl text-center">
-                Click a route to read its detailed paddle guide, or use our filters to
-                narrow down the choice of routes.
+            <h4
+                class="font-publico-headline-medium md:text-[24px] text-[20px] w-[90%] mx-auto max-w-2xl text-center"
+            >
+                Click a route to read its detailed paddle guide, or use our
+                filters to narrow down the choice of routes.
             </h4>
             <Filters
                 filterByTag={(tag) => {
@@ -112,7 +116,9 @@
                             class="route-preview font-publico-headline-medium bg-white border rounded-xl border-[#05442e]"
                         >
                             <img
-                                src="https://ststatic.stimg.co/assets/outdoors/urban-paddling/hero/{route.heroImg}.jpg?w=600&h=400&fit=crop"
+                                src={route.heroImg
+                                    ? `https://ststatic.stimg.co/assets/outdoors/urban-paddling/hero/${route.heroImg}.jpg?w=600&h=400&fit=crop`
+                                    : "https://placehold.co/400x266"}
                                 alt={route.heroImgAltText}
                                 class="w-full"
                             />
