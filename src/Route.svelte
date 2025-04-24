@@ -10,6 +10,7 @@
         headline,
         heroImg,
         heroImgCredit,
+        heroImgAltText,
         subhead,
         tags,
         authors,
@@ -122,10 +123,22 @@
                 </p>
             </div>
         </div>
-        <picture class="hero-photo w-full mb-10 md:mb-12 md:max-w-full md:mx-auto relative">
-          <source media="(min-width:901px)" srcset="https://ststatic.stimg.co/assets/outdoors/urban-paddling/hero/{heroImg}.jpg?w=1500">
-          <source media="(max-width:900px)" srcset="https://ststatic.stimg.co/assets/outdoors/urban-paddling/hero/{heroImg}_vertical.jpg?w=900">
-          <img src="{heroImg}?fit=crop&crop=edges&w=1400&h=1000" class="w-full">
+        <picture
+            class="hero-photo w-full mb-10 md:mb-12 md:max-w-full md:mx-auto relative"
+        >
+            <source
+                media="(min-width:901px)"
+                srcset="https://ststatic.stimg.co/assets/outdoors/urban-paddling/hero/{heroImg}.jpg?w=1500"
+            />
+            <source
+                media="(max-width:900px)"
+                srcset="https://ststatic.stimg.co/assets/outdoors/urban-paddling/hero/{heroImg}_vertical.jpg?w=900"
+            />
+            <img
+                src="https://ststatic.stimg.co/assets/outdoors/urban-paddling/hero/{heroImg}.jpg?fit=crop&crop=edges&w=1400&h=1000"
+                class="w-full"
+                alt={heroImgAltText}
+            />
         </picture>
         <div class="headline-wrapper w-[90%] mx-auto max-w-2xl">
             <div class="byline font-graphik-regular text-[16px] mt-6 mb-6">
