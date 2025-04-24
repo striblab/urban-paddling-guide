@@ -1747,7 +1747,7 @@
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "#fff8d4",
+        "line-color": "rgba(255, 255, 255, 1)",
         "line-width": {"base": 1.4, "stops": [[6, 0.5], [20, 30]]}
       }
     },
@@ -2436,6 +2436,189 @@
       }
     },
     {
+      "id": "road-labels",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "transportation_name",
+      "minzoom": 10,
+      "filter": [
+        "any",
+        ["==", "class", "primary"],
+        ["==", "class", "secondary"],
+        ["==", "class", "trunk"],
+        ["==", "class", "tertiary"]
+      ],
+      "layout": {
+        "text-font": ["Graphik Compact Web Regular"],
+        "text-field": "{name}",
+        "text-size": 14,
+        "symbol-placement": "line",
+        "symbol-spacing": 400,
+        "text-rotation-alignment": "map",
+        "text-anchor": "center",
+        "text-max-angle": 30
+      },
+      "paint": {
+        "text-color": "#636466",
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 1
+      }
+    },
+    {
+      "id": "state-highway-labels",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "transportation_name",
+      "minzoom": 6,
+      "filter": ["all", ["==", "network", "us-state"]],
+      "layout": {
+        "icon-image": [
+          "case",
+          [
+            "<=",
+            ["length", ["coalesce", ["get", "route_2_ref"], ["get", "ref"]]],
+            2
+          ],
+          "road_1",
+          [
+            "<=",
+            ["length", ["coalesce", ["get", "route_2_ref"], ["get", "ref"]]],
+            3
+          ],
+          "road_2",
+          [
+            "<=",
+            ["length", ["coalesce", ["get", "route_2_ref"], ["get", "ref"]]],
+            4
+          ],
+          "road_3",
+          [
+            "<=",
+            ["length", ["coalesce", ["get", "route_2_ref"], ["get", "ref"]]],
+            5
+          ],
+          "road_4",
+          [
+            "<=",
+            ["length", ["coalesce", ["get", "route_2_ref"], ["get", "ref"]]],
+            6
+          ],
+          "road_5",
+          "road_6"
+        ],
+        "icon-size": 1.3,
+        "text-field": ["coalesce", ["get", "route_2_ref"], ["get", "ref"]],
+        "text-font": ["Graphik Compact Web Regular"],
+        "text-offset": [0, 0],
+        "text-anchor": "center",
+        "symbol-placement": "line",
+        "symbol-spacing": 600,
+        "icon-allow-overlap": false,
+        "text-allow-overlap": true,
+        "icon-rotation-alignment": "auto",
+        "text-rotation-alignment": "viewport",
+        "text-size": 11
+      },
+      "paint": {
+        "text-color": "#636466",
+        "text-halo-width": 1,
+        "text-halo-color": "rgba(255, 255, 255, 1)"
+      }
+    },
+    {
+      "id": "us-highway-labels",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "transportation_name",
+      "minzoom": 6,
+      "filter": ["all", ["==", "network", "us-highway"]],
+      "layout": {
+        "icon-image": [
+          "case",
+          ["<=", ["length", ["get", "ref"]], 2],
+          "us-highway_1",
+          ["<=", ["length", ["get", "ref"]], 3],
+          "us-highway_2",
+          "us-highway_3"
+        ],
+        "icon-size": 1.3,
+        "text-field": "{ref}",
+        "text-font": ["Graphik Compact Web Regular"],
+        "text-offset": [0, 0],
+        "text-anchor": "center",
+        "symbol-placement": "line",
+        "symbol-spacing": 600,
+        "icon-allow-overlap": false,
+        "text-allow-overlap": true,
+        "icon-rotation-alignment": "auto",
+        "text-rotation-alignment": "viewport",
+        "text-size": 11
+      },
+      "paint": {
+        "text-color": "#636466",
+        "text-halo-width": 1,
+        "text-halo-color": "rgba(255, 255, 255, 1)"
+      }
+    },
+    {
+      "id": "interstate-labels",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "transportation_name",
+      "minzoom": 6,
+      "filter": ["all", ["==", "network", "us-interstate"]],
+      "layout": {
+        "icon-image": [
+          "case",
+          ["<=", ["length", ["get", "ref"]], 2],
+          "us-interstate_1",
+          ["<=", ["length", ["get", "ref"]], 3],
+          "us-interstate_3",
+          "us-interstate_3"
+        ],
+        "icon-size": 1.3,
+        "text-field": "{ref}",
+        "text-font": ["Graphik Compact Web Regular"],
+        "text-offset": [0, 0],
+        "text-anchor": "center",
+        "symbol-placement": "line",
+        "symbol-spacing": 600,
+        "icon-allow-overlap": false,
+        "text-allow-overlap": true,
+        "icon-rotation-alignment": "auto",
+        "text-rotation-alignment": "viewport",
+        "text-size": 11
+      },
+      "paint": {
+        "text-color": "#636466",
+        "text-halo-width": 1,
+        "text-halo-color": "rgba(255, 255, 255, 1)"
+      }
+    },
+    {
+      "id": "park-labels",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "park",
+      "minzoom": 11,
+      "filter": ["all"],
+      "layout": {
+        "text-font": ["Graphik Compact Web Regular"],
+        "text-field": "{name}",
+        "text-size": 12,
+        "symbol-placement": "point",
+        "text-transform": "uppercase",
+        "symbol-z-order": "auto",
+        "text-letter-spacing": 0.1,
+        "text-padding": 70
+      },
+      "paint": {
+        "text-color": "#647D19\t",
+        "text-halo-color": "rgba(255, 255, 255, 1)",
+        "text-halo-width": 1
+      }
+    },
+    {
       "id": "place-names-village",
       "type": "symbol",
       "source": "openmaptiles",
@@ -2552,166 +2735,6 @@
         "symbol-avoid-edges": false
       },
       "paint": {"text-color": "rgba(0, 0, 0, 1)"}
-    },
-    {
-      "id": "state-highway-labels",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "transportation_name",
-      "minzoom": 6,
-      "filter": ["all", ["==", "network", "us-state"]],
-      "layout": {
-        "icon-image": [
-          "case",
-          [
-            "<=",
-            ["length", ["coalesce", ["get", "route_2_ref"], ["get", "ref"]]],
-            2
-          ],
-          "road_1",
-          [
-            "<=",
-            ["length", ["coalesce", ["get", "route_2_ref"], ["get", "ref"]]],
-            3
-          ],
-          "road_2",
-          [
-            "<=",
-            ["length", ["coalesce", ["get", "route_2_ref"], ["get", "ref"]]],
-            4
-          ],
-          "road_3",
-          [
-            "<=",
-            ["length", ["coalesce", ["get", "route_2_ref"], ["get", "ref"]]],
-            5
-          ],
-          "road_4",
-          [
-            "<=",
-            ["length", ["coalesce", ["get", "route_2_ref"], ["get", "ref"]]],
-            6
-          ],
-          "road_5",
-          "road_6"
-        ],
-        "icon-size": 1,
-        "text-field": ["coalesce", ["get", "route_2_ref"], ["get", "ref"]],
-        "text-font": ["Graphik Compact Web Regular"],
-        "text-offset": [0, 0],
-        "text-anchor": "center",
-        "symbol-placement": "line",
-        "symbol-spacing": 600,
-        "icon-allow-overlap": false,
-        "text-allow-overlap": true,
-        "icon-rotation-alignment": "auto",
-        "text-rotation-alignment": "viewport",
-        "text-size": 9
-      },
-      "paint": {
-        "text-color": "#636466",
-        "text-halo-width": 1,
-        "text-halo-color": "rgba(255, 255, 255, 1)"
-      }
-    },
-    {
-      "id": "us-highway-labels",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "transportation_name",
-      "minzoom": 6,
-      "filter": ["all", ["==", "network", "us-highway"]],
-      "layout": {
-        "icon-image": [
-          "case",
-          ["<=", ["length", ["get", "ref"]], 2],
-          "us-highway_1",
-          ["<=", ["length", ["get", "ref"]], 3],
-          "us-highway_2",
-          "us-highway_3"
-        ],
-        "icon-size": 1,
-        "text-field": "{ref}",
-        "text-font": ["Graphik Compact Web Regular"],
-        "text-offset": [0, 0],
-        "text-anchor": "center",
-        "symbol-placement": "line",
-        "symbol-spacing": 600,
-        "icon-allow-overlap": false,
-        "text-allow-overlap": true,
-        "icon-rotation-alignment": "auto",
-        "text-rotation-alignment": "viewport",
-        "text-size": 9
-      },
-      "paint": {
-        "text-color": "#636466",
-        "text-halo-width": 1,
-        "text-halo-color": "rgba(255, 255, 255, 1)"
-      }
-    },
-    {
-      "id": "interstate-labels",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "transportation_name",
-      "minzoom": 6,
-      "filter": ["all", ["==", "network", "us-interstate"]],
-      "layout": {
-        "icon-image": [
-          "case",
-          ["<=", ["length", ["get", "ref"]], 2],
-          "us-interstate_1",
-          ["<=", ["length", ["get", "ref"]], 3],
-          "us-interstate_3",
-          "us-interstate_3"
-        ],
-        "icon-size": 1,
-        "text-field": "{ref}",
-        "text-font": ["Graphik Compact Web Regular"],
-        "text-offset": [0, 0],
-        "text-anchor": "center",
-        "symbol-placement": "line",
-        "symbol-spacing": 600,
-        "icon-allow-overlap": false,
-        "text-allow-overlap": true,
-        "icon-rotation-alignment": "auto",
-        "text-rotation-alignment": "viewport",
-        "text-size": 9
-      },
-      "paint": {
-        "text-color": "#636466",
-        "text-halo-width": 1,
-        "text-halo-color": "rgba(255, 255, 255, 1)"
-      }
-    },
-    {
-      "id": "road-labels",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "transportation_name",
-      "minzoom": 10,
-      "filter": [
-        "any",
-        ["==", "class", "primary"],
-        ["==", "class", "secondary"],
-        ["==", "class", "trunk"],
-        ["==", "class", "tertiary"]
-      ],
-      "layout": {
-        "text-font": ["Graphik Compact Web Regular"],
-        "text-field": "{name}",
-        "text-size": 14,
-        "symbol-placement": "line",
-        "symbol-spacing": 400,
-        "text-rotation-alignment": "map",
-        "text-anchor": "center",
-        "text-max-angle": 30
-      },
-      "paint": {
-        "text-color": "#636466",
-        "text-halo-color": "#ffffff",
-        "text-halo-width": 1
-      }
     }
   ],
   "id": "ciwf3o3u2008z2pmq7pmvm6xq"
