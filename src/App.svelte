@@ -4,6 +4,7 @@
     import Credits from "./Credits.svelte";
     import Filters from "./Filters.svelte";
     import RoutePageNav from "./RoutePageNav.svelte";
+    import Map from "./Map.svelte";
 
     const slugify = (routeTitle) => routeTitle.toLowerCase().replace(/ /g, "-");
 
@@ -87,42 +88,48 @@
     {:else if routesLoaded}
         <Hero />
         <div bind:this={topEl}></div>
-        <Filters
-            filterByTag={(tag) => {
-                tagFilter = tag;
-            }}
-        />
-        <div
-            class="route-preview-wrapper md:flex flex-wrap w-[90%] justify-between mx-auto max-w-8xl"
-        >
-            {#each routeData.filter( (r) => (tagFilter ? r.tags.includes(tagFilter) : true) ) as route}
-                <a
-                    href="#/{slugify(route.headline)}"
-                    class="block md:w-[49%] lg:w-[32%] mb-8"
-                >
-                    <div
-                        class="route-preview font-publico-banner-black bg-white border rounded-xl border-[#05442e]"
+
+        <div class="filters-sticky-wrapper relative">
+            <h4 class="font-publico-headline-medium md:text-[24px] text-[20px] w-[90%] mx-auto max-w-2xl text-center">
+                Click a route to read its detailed paddle guide, or use our filters to
+                narrow down the choice of routes.
+            </h4>
+            <Filters
+                filterByTag={(tag) => {
+                    tagFilter = tag;
+                }}
+            />
+            <Map />
+            <div
+                class="route-preview-wrapper md:flex flex-wrap w-[90%] justify-between mx-auto max-w-7xl"
+            >
+                {#each routeData.filter( (r) => (tagFilter ? r.tags.includes(tagFilter) : true) ) as route}
+                    <a
+                        href="#/{slugify(route.headline)}"
+                        class="block md:w-[49%] lg:w-[32%] mb-8"
                     >
-                        <img
-                            src={route.heroImg
-                                ? `${route.heroImg}?w=600&h=400&fit=crop`
-                                : "https://placehold.co/600x400"}
-                            alt={route.heroImgAltText}
-                            class="w-full"
-                        />
-                        <div class="text-wrapper p-6">
-                            <h3 class="text-[28px] md:text-[32px] mb-2">
-                                {route.headline}
-                            </h3>
-                            <h5
-                                class="text-[13px] uppercase font-graphik-regular tracking-widest"
-                            >
-                                {route.subhead}
-                            </h5>
+                        <div
+                            class="route-preview font-publico-headline-medium bg-white border rounded-xl border-[#05442e]"
+                        >
+                            <img
+                                src="https://ststatic.stimg.co/assets/outdoors/urban-paddling/hero/{route.heroImg}.jpg?w=600&h=400&fit=crop"
+                                alt={route.heroImgAltText}
+                                class="w-full"
+                            />
+                            <div class="text-wrapper p-6">
+                                <h3 class="text-[24px] md:text-[28px] mb-2">
+                                    {route.headline}
+                                </h3>
+                                <h5
+                                    class="text-[12px] uppercase font-graphik-regular tracking-widest"
+                                >
+                                    {route.subhead}
+                                </h5>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            {/each}
+                    </a>
+                {/each}
+            </div>
         </div>
         <Credits wide={true} />
     {:else}
@@ -149,9 +156,9 @@
     div.route-preview-wrapper a:last-child {
         margin-left: 2%;
     }
-    @media only screen and (max-width: 1023px) {
+    /*@media only screen and (max-width: 1023px) {
         div.route-preview-wrapper a:last-child {
             margin-left: 0%;
         }
-    }
+    }*/
 </style>

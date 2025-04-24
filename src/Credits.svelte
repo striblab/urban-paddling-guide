@@ -2,7 +2,7 @@
     let {wide=false} = $props();
 </script>
 
-<div class="md:w-[90%] w-full mx-auto {wide ? '' : 'max-w-2xl'}">
+<div class="w-[90%] mx-auto {wide ? '' : 'max-w-2xl'}">
     <div class="credits mx-auto pb-12 pt-12 mt-12 border-t border-[#05442e]">
         <div class="max-w-2xl">
             <h5 class="uppercase font-graphik-bold text-bold mb-2 text-[12px] md:text-[14px] tracking-widest">Credits</h5>

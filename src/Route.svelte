@@ -53,14 +53,14 @@
 </script>
 
 {#key newPage}
-    <div class="pt-5 md:p-0" bind:this={topElement}>
+    <div class="pt-12 md:pt-8" bind:this={topElement}>
         <button
-            class="md:absolute md:top-[15px] md:right-[25px] block p-2 px-4 mb-1 mx-auto text-[#05442e] hover:text-[#fffbf4] bg-[#fffbf4] hover:bg-[#05442e] rounded-2xl border-[#05442e] border uppercase font-graphik-medium tracking-widest text-[12px] md:text-[14px]"
+            class="block mb-1 mx-auto text-[#05442e] hover:opacity-50 border-[#05442e] border-b uppercase font-graphik-medium tracking-widest text-[12px] md:text-[14px] transition duration-500"
             onclick={() => {
                 window.location.hash = "#";
             }}
         >
-            Back to all routes 🛶
+            Back to all routes
         </button>
     </div>
 
@@ -69,7 +69,7 @@
             class="headline-wrapper text-left md:text-center w-[90%] mx-auto max-w-2xl pt-[3vh] md:pt-[10vh]"
         >
             <h1
-                class="font-publico-headline-black text-[35px] md:text-[50px] mb-4"
+                class="font-publico-headline-medium text-[35px] md:text-[50px] mb-4"
             >
                 {headline}
             </h1>
@@ -122,11 +122,11 @@
                 </p>
             </div>
         </div>
-
-        <div
-            class="hero-photo w-full h-[100vh] mb-8 md:mb-12 md:max-w-full md:h-screen md:mx-auto relative"
-            style="background: url({heroImg}); background-size: cover;background-position: 50% 100%;"
-        ></div>
+        <picture class="hero-photo w-full mb-10 md:mb-12 md:max-w-full md:mx-auto relative">
+          <source media="(min-width:901px)" srcset="https://ststatic.stimg.co/assets/outdoors/urban-paddling/hero/{heroImg}.jpg?w=1500">
+          <source media="(max-width:900px)" srcset="https://ststatic.stimg.co/assets/outdoors/urban-paddling/hero/{heroImg}_vertical.jpg?w=900">
+          <img src="{heroImg}?fit=crop&crop=edges&w=1400&h=1000" class="w-full">
+        </picture>
         <div class="headline-wrapper w-[90%] mx-auto max-w-2xl">
             <div class="byline font-graphik-regular text-[16px] mt-6 mb-6">
                 <p class="byline block md:hidden">
@@ -148,11 +148,7 @@
                         <span class="font-graphik-semibold"
                             >{heroImgCredit}</span
                         > •
-                    </span><span class="inline-block"
-                        >Map by <span class="font-graphik-semibold"
-                            >{mapCredit}</span
-                        ></span
-                    >
+                    </span>
                 </p>
             </div>
 
@@ -313,7 +309,7 @@
             class="know-before flex-module w-[90%] mx-auto max-w-2xl md:flex border-[#05442e] py-6 my-4 flex-wrap"
         >
             <h5
-                class="font-publico-headline-black text-[22px] md:text-[25px] mb-4 w-full"
+                class="font-publico-headline-medium text-[22px] md:text-[25px] mb-4 w-full"
             >
                 Know before you go
             </h5>
