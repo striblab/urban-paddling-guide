@@ -26,6 +26,7 @@
     let hoverWidth = 4;
 
     let popupLookup = {};
+    let selectedMeta = null;
 
     $: if (routeData.length) {
         const fileSlugs = [
@@ -368,37 +369,36 @@
                 if (!e.features?.length) return;
                 const feature = e.features[0];
                 const geom = feature.geometry;
-                let coords: [number, number];
-                // handle LineString and MultiLineString geometries
+                // determine midpoint of the route coordinates
+                let coords;
+                let coordsList;
                 if (geom.type === "LineString") {
-                    const [lng, lat] = geom.coordinates[0];
-                    coords = [lng, lat];
+                    coordsList = geom.coordinates;
                 } else if (geom.type === "MultiLineString") {
-                    const [lng, lat] = geom.coordinates[0][0];
-                    coords = [lng, lat];
+                    coordsList = geom.coordinates.flat();
                 } else {
-                    // fallback to event location
-                    coords = [e.lngLat.lng, e.lngLat.lat];
+                    coordsList = [[e.lngLat.lng, e.lngLat.lat]];
                 }
+                const midIndex = Math.floor(coordsList.length / 2);
+                coords = coordsList[midIndex];
 
-                const container = document.createElement("div");
+                // fit map to show entire route
+                const allCoords = geom.type === "LineString"
+                  ? geom.coordinates
+                  : geom.type === "MultiLineString"
+                    ? geom.coordinates.flat()
+                    : [coords];
+                const lons = allCoords.map(c => c[0]);
+                const lats = allCoords.map(c => c[1]);
+                let bounds: [[number, number], [number, number]];
+                bounds = [
+                  [Math.min(...lons), Math.min(...lats)],
+                  [Math.max(...lons), Math.max(...lats)]
+                ];
+                map.fitBounds(bounds, { padding: 200, linear: true });
 
-                mount(PopupCard, {
-                    target: container,
-                    props: {
-                        headline: meta.headline,
-                        subhead: meta.subhead,
-                        heroImg: meta.heroImg,
-                        heroImgAltText: meta.heroImgAltText,
-                    },
-                });
-
-                map.flyTo({ center: coords, essential: true });
-
-                currentPopup = new maplibregl.Popup({ className: 'route-popup', closeButton: true })
-                    .setLngLat(coords)
-                    .setDOMContent(container)
-                    .addTo(map);
+                // show sidebar popup
+                selectedMeta = meta;
             });
         });
 
@@ -417,6 +417,7 @@
                     map.setPaintProperty(activeRoute, "line-width", lineWidth);
                     activeRoute = null;
                 }
+                selectedMeta = null;
             }
         });
 
@@ -426,10 +427,22 @@
     });
 </script>
 
-<div
-    bind:this={mapContainer}
-    class="map-container mx-auto h-[80vh] w-[90%] max-w-7xl mb-20 relative"
-></div>
+<div class="relative mx-auto h-[80vh] w-[90%] max-w-7xl mb-20">
+  <!-- map canvas -->
+  <div bind:this={mapContainer} class="h-full w-full"></div>
+
+  <!-- overlay popup -->
+  {#if selectedMeta}
+    <div class="absolute bottom-0 right-0 w-1/3 max-h-[80vh] overflow-auto z-50 p-4">
+      <PopupCard
+        headline={selectedMeta.headline}
+        subhead={selectedMeta.subhead}
+        heroImg={selectedMeta.heroImg}
+        heroImgAltText={selectedMeta.heroImgAltText}
+      />
+    </div>
+  {/if}
+</div>
 
 <style>
   /* let the inner card define all popup styles */
