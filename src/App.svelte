@@ -103,7 +103,7 @@
                     tagFilter = tag;
                 }}
             />
-            <Map />
+            <Map {routeData} />
             <div
                 class="route-preview-wrapper md:flex flex-wrap w-[90%] justify-between mx-auto max-w-7xl"
             >
