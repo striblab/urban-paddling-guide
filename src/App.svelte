@@ -112,9 +112,7 @@
                             class="route-preview font-publico-headline-medium bg-white border rounded-xl border-[#05442e]"
                         >
                             <img
-                                src={route.heroImg
-                                    ? `${route.heroImg}?w=600&h=400&fit=crop`
-                                    : "https://placehold.co/600x400"}
+                                src="https://ststatic.stimg.co/assets/outdoors/urban-paddling/hero/{route.heroImg}.jpg?w=600&h=400&fit=crop"
                                 alt={route.heroImgAltText}
                                 class="w-full"
                             />
