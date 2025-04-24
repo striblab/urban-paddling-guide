@@ -12,6 +12,8 @@
     import lebanonHills from './routes/lebanon_hills.json';
     import mplsLakes from './routes/mpls_lakes.json';
     import eastLakes from './routes/east_lakes.json';
+    import upperRice from './routes/upper_rice.json';
+    import lowerRice from './routes/lower_rice.json';
     
     let mapContainer;
 
@@ -22,6 +24,7 @@
             style: basemap,
             center: [-93.2650, 44.98], // Minneapolis
             zoom: 9.75,
+            cooperativeGestures: true,
             minZoom: 9.75,
             maxZoom: 14.75,
             maxBounds: [
@@ -195,30 +198,46 @@
                     'line-width': 3
                 }
             }, 'road_footway-case');
+            map.addSource('upper-rice', {
+                type: 'geojson',
+                // @ts-ignore
+                data: upperRice
+            });
+            map.addLayer({
+                id: 'upper-rice-line',
+                type: 'line',
+                source: 'upper-rice',
+                layout: {
+                    'line-join': 'round',
+                    'line-cap': 'round'
+                },
+                paint: {
+                    'line-color': '#EA8B8B',
+                    'line-width': 3
+                }
+            }, 'road_footway-case');
+            map.addSource('lower-rice', {
+                type: 'geojson',
+                // @ts-ignore
+                data: lowerRice
+            });
+            map.addLayer({
+                id: 'lower-rice-line',
+                type: 'line',
+                source: 'lower-rice',
+                layout: {
+                    'line-join': 'round',
+                    'line-cap': 'round'
+                },
+                paint: {
+                    'line-color': '#EA8B8B',
+                    'line-width': 3
+                }
+            }, 'road_footway-case');
         });
-
-        // disable scroll zoom by default
-        map.scrollZoom.disable();
-
-        // detect Mac vs Windows for modifier key
-        const isMac = /Mac|iPod|iPhone|iPad/.test(navigator.platform);
-
-        // control scroll zoom per wheel event instead of toggle handlers
-        const canvas = map.getCanvas();
-        const wheelHandler = (event) => {
-          const isModifierPressed = isMac ? event.metaKey : event.ctrlKey;
-          if (isModifierPressed) {
-            map.scrollZoom.enable();
-          } else {
-            map.scrollZoom.disable();
-          }
-        }
-
-        canvas.addEventListener('wheel', wheelHandler, { passive: false });
 
         return () => {
             map.remove();
-            canvas.removeEventListener('wheel', wheelHandler);
         }; // cleanup on destroy
 
     });
