@@ -1,7 +1,7 @@
 <script lang="ts">
-    export let routeData = [];
 
     import PopupCard from "./PopupCard.svelte";
+    export let routeData: any[] = [];
     import { isMobile } from "./stores.js";
     import { onMount } from "svelte";
     import maplibregl from "maplibre-gl";
@@ -19,7 +19,28 @@
     import upperRice from "./routes/upper_rice.json";
     import lowerRice from "./routes/lower_rice.json";
 
+    // routeConfigs: list of route slugs and corresponding GeoJSON data
+    const routeConfigs = [
+        { slug: "upper-mississippi", data: upperMississippi },
+        { slug: "mississippi-gorge", data: mississippiGorge },
+        { slug: "lower-mississippi", data: lowerMississippi },
+        { slug: "upper-minnehaha", data: upperMinnehaha },
+        { slug: "lower-minnehaha", data: lowerMinnehaha },
+        { slug: "minnesota", data: minnesota },
+        { slug: "lebanon-hills", data: lebanonHills },
+        { slug: "mpls-lakes", data: mplsLakes },
+        { slug: "east-lakes", data: eastLakes },
+        { slug: "upper-rice", data: upperRice },
+        { slug: "lower-rice", data: lowerRice },
+    ];
+
+    // slugs: route slugs
+    // hitLayerIds: IDs for invisible hit-test line layers
+    const slugs = routeConfigs.map((c) => c.slug);
+    const hitLayerIds = slugs.map((s) => `${s}-line-hit`);
+
     let mapContainer;
+
     let lineColor = "#EA8B8B";
     let lineWidth = 3;
     let hoverColor = "#E36363";
@@ -28,47 +49,38 @@
     let zoomLevel;
     let minZoomValue;
 
+    // Popup state: lookup maps layer IDs to metadata, selectedMeta holds current popup content
     let popupLookup = {};
     let selectedMeta = null;
 
+    // Initial map center and zoom configuration
     const initialView = {
         center: [-93.265, 44.98] as [number, number],
         zoom: 9.75,
     };
     const mobileZoom = 5;
 
+    // Update zoomLevel and minZoomValue whenever isMobile changes
     $: zoomLevel = $isMobile ? mobileZoom : initialView.zoom;
     $: minZoomValue = zoomLevel;
 
     let map;
 
+    // Build popupLookup from routeData once routeData is available
     $: if (routeData.length) {
-        const fileSlugs = [
-            "upper-mississippi",
-            "mississippi-gorge",
-            "lower-mississippi",
-            "upper-minnehaha",
-            "lower-minnehaha",
-            "minnesota",
-            "lebanon-hills",
-            "mpls-lakes",
-            "east-lakes",
-            "upper-rice",
-            "lower-rice",
-        ];
-
         popupLookup = Object.fromEntries(
-            fileSlugs
-                .map((slug) => {
+            routeConfigs
+                .map(({ slug }) => {
                     const layerId = `${slug}-line`;
                     const key =
+                        // Gotta handle Mpls Lakes differently for some reason
                         slug === "mpls-lakes"
                             ? "minneapolis_lakes"
                             : slug.replace(/-/g, "_");
                     const meta = routeData.find((r) => r.mapUrl.includes(key));
                     return [layerId, meta];
                 })
-                .filter(([, meta]) => meta),
+                .filter(([, m]) => m),
         );
     }
 
@@ -87,268 +99,34 @@
                 [-92.7, 45.3], // Northeast coordinates
             ],
         });
-        // ensure canvas matches container on initial mobile mount
         map.resize();
+        // Resize canvas to match container dimensions (fixes mobile sizing)
 
+        // Track currently active route and popup instance
         let activeRoute = null;
         let currentPopup = null;
 
         map.addControl(new maplibregl.NavigationControl(), "bottom-left");
 
-        // add the route layers to the map
         map.on("load", () => {
-            map.addSource("upper-mississippi", {
-                type: "geojson",
-                // @ts-ignore
-                data: upperMississippi,
-            });
-            map.addLayer(
-                {
-                    id: "upper-mississippi-line",
+            routeConfigs.forEach(({ slug, data }) => {
+                map.addSource(slug, { type: "geojson", data });
+                map.addLayer({
+                    id: `${slug}-line`,
                     type: "line",
-                    source: "upper-mississippi",
-                    layout: {
-                        "line-join": "round",
-                        "line-cap": "round",
-                    },
-                    paint: {
-                        "line-color": lineColor,
-                        "line-width": lineWidth,
-                    },
-                },
-                "road_footway-case",
-            );
-            map.addSource("mississippi-gorge", {
-                type: "geojson",
-                // @ts-ignore
-                data: mississippiGorge,
+                    source: slug,
+                    layout: { "line-join": "round", "line-cap": "round" },
+                    paint: { "line-color": lineColor, "line-width": lineWidth },
+                });
             });
-            map.addLayer(
-                {
-                    id: "mississippi-gorge-line",
-                    type: "line",
-                    source: "mississippi-gorge",
-                    layout: {
-                        "line-join": "round",
-                        "line-cap": "round",
-                    },
-                    paint: {
-                        "line-color": lineColor,
-                        "line-width": lineWidth,
-                    },
-                },
-                "road_footway-case",
-            );
-            map.addSource("lower-mississippi", {
-                type: "geojson",
-                // @ts-ignore
-                data: lowerMississippi,
-            });
-            map.addLayer(
-                {
-                    id: "lower-mississippi-line",
-                    type: "line",
-                    source: "lower-mississippi",
-                    layout: {
-                        "line-join": "round",
-                        "line-cap": "round",
-                    },
-                    paint: {
-                        "line-color": lineColor,
-                        "line-width": lineWidth,
-                    },
-                },
-                "road_footway-case",
-            );
-            map.addSource("upper-minnehaha", {
-                type: "geojson",
-                // @ts-ignore
-                data: upperMinnehaha,
-            });
-            map.addLayer(
-                {
-                    id: "upper-minnehaha-line",
-                    type: "line",
-                    source: "upper-minnehaha",
-                    layout: {
-                        "line-join": "round",
-                        "line-cap": "round",
-                    },
-                    paint: {
-                        "line-color": lineColor,
-                        "line-width": lineWidth,
-                    },
-                },
-                "road_footway-case",
-            );
-            map.addSource("lower-minnehaha", {
-                type: "geojson",
-                // @ts-ignore
-                data: lowerMinnehaha,
-            });
-            map.addLayer(
-                {
-                    id: "lower-minnehaha-line",
-                    type: "line",
-                    source: "lower-minnehaha",
-                    layout: {
-                        "line-join": "round",
-                        "line-cap": "round",
-                    },
-                    paint: {
-                        "line-color": lineColor,
-                        "line-width": lineWidth,
-                    },
-                },
-                "road_footway-case",
-            );
-            map.addSource("minnesota", {
-                type: "geojson",
-                // @ts-ignore
-                data: minnesota,
-            });
-            map.addLayer(
-                {
-                    id: "minnesota-line",
-                    type: "line",
-                    source: "minnesota",
-                    layout: {
-                        "line-join": "round",
-                        "line-cap": "round",
-                    },
-                    paint: {
-                        "line-color": lineColor,
-                        "line-width": lineWidth,
-                    },
-                },
-                "road_footway-case",
-            );
-            map.addSource("lebanon-hills", {
-                type: "geojson",
-                // @ts-ignore
-                data: lebanonHills,
-            });
-            map.addLayer(
-                {
-                    id: "lebanon-hills-line",
-                    type: "line",
-                    source: "lebanon-hills",
-                    layout: {
-                        "line-join": "round",
-                        "line-cap": "round",
-                    },
-                    paint: {
-                        "line-color": lineColor,
-                        "line-width": lineWidth,
-                    },
-                },
-                "road_footway-case",
-            );
-            map.addSource("mpls-lakes", {
-                type: "geojson",
-                // @ts-ignore
-                data: mplsLakes,
-            });
-            map.addLayer(
-                {
-                    id: "mpls-lakes-line",
-                    type: "line",
-                    source: "mpls-lakes",
-                    layout: {
-                        "line-join": "round",
-                        "line-cap": "round",
-                    },
-                    paint: {
-                        "line-color": lineColor,
-                        "line-width": lineWidth,
-                    },
-                },
-                "road_footway-case",
-            );
-            map.addSource("east-lakes", {
-                type: "geojson",
-                // @ts-ignore
-                data: eastLakes,
-            });
-            map.addLayer(
-                {
-                    id: "east-lakes-line",
-                    type: "line",
-                    source: "east-lakes",
-                    layout: {
-                        "line-join": "round",
-                        "line-cap": "round",
-                    },
-                    paint: {
-                        "line-color": lineColor,
-                        "line-width": lineWidth,
-                    },
-                },
-                "road_footway-case",
-            );
-            map.addSource("upper-rice", {
-                type: "geojson",
-                // @ts-ignore
-                data: upperRice,
-            });
-            map.addLayer(
-                {
-                    id: "upper-rice-line",
-                    type: "line",
-                    source: "upper-rice",
-                    layout: {
-                        "line-join": "round",
-                        "line-cap": "round",
-                    },
-                    paint: {
-                        "line-color": lineColor,
-                        "line-width": lineWidth,
-                    },
-                },
-                "road_footway-case",
-            );
-            map.addSource("lower-rice", {
-                type: "geojson",
-                // @ts-ignore
-                data: lowerRice,
-            });
-            map.addLayer(
-                {
-                    id: "lower-rice-line",
-                    type: "line",
-                    source: "lower-rice",
-                    layout: {
-                        "line-join": "round",
-                        "line-cap": "round",
-                    },
-                    paint: {
-                        "line-color": lineColor,
-                        "line-width": lineWidth,
-                    },
-                },
-                "road_footway-case",
-            );
 
-            // This is the only way I could figure out how to draw a square I'm sorry Tom
+            // Load square icon and add start/end point symbol layers for each route
             const squareImg = new Image();
             squareImg.onload = () => {
                 map.addImage("square", squareImg, { sdf: false });
-                const sourceData = {
-                    "upper-mississippi": upperMississippi,
-                    "mississippi-gorge": mississippiGorge,
-                    "lower-mississippi": lowerMississippi,
-                    "upper-minnehaha": upperMinnehaha,
-                    "lower-minnehaha": lowerMinnehaha,
-                    minnesota: minnesota,
-                    "lebanon-hills": lebanonHills,
-                    "mpls-lakes": mplsLakes,
-                    "east-lakes": eastLakes,
-                    "upper-rice": upperRice,
-                    "lower-rice": lowerRice,
-                };
-                Object.entries(sourceData).forEach(([slug, geojson]) => {
-                    const coords = geojson.features[0].geometry.coordinates;
-                    const features = [
+                routeConfigs.forEach(({ slug, data }) => {
+                    const coords = data.features[0].geometry.coordinates;
+                    const points = [
                         {
                             type: "Feature",
                             geometry: { type: "Point", coordinates: coords[0] },
@@ -363,7 +141,7 @@
                     ];
                     map.addSource(`${slug}-points`, {
                         type: "geojson",
-                        data: { type: "FeatureCollection", features },
+                        data: { type: "FeatureCollection", features: points },
                     });
                     map.addLayer({
                         id: `${slug}-points`,
@@ -376,91 +154,73 @@
                         },
                     });
                 });
+
+                // Add invisible, wider line layers for hit-testing click/tap events
+                slugs.forEach((slug) => {
+                    map.addLayer({
+                        id: `${slug}-line-hit`,
+                        type: "line",
+                        source: slug,
+                        layout: { "line-join": "round", "line-cap": "round" },
+                        paint: {
+                            "line-color": "#000",
+                            "line-width": lineWidth + 12,
+                            "line-opacity": 0,
+                        },
+                    });
+                });
             };
             squareImg.src =
                 'data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"><rect width="12" height="12" fill="%23282828"/></svg>';
-            // ensure layers render correctly immediately after adding
             map.resize();
+            // Ensure all new layers render correctly after load
         });
 
-        const routes = [
-            "upper-mississippi-line",
-            "mississippi-gorge-line",
-            "lower-mississippi-line",
-            "upper-minnehaha-line",
-            "lower-minnehaha-line",
-            "minnesota-line",
-            "lebanon-hills-line",
-            "mpls-lakes-line",
-            "east-lakes-line",
-            "upper-rice-line",
-            "lower-rice-line",
-        ];
-
-        //change cursor and highlight route on hover
-        routes.forEach((layerId) => {
-            // when the cursor enters the layer’s area
+        //change cursor and highlight route on hover (use hit layers)
+        hitLayerIds.forEach((layerId) => {
             map.on("mouseenter", layerId, () => {
-                if (activeRoute === layerId) return;
-                // change cursor so it’s obvious it’s interactive
+                const realLayer = layerId.replace("-hit", "");
+                if (activeRoute === realLayer) return;
                 map.getCanvas().style.cursor = "pointer";
-                // swap to your hover color
-                map.setPaintProperty(layerId, "line-color", hoverColor);
-                // (optionally bump width)
-                map.setPaintProperty(layerId, "line-width", hoverWidth);
+                map.setPaintProperty(realLayer, "line-color", hoverColor);
+                map.setPaintProperty(realLayer, "line-width", hoverWidth);
             });
-
-            // when the cursor leaves
             map.on("mouseleave", layerId, () => {
-                // if this layer is selected, do not reset on mouse leave
-                if (activeRoute === layerId) return;
+                const realLayer = layerId.replace("-hit", "");
+                if (activeRoute === realLayer) return;
                 map.getCanvas().style.cursor = "";
-                map.setPaintProperty(layerId, "line-color", lineColor);
-                map.setPaintProperty(layerId, "line-width", lineWidth);
+                map.setPaintProperty(realLayer, "line-color", lineColor);
+                map.setPaintProperty(realLayer, "line-width", lineWidth);
             });
         });
 
-        // click to open popup on each route layer
-        routes.forEach((layerId) => {
+        // click to open popup on each hit layer
+        hitLayerIds.forEach((layerId) => {
             map.on("click", layerId, (e) => {
-                const meta = popupLookup[layerId];
+                const realLayer = layerId.replace("-hit", "");
+                const meta = popupLookup[realLayer];
                 if (!meta) return;
-                // remove existing popup and reset previous highlight
                 if (currentPopup) {
                     currentPopup.remove();
                 }
-                if (activeRoute && activeRoute !== layerId) {
+                if (activeRoute && activeRoute !== realLayer) {
                     map.setPaintProperty(activeRoute, "line-color", lineColor);
                     map.setPaintProperty(activeRoute, "line-width", lineWidth);
                 }
-                // set new active route and apply hover style
-                activeRoute = layerId;
-                map.setPaintProperty(layerId, "line-color", hoverColor);
-                map.setPaintProperty(layerId, "line-width", hoverWidth);
+                activeRoute = realLayer;
+                map.setPaintProperty(realLayer, "line-color", hoverColor);
+                map.setPaintProperty(realLayer, "line-width", hoverWidth);
 
                 if (!e.features?.length) return;
                 const feature = e.features[0];
                 const geom = feature.geometry;
-                // determine midpoint of the route coordinates
-                let coords;
-                let coordsList;
-                if (geom.type === "LineString") {
-                    coordsList = geom.coordinates;
-                } else if (geom.type === "MultiLineString") {
-                    coordsList = geom.coordinates.flat();
-                } else {
-                    coordsList = [[e.lngLat.lng, e.lngLat.lat]];
-                }
-                const midIndex = Math.floor(coordsList.length / 2);
-                coords = coordsList[midIndex];
-
-                // fit map to show entire route
+                // fit map to show entire route when selected
                 const allCoords =
                     geom.type === "LineString"
                         ? geom.coordinates
                         : geom.type === "MultiLineString"
                           ? geom.coordinates.flat()
-                          : [coords];
+                          : [[e.lngLat.lng, e.lngLat.lat]];
                 const lons = allCoords.map((c) => c[0]);
                 const lats = allCoords.map((c) => c[1]);
                 let bounds: [[number, number], [number, number]];
@@ -479,7 +239,8 @@
 
         // click outside any route: close popup and clear highlight
         map.on("click", (e) => {
-            const existingLayers = routes.filter((layerId) =>
+            // update to use hitLayerIds for click-outside detection
+            const existingLayers = hitLayerIds.filter((layerId) =>
                 map.getLayer(layerId),
             );
             if (existingLayers.length === 0) return;
@@ -505,10 +266,10 @@
                 selectedMeta = null;
             }
         });
+        // Add window resize listener to update map canvas size dynamically
         const onResize = () => map.resize();
         window.addEventListener("resize", onResize);
 
-        // cleanup on destroy
         return () => {
             window.removeEventListener("resize", onResize);
             map.remove();
@@ -523,10 +284,9 @@
 </script>
 
 <div class="relative mx-auto h-[80vh] w-[90%] max-w-7xl mb-20">
-    <!-- map canvas -->
     <div bind:this={mapContainer} class="h-full w-full"></div>
 
-    <!-- overlay popup -->
+    <!-- Popup Overlay -->
     {#if selectedMeta}
         <div
             class="absolute top-0 left-0 w-full max-h-[80vh] overflow-auto z-50 px-4 py-2
@@ -540,6 +300,7 @@
             />
         </div>
     {/if}
+    <!-- Reset View Button -->
     <button
         class="font-utility-button-02 text-[#434343] absolute bottom-2.5 left-12 bg-white/95 px-3 py-2 shadow-[0_1px_4px_rgba(0,0,0,0.3)] rounded-md z-50 text-sm hover:bg-gray-100"
         on:click={() =>
@@ -553,6 +314,7 @@
     </button>
 </div>
 
+<!-- Popup Overrides -->
 <style>
     /* let the inner card define all popup styles */
     :global(.route-popup .maplibregl-popup-content) {
