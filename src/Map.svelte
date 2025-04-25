@@ -5,6 +5,7 @@
     import maplibregl from "maplibre-gl";
     import "maplibre-gl/dist/maplibre-gl.css";
     import basemap from "./data/urban_paddling_basemap.json";
+    let mapLoaded = $state(false);
 
     const slugify = (routeTitle) => routeTitle.toLowerCase().replace(/ /g, "-");
 
@@ -28,6 +29,9 @@
         });
 
         map.addControl(new maplibregl.NavigationControl(), "top-right");
+        map.on("load", () => {
+            mapLoaded = true;
+        });
 
         return () => {
             map.remove();
@@ -39,10 +43,14 @@
     bind:this={mapContainer}
     class="map-container mx-auto h-[80vh] w-[90%] max-w-7xl mb-20 relative"
 ></div>
-{#each routeData as route}
-    <MapLine
-        geojson={JSON.parse(route.routeGeojson)}
-        id={slugify(route.headline)}
-        {map}
-    />
-{/each}
+{#key routeData}
+    {#if mapLoaded}
+        {#each routeData as route}
+            <MapLine
+                geojson={JSON.parse(route.routeGeojson)}
+                id={slugify(route.headline)}
+                {map}
+            />
+        {/each}
+    {/if}
+{/key}
