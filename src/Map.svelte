@@ -97,6 +97,9 @@
         map.on("drag", () => {
             popupData = {};
         });
+        map.on("zoomstart", () => {
+            popupData = {};
+        });
 
         return () => {
             map.remove();
