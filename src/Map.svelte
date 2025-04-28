@@ -91,6 +91,7 @@
                 map.setPaintProperty(l, "line-width", lineWidth);
                 map.setPaintProperty(l, "line-color", "#EA8B8B");
             });
+            popupData = {};
         });
 
         map.on("drag", () => {
