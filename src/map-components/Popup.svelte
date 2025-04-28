@@ -1,6 +1,6 @@
 <script>
     import { slugify } from "../utilities";
-    let { popupData, bboxAspectRatio } = $props();
+    let { popupData, bboxAspectRatio, isMobile } = $props();
 </script>
 
 {#if popupData.headline}
