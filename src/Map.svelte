@@ -11,6 +11,7 @@
 
     let mapContainer;
     let map = $state();
+    let imageLoaded = $state(false);
 
     onMount(() => {
         map = new maplibregl.Map({
@@ -31,6 +32,13 @@
         map.addControl(new maplibregl.NavigationControl(), "top-right");
         map.on("load", () => {
             mapLoaded = true;
+            const squareImage = new Image();
+            squareImage.src =
+                'data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"><rect width="12" height="12" fill="%23282828"/></svg>';
+            squareImage.onload = () => {
+                map.addImage("square", squareImage, { sdf: false });
+                imageLoaded = true;
+            };
         });
 
         return () => {
@@ -50,6 +58,7 @@
                 geojson={JSON.parse(route.routeGeojson)}
                 id={slugify(route.headline)}
                 {map}
+                {imageLoaded}
             />
         {/each}
     {/if}
