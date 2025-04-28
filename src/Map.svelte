@@ -1,5 +1,5 @@
 <script>
-    let { routeData } = $props();
+    let { routeData, clearFilter } = $props();
 
     import { onMount } from "svelte";
     import maplibregl from "maplibre-gl";
@@ -16,6 +16,15 @@
     let lineWidth = 3;
     let popupData = $state({});
     let bboxAspectRatio = $state(0);
+    let innerWidth = $state(0);
+
+    const isMobile = $derived(innerWidth < 640);
+
+    const initialView = {
+        center: [-93.265, 44.98],
+        zoom: 9.75,
+    };
+    const mobileZoom = 5;
 
     const getBBox = (geojsons) => {
         let lons = [];
@@ -54,8 +63,9 @@
             container: mapContainer,
             // @ts-ignore
             style: basemap,
-            center: [-93.265, 44.98], // Minneapolis
-            zoom: 9.75,
+            // @ts-ignore
+            center: initialView.center,
+            zoom: isMobile ? mobileZoom : initialView.zoom,
             cooperativeGestures: true,
             maxZoom: 14.75,
             maxBounds: [
@@ -64,7 +74,7 @@
             ],
         });
 
-        map.addControl(new maplibregl.NavigationControl(), "top-right");
+        map.addControl(new maplibregl.NavigationControl(), "bottom-left");
 
         map.on("load", () => {
             mapLoaded = true;
@@ -80,12 +90,6 @@
 
         map.on("click", (e) => {
             const allLayers = map.getLayersOrder();
-            let features = [];
-            let hitLayers = allLayers.filter((l) => l.includes("-hit"));
-            features = map.queryRenderedFeatures(e.point, {
-                layers: hitLayers,
-            });
-            if (features.length === 0) console.log("Closing the popup");
             let lineLayers = allLayers.filter((l) => l.includes("-line"));
             lineLayers.forEach((l) => {
                 map.setPaintProperty(l, "line-width", lineWidth);
@@ -124,11 +128,22 @@
     };
 </script>
 
-<svelte:window onresize={resize} />
+<svelte:window onresize={resize} bind:innerWidth />
 <div
     bind:this={mapContainer}
     class="map-container mx-auto h-[80vh] w-[90%] max-w-7xl mb-20 relative"
 >
+    <button
+        onclick={() => {
+            clearFilter();
+            map.flyTo({
+                center: initialView.center,
+                zoom: isMobile ? mobileZoom : initialView.zoom,
+            });
+        }}
+        class="font-utility-button-02 text-[#434343] absolute bottom-2.5 left-12 bg-white/95 px-3 py-2 shadow-[0_1px_4px_rgba(0,0,0,0.3)] rounded-md z-50 text-sm hover:bg-gray-100"
+        >Reset View</button
+    >
     {#if popupData}<Popup {popupData} {bboxAspectRatio} />{/if}
 </div>
 {#key routeData}

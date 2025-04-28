@@ -106,6 +106,9 @@
                 routeData={routeData.filter((r) =>
                     tagFilter ? r.tags.includes(tagFilter) : true
                 )}
+                clearFilter={() => {
+                    tagFilter = "";
+                }}
             />
             <div
                 class="route-preview-wrapper md:flex flex-wrap w-[90%] justify-between mx-auto max-w-7xl"

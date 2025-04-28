@@ -1,7 +1,6 @@
 <script>
     import { slugify } from "../utilities";
     let { popupData, bboxAspectRatio } = $props();
-    $inspect(bboxAspectRatio);
 </script>
 
 {#if popupData.headline}
