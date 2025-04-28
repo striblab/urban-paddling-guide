@@ -39,6 +39,7 @@
                 map.addImage("square", squareImage, { sdf: false });
                 imageLoaded = true;
             };
+            map.resize();
         });
 
         return () => {
@@ -66,6 +67,7 @@
                 id={slugify(route.headline)}
                 {map}
                 {imageLoaded}
+                lineWidth={3}
             />
         {/each}
     {/if}
