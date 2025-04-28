@@ -1,10 +1,17 @@
 <script>
     import { slugify } from "../utilities";
-    let { popupData } = $props();
+    let { popupData, bboxAspectRatio } = $props();
+    $inspect(bboxAspectRatio);
 </script>
 
 {#if popupData.headline}
-    <div class="absolute left-[60%] top-[25%] z-10 max-w-[300px]">
+    <div
+        class="absolute {bboxAspectRatio < 0.5
+            ? 'left-[45%]'
+            : 'left-[65%]'} {bboxAspectRatio < 0.5
+            ? 'top-[45%]'
+            : 'top-[25%]'} z-10 max-w-[300px]"
+    >
         <div
             class="route-preview font-publico-headline-medium bg-white border rounded-xl border-[#05442e] overflow-hidden"
         >
