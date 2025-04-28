@@ -5,6 +5,7 @@
     import maplibregl from "maplibre-gl";
     import "maplibre-gl/dist/maplibre-gl.css";
     import basemap from "./data/urban_paddling_basemap.json";
+    import Popup from "./map-components/Popup.svelte";
     let mapLoaded = $state(false);
 
     const slugify = (routeTitle) => routeTitle.toLowerCase().replace(/ /g, "-");
@@ -12,6 +13,8 @@
     let mapContainer;
     let map = $state();
     let imageLoaded = $state(false);
+    let lineWidth = 3;
+    let popupData = $state({});
 
     onMount(() => {
         map = new maplibregl.Map({
@@ -42,6 +45,21 @@
             map.resize();
         });
 
+        map.on("click", (e) => {
+            const allLayers = map.getLayersOrder();
+            let features = [];
+            let hitLayers = allLayers.filter((l) => l.includes("-hit"));
+            features = map.queryRenderedFeatures(e.point, {
+                layers: hitLayers,
+            });
+            if (features.length === 0) console.log("Closing the popup");
+            let lineLayers = allLayers.filter((l) => l.includes("-line"));
+            lineLayers.forEach((l) => {
+                map.setPaintProperty(l, "line-width", lineWidth);
+                map.setPaintProperty(l, "line-color", "#EA8B8B");
+            });
+        });
+
         return () => {
             map.remove();
         }; // cleanup on destroy
@@ -58,7 +76,9 @@
 <div
     bind:this={mapContainer}
     class="map-container mx-auto h-[80vh] w-[90%] max-w-7xl mb-20 relative"
-></div>
+>
+    {#if popupData}<Popup {popupData} />{/if}
+</div>
 {#key routeData}
     {#if mapLoaded}
         {#each routeData as route}
@@ -67,7 +87,10 @@
                 id={slugify(route.headline)}
                 {map}
                 {imageLoaded}
-                lineWidth={3}
+                {lineWidth}
+                routeClicked={() => {
+                    popupData = route;
+                }}
             />
         {/each}
     {/if}
