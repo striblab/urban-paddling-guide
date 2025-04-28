@@ -7,8 +7,7 @@
     import basemap from "./data/urban_paddling_basemap.json";
     import Popup from "./map-components/Popup.svelte";
     let mapLoaded = $state(false);
-
-    const slugify = (routeTitle) => routeTitle.toLowerCase().replace(/ /g, "-");
+    import { slugify } from "./utilities";
 
     let mapContainer;
     let map = $state();

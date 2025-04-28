@@ -5,8 +5,7 @@
     import Filters from "./Filters.svelte";
     import RoutePageNav from "./RoutePageNav.svelte";
     import Map from "./Map.svelte";
-
-    const slugify = (routeTitle) => routeTitle.toLowerCase().replace(/ /g, "-");
+    import { slugify } from "./utilities";
 
     let selectedRoute = $state("");
     let routesLoaded = $state(false);

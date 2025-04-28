@@ -1,6 +1,6 @@
 <script>
+    import { slugify } from "../utilities";
     let { popupData } = $props();
-    const slugify = (routeTitle) => routeTitle.toLowerCase().replace(/ /g, "-");
 </script>
 
 {#if popupData.headline}

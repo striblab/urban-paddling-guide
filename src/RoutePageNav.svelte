@@ -1,6 +1,6 @@
 <script>
+    import { slugify } from "./utilities";
     let { routes } = $props();
-    const slugify = (routeTitle) => routeTitle.toLowerCase().replace(/ /g, "-");
 </script>
 
 <div class="md:w-[60%] mx-auto">
