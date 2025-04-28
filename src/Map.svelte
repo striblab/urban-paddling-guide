@@ -45,8 +45,15 @@
             map.remove();
         }; // cleanup on destroy
     });
+
+    const resize = () => {
+        if (map) {
+            map.resize();
+        }
+    };
 </script>
 
+<svelte:window onresize={resize} />
 <div
     bind:this={mapContainer}
     class="map-container mx-auto h-[80vh] w-[90%] max-w-7xl mb-20 relative"
