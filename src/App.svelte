@@ -168,9 +168,9 @@
     div.route-preview-wrapper a:last-child {
         margin-left: 2%;
     }
-    /*@media only screen and (max-width: 1023px) {
+    @media only screen and (max-width: 1023px) {
         div.route-preview-wrapper a:last-child {
             margin-left: 0%;
         }
-    }*/
+    }
 </style>
