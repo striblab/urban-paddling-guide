@@ -8,7 +8,7 @@
             ? 'text-[#05442e]'
             : 'text-[white]'} hover:text-[#fffbf4] {activeFilter !== tag
             ? 'bg-[white]'
-            : 'bg-[#05442e]'} hover:bg-[#05442e] rounded-2xl border-[#05442e] border uppercase font-graphik-medium tracking-widest text-[12px] md:text-[14px]"
+            : 'bg-[#05442e]'} hover:bg-[#05442e] rounded-2xl border-[#05442e] border uppercase font-graphik-medium tracking-widest text-[12px] md:text-[12px] transition-all duration-500"
         onclick={() => {
             doFilter(tag);
         }}

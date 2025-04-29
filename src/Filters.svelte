@@ -15,7 +15,7 @@
         class="flex flex-wrap items-center justify-center mt-8"
     >
         <h5
-            class="uppercase font-graphik-bold tracking-widest text-[12px] md:text-[14px] text-[#05442e] mr-3 w-full md:w-auto mb-2 md:mb-0"
+            class="uppercase font-graphik-bold tracking-widest text-[12px] md:text-[12px] text-[#05442e] mr-3 w-full md:w-auto mb-2 md:mb-0"
         >
             Filter by
         </h5>
@@ -37,11 +37,11 @@
             {activeFilter}
             doFilter={(tag)=>{activateFilter(tag)}}
         />
-        <FilterButton
-            tag={""}
+        <!-- <FilterButton
+            tag={"show-all"}
             label={"Show all"}
             activeFilter={false}
             doFilter={(tag)=>{activateFilter(tag)}}
-        />
+        /> -->
     </div>
 </div>
