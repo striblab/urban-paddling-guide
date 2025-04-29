@@ -8,6 +8,7 @@
     let { routeData, secondaryPhotos } = $props();
     let {
         headline,
+        paddlerAlert,
         heroImg,
         heroImgCredit,
         heroImgAltText,
@@ -80,6 +81,14 @@
                 {subhead}
             </h2>
         </div>
+
+        {#if paddlerAlert}
+            <div
+                class="border-2 m-10 border-red-600 p-4 rounded-lg max-w-2xl m-auto"
+            >
+                <strong>Paddler alert: </strong>{@html grafify(paddlerAlert)}
+            </div>
+        {/if}
 
         <div
             class="w-[90%] flex-module mx-auto max-w-4xl md:flex border-[#b4c7c0] py-4 my-4 md:py-8 md:my-8 mb-4 justify-start pt-4 border-t flex-wrap md:text-center text-left"
