@@ -96,7 +96,7 @@
         });
 
         map.on("zoomend", () => {
-            if (currentZoom < 10.6) clearMap();
+            if (currentZoom < 10.3) clearMap();
         });
 
         return () => {
@@ -141,10 +141,12 @@
         onclick={() => {
             clearFilter();
             clearMap();
-            map.flyTo({
-                center: initialView.center,
-                zoom: isMobile ? mobileZoom : initialView.zoom,
-            });
+            map.fitBounds(
+                getBBox(routeData.map((r) => JSON.parse(r.routeGeojson))),
+                {
+                    padding: 30,
+                }
+            );
         }}
         class="font-utility-button-02 text-[#434343] absolute top-2.5 left-12 bg-white/95 px-3 py-2 shadow-[0_1px_4px_rgba(0,0,0,0.3)] rounded-md z-50 text-sm hover:bg-gray-100"
         >Reset View</button
