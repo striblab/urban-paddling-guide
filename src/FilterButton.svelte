@@ -1,7 +1,9 @@
 <script>
-    const { tag, label, activeFilter, doFilter } = $props();
+    const { tag, label, mobileLabel, activeFilter, doFilter } = $props();
+    let w = $state(0);
 </script>
 
+<svelte:window bind:innerWidth={w} />
 <div class="tag leading-[0.7]">
     <button
         class="inline-block p-2 mr-1 md:mr-2 mb-1 {activeFilter !== tag
@@ -13,6 +15,6 @@
             doFilter(tag);
         }}
     >
-        {label}
+        {w < 640 ? mobileLabel : label}
     </button>
 </div>
