@@ -1,13 +1,7 @@
 <script>
     import FilterButton from "./FilterButton.svelte";
 
-    const { filterByTag } = $props();
-    let activeFilter = $state("");
-
-    const activateFilter = (tag) => {
-        activeFilter = tag;
-        filterByTag(tag);
-    };
+    const { filterByTag, activeFilter } = $props();
 </script>
 
 <div
@@ -25,7 +19,7 @@
             mobileLabel={"Paddleboards"}
             {activeFilter}
             doFilter={(tag) => {
-                activateFilter(tag);
+                filterByTag(tag);
             }}
         />
         <FilterButton
@@ -34,7 +28,7 @@
             mobileLabel={"Intermediate"}
             {activeFilter}
             doFilter={(tag) => {
-                activateFilter(tag);
+                filterByTag(tag);
             }}
         />
         <FilterButton
@@ -43,14 +37,8 @@
             mobileLabel={"Rentals"}
             {activeFilter}
             doFilter={(tag) => {
-                activateFilter(tag);
+                filterByTag(tag);
             }}
         />
-        <!-- <FilterButton
-            tag={"show-all"}
-            label={"Show all"}
-            activeFilter={false}
-            doFilter={(tag)=>{activateFilter(tag)}}
-        /> -->
     </div>
 </div>

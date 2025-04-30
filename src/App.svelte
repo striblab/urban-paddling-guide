@@ -98,8 +98,9 @@
                 filters to narrow down the choice of routes.
             </h4>
             <Filters
+                activeFilter={tagFilter}
                 filterByTag={(tag) => {
-                    tagFilter = tag;
+                    tagFilter = tagFilter == tag ? "" : tag;
                 }}
             />
             <Map
