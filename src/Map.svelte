@@ -176,3 +176,9 @@
         {/each}
     {/if}
 {/key}
+
+<style>
+    :global(.maplibregl-cooperative-gesture-screen) {
+        z-index: 60;
+    }
+</style>
