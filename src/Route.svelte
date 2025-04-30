@@ -55,9 +55,9 @@
 </script>
 
 {#key newPage}
-    <div class="pt-12 md:pt-8" bind:this={topElement}>
+    <div class="pt-[3vh] md:pt-[10vh] mb-12" bind:this={topElement}>
         <button
-            class="block mb-1 mx-auto text-[#05442e] hover:opacity-50 border-[#05442e] border-b uppercase font-graphik-medium tracking-widest text-[12px] md:text-[14px] transition duration-500"
+            class="block mb-1 ml-[5%] md:mx-auto md:text-center text-[#05442e] hover:opacity-50 border-[#05442e] border-b uppercase font-graphik-medium tracking-widest text-[12px] md:text-[14px] transition duration-500"
             onclick={() => {
                 window.location.hash = "#";
             }}
@@ -68,7 +68,7 @@
 
     <div class="route w-full" in:fade>
         <div
-            class="headline-wrapper text-left md:text-center w-[90%] mx-auto max-w-2xl pt-[3vh] md:pt-[10vh]"
+            class="headline-wrapper text-left md:text-center w-[90%] mx-auto max-w-2xl"
         >
             <h1
                 class="font-publico-headline-medium text-[35px] md:text-[50px] mb-4"
@@ -76,19 +76,11 @@
                 {headline}
             </h1>
             <h2
-                class="font-graphik-regular uppercase text-[16px] md:text-[18px] tracking-widest mb-6"
+                class="font-graphik-regular uppercase text-[14px] md:text-[16px] tracking-widest mb-6"
             >
                 {subhead}
             </h2>
         </div>
-
-        {#if paddlerAlert}
-            <div
-                class="border-2 m-10 border-red-600 p-4 rounded-lg max-w-2xl m-auto"
-            >
-                <strong>Paddler alert: </strong>{@html grafify(paddlerAlert)}
-            </div>
-        {/if}
 
         <div
             class="w-[90%] flex-module mx-auto max-w-4xl md:flex border-[#b4c7c0] py-4 my-4 md:py-8 md:my-8 mb-4 justify-start pt-4 border-t flex-wrap md:text-center text-left"
@@ -150,14 +142,13 @@
             />
         </picture>
         <div class="headline-wrapper w-[90%] mx-auto max-w-2xl">
-            <div class="byline font-graphik-regular text-[16px] mt-6 mb-6">
+            <div class="byline font-graphik-regular text-[16px] mt-12 mb-6">
                 <p class="byline block md:hidden">
                     Guide by <span class="font-graphik-semibold"
                         >{@html getAuthorMarkup(authors)}</span
                     ><br />Photo by
                     <span class="font-graphik-semibold">{heroImgCredit}</span
-                    ><br />Map by
-                    <span class="font-graphik-semibold">{mapCredit}</span>
+                    ><br />
                 </p>
                 <p class="byline md:block hidden leading-[1.8]">
                     <span class="inline-block">
@@ -169,16 +160,33 @@
                         >• Photo by
                         <span class="font-graphik-semibold"
                             >{heroImgCredit}</span
-                        > •
+                        >
                     </span>
                 </p>
             </div>
 
             <div
-                class="subhead font-publico-headline-roman text-[21px] md:text-[24px] leading-[1.8] mb-0"
+                class="subhead font-publico-headline-roman text-[21px] md:text-[23px] leading-[1.8] mb-0"
             >
                 <h3>{summary}</h3>
             </div>
+
+            {#if paddlerAlert}
+                <div
+                    class="max-w-2xl m-auto pt-8 mt-8 border-t border-[#b4c7c0] font-graphik-regular leading-[1.6] text-[18px]"
+                >
+                    <div class="flex items-start">
+                        <svg id="strib-error-filled" viewBox="0 0 16 16" width="16" height="16" fill="rgb(214, 83, 83)" class="strib-icon strib-error-filled w-[25px] h-[25px] mt-[-2px] mr-2" xmlns="http://www.w3.org/2000/svg">
+                          <!-- <path d="M8 12a.74.74 0 0 0 .416-.127.74.74 0 0 0 .319-.77.746.746 0 0 0-1.358-.269.75.75 0 0 0 .093.946c.141.141.331.22.53.22m-.666-8h1.334v5H7.334z"/>
+                            <path d="M8 15a7.005 7.005 0 0 1-6.467-4.321A7 7 0 1 1 15 8a7 7 0 0 1-2.051 4.949A7 7 0 0 1 8 15M8 2a6 6 0 1 0-.001 12.002A6 6 0 0 0 8 2"/> -->
+                            <path d="M8 1C4.15 1 1 4.15 1 8s3.15 7 7 7 7-3.15 7-7-3.15-7-7-7m-.55 3h1.1v5.5h-1.1zM8 12.5c-.4 0-.75-.35-.75-.75S7.6 11 8 11s.75.35.75.75-.35.75-.75.75"/>
+
+                        </svg>
+                        <h5 class="font-graphik-bold uppercase tracking-widest text-[12px] md:text-[14px] mb-2 text-[#d65353]">Paddler&rsquo;s alert</h5>
+                    </div>
+                    <p>{@html grafify(paddlerAlert)}</p>
+                </div>
+            {/if}
         </div>
 
         {#if mapUrl}
