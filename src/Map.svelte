@@ -23,7 +23,7 @@
 
     const initialView = {
         center: [-93.265, 44.98],
-        zoom: 9.75,
+        zoom: 9,
     };
     const mobileZoom = 5;
 
@@ -70,8 +70,8 @@
             cooperativeGestures: true,
             maxZoom: 14.75,
             maxBounds: [
-                [-93.8, 44.6], // Southwest coordinates
-                [-92.7, 45.3], // Northeast coordinates
+                [-94, 44], // Southwest coordinates
+                [-92, 46], // Northeast coordinates
             ],
         });
 
@@ -109,7 +109,7 @@
             map.fitBounds(
                 getBBox(routeData.map((r) => JSON.parse(r.routeGeojson))),
                 {
-                    padding: 20,
+                    padding: 30,
                 }
             );
         }
@@ -164,7 +164,7 @@
                     let bbox = getBBox([JSON.parse(route.routeGeojson)]);
                     bboxAspectRatio = getBBoxAspectRatio(bbox);
                     map.fitBounds(bbox, {
-                        padding: 50,
+                        padding: 100,
                         offset: [
                             bboxAspectRatio < 0.5 ? 0 : -20,
                             bboxAspectRatio < 0.5 ? -50 : 0,
