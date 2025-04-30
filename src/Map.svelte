@@ -4,7 +4,7 @@
     import { onMount } from "svelte";
     import maplibregl from "maplibre-gl";
     import "maplibre-gl/dist/maplibre-gl.css";
-    import { slugify } from "./utilities";
+    import { slugify, getBBox, getBBoxAspectRatio } from "./utilities";
     import basemap from "./data/urban_paddling_basemap.json";
     import MapLine from "./map-components/MapLine.svelte";
     import Popup from "./map-components/Popup.svelte";
@@ -15,7 +15,6 @@
     let imageLoaded = $state(false);
     let lineWidth = 3;
     let popupData = $state({});
-    let bboxAspectRatio = $state(0);
     let innerWidth = $state(0);
     let currentZoom = $state(0);
 
@@ -26,38 +25,6 @@
         zoom: 9,
     };
     const mobileZoom = 5;
-
-    const getBBox = (geojsons) => {
-        let lons = [];
-        let lats = [];
-        geojsons.forEach((geojson) => {
-            const features = geojson.features;
-            features.forEach((feature) => {
-                const geom = feature.geometry;
-                const allCoords =
-                    geom.type === "LineString"
-                        ? geom.coordinates
-                        : geom.coordinates.flat();
-                lons.push(...allCoords.map((c) => c[0]));
-                lats.push(...allCoords.map((c) => c[1]));
-            });
-        });
-        let bounds = [
-            [0, 0],
-            [0, 0],
-        ];
-        bounds = [
-            [Math.min(...lons), Math.min(...lats)],
-            [Math.max(...lons), Math.max(...lats)],
-        ];
-        return bounds;
-    };
-
-    const getBBoxAspectRatio = (bbox) => {
-        const length = bbox[1][1] - bbox[0][1];
-        const height = bbox[1][0] - bbox[0][0];
-        return length / height;
-    };
 
     onMount(() => {
         map = new maplibregl.Map({
@@ -151,7 +118,15 @@
         class="font-utility-button-02 text-[#434343] absolute top-2.5 left-12 bg-white/95 px-3 py-2 shadow-[0_1px_4px_rgba(0,0,0,0.3)] rounded-md z-50 text-sm hover:bg-gray-100"
         >Reset View</button
     >
-    {#if popupData}<Popup {popupData} {bboxAspectRatio} {isMobile} />{/if}
+    {#if popupData}<Popup
+            {popupData}
+            {routeData}
+            {map}
+            {lineWidth}
+            changePopup={(data) => {
+                popupData = data;
+            }}
+        />{/if}
 </div>
 {#key routeData}
     {#if mapLoaded}
@@ -164,7 +139,7 @@
                 {lineWidth}
                 routeClicked={() => {
                     let bbox = getBBox([JSON.parse(route.routeGeojson)]);
-                    bboxAspectRatio = getBBoxAspectRatio(bbox);
+                    let bboxAspectRatio = getBBoxAspectRatio(bbox);
                     map.fitBounds(bbox, {
                         padding: 100,
                         offset: [
