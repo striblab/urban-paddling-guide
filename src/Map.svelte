@@ -133,9 +133,6 @@
 </script>
 
 <svelte:window onresize={resize} bind:innerWidth />
-<div class="fixed top-0 right-0 font-utility-body-reg-01">
-    {Math.round(currentZoom * 10) / 10}
-</div>
 <div
     bind:this={mapContainer}
     class="map-container mx-auto h-[80vh] w-[90%] max-w-7xl mb-20 relative"
