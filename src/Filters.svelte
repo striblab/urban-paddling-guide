@@ -20,20 +20,20 @@
             Filter by
         </h5>
         <FilterButton
-            tag={"rentals"}
-            label={"Rentals available"}
-            {activeFilter}
-            doFilter={(tag)=>{activateFilter(tag)}}
-        />
-        <FilterButton
             tag={"paddleboards"}
-            label={"Paddleboard-friendly"}
+            label={"Paddleboards"}
             {activeFilter}
             doFilter={(tag)=>{activateFilter(tag)}}
-        />
+        /> 
         <FilterButton
             tag={"intermediate paddlers"}
-            label={"Intermediate skill level"}
+            label={"Intermediate"}
+            {activeFilter}
+            doFilter={(tag)=>{activateFilter(tag)}}
+        />
+        <FilterButton
+            tag={"rentals"}
+            label={"Rentals"}
             {activeFilter}
             doFilter={(tag)=>{activateFilter(tag)}}
         />

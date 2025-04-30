@@ -157,6 +157,10 @@
         background: #fffbf4;
     }
 
+    :global(#proj-container .maplibregl-cooperative-gesture-screen) {
+        z-index: 20;
+    }
+
     div.route-preview {
         overflow: hidden;
     }
