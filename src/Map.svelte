@@ -74,7 +74,7 @@
             ],
         });
 
-        map.addControl(new maplibregl.NavigationControl(), "bottom-left");
+        map.addControl(new maplibregl.NavigationControl(), "top-left");
 
         map.on("load", () => {
             mapLoaded = true;
@@ -90,9 +90,6 @@
 
         map.on("click", clearMap);
 
-        map.on("drag", () => {
-            popupData = {};
-        });
         map.on("zoomstart", () => {
             popupData = {};
         });
@@ -144,7 +141,7 @@
                 zoom: isMobile ? mobileZoom : initialView.zoom,
             });
         }}
-        class="font-utility-button-02 text-[#434343] absolute bottom-2.5 left-12 bg-white/95 px-3 py-2 shadow-[0_1px_4px_rgba(0,0,0,0.3)] rounded-md z-50 text-sm hover:bg-gray-100"
+        class="font-utility-button-02 text-[#434343] absolute top-2.5 left-12 bg-white/95 px-3 py-2 shadow-[0_1px_4px_rgba(0,0,0,0.3)] rounded-md z-50 text-sm hover:bg-gray-100"
         >Reset View</button
     >
     {#if popupData}<Popup {popupData} {bboxAspectRatio} {isMobile} />{/if}
