@@ -12,7 +12,7 @@
             : 'bottom-[2.5%]'} z-10 w-[90%] max-w-[400px] transition-all duration-500"
     > -->
     <div
-        class="absolute right-[2.5%] md:right-[5px] bottom-[20%] md:bottom-[5px] z-10 w-[95%] md:w-[49%] lg:w-[32%] transition-all duration-500"
+        class="absolute right-[2.5%] md:right-[0px] bottom-[20%] md:bottom-[0px] z-10 w-[95%] md:w-[49%] lg:w-[32%] transition-all duration-500"
     >
         <div
             class="route-preview font-publico-headline-medium bg-white border rounded-xl border-[#05442e] overflow-hidden"

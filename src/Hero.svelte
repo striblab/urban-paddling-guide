@@ -23,16 +23,14 @@
             class="font-publico-text-roman text-[18px] md:text-[20px] leading-[1.6] text-left max-w-xl mx-auto p-8 bg-white mb-[110vh] mt-[100vh] rounded-xl"
         >
             <p
-                class="byline text-center font-graphik-semibold text-[16px] mb-1"
+                class="byline text-center uppercase font-graphik-regular text-[13px] tracking-widest mb-8 hidden md:block"
             >
-                <span class="font-graphik-bold"
-                    >By Jake Steinberg, Tom Nehil and Greta Kaul</span
-                >
+                The Minnesota Star Tribune •  May 12, 2025
             </p>
             <p
-                class="byline text-center uppercase font-graphik-regular text-[13px] tracking-widest mb-8"
+                class="byline text-center uppercase font-graphik-regular text-[13px] tracking-widest mb-8 md:hidden block"
             >
-                The Minnesota Star Tribune •  May XX, 2025
+                The Minnesota Star Tribune<br>May 12, 2025
             </p>
             <p class="mb-6">
                 You don’t have to go to the Boundary Waters to have fun paddling
