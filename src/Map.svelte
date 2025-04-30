@@ -17,6 +17,7 @@
     let popupData = $state({});
     let bboxAspectRatio = $state(0);
     let innerWidth = $state(0);
+    let currentZoom = $state(0);
 
     const isMobile = $derived(innerWidth < 640);
 
@@ -90,8 +91,12 @@
 
         map.on("click", clearMap);
 
-        map.on("zoomstart", () => {
-            popupData = {};
+        map.on("zoom", () => {
+            currentZoom = map.getZoom();
+        });
+
+        map.on("zoomend", () => {
+            if (currentZoom < 10.6) clearMap();
         });
 
         return () => {
@@ -128,6 +133,9 @@
 </script>
 
 <svelte:window onresize={resize} bind:innerWidth />
+<div class="fixed top-0 right-0 font-utility-body-reg-01">
+    {Math.round(currentZoom * 10) / 10}
+</div>
 <div
     bind:this={mapContainer}
     class="map-container mx-auto h-[80vh] w-[90%] max-w-7xl mb-20 relative"
