@@ -42,6 +42,11 @@
             });
         }
     };
+
+    onkeydown = (e) => {
+        if (e.key === "ArrowLeft") loadOtherRoute(prevRouteId);
+        if (e.key === "ArrowRight") loadOtherRoute(nextRouteId);
+    };
 </script>
 
 {#if popupData.headline}
