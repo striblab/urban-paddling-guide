@@ -1,8 +1,19 @@
 <script>
     import { onMount } from "svelte";
 
-    let { map, geojson, id, lineWidth, imageLoaded, routeClicked } = $props();
-    let routeSelected = $state(false);
+    let {
+        map,
+        route,
+        lineWidth,
+        lineColor,
+        lineHighlightColor,
+        imageLoaded,
+        routeClicked,
+        routeSelected,
+    } = $props();
+
+    let id = route.routeID;
+    let geojson = JSON.parse(route.routeGeojson);
     let coords = geojson.features[0].geometry.coordinates;
     let endPoints = [
         {
@@ -38,7 +49,7 @@
                     "line-cap": "round",
                 },
                 paint: {
-                    "line-color": "#EA8B8B",
+                    "line-color": lineColor,
                     "line-width": lineWidth,
                 },
             });
@@ -60,7 +71,11 @@
             map.getCanvas().style.cursor = "pointer";
             if (!routeSelected) {
                 map.setPaintProperty(`${id}-line`, "line-width", lineWidth + 1);
-                map.setPaintProperty(`${id}-line`, "line-color", "#E36363");
+                map.setPaintProperty(
+                    `${id}-line`,
+                    "line-color",
+                    lineHighlightColor
+                );
             }
         });
 
@@ -68,15 +83,12 @@
             map.getCanvas().style.cursor = "pointer";
             if (!routeSelected) {
                 map.setPaintProperty(`${id}-line`, "line-width", lineWidth);
-                map.setPaintProperty(`${id}-line`, "line-color", "#EA8B8B");
+                map.setPaintProperty(`${id}-line`, "line-color", lineColor);
             }
         });
 
         map.on("click", `${id}-hit`, () => {
-            routeSelected = true;
-            map.setPaintProperty(`${id}-line`, "line-width", lineWidth + 1);
-            map.setPaintProperty(`${id}-line`, "line-color", "#E36363");
-            routeClicked();
+            routeClicked(id);
         });
 
         return () => {
@@ -87,6 +99,7 @@
     });
 
     $effect(() => {
+        // Add endpoints to the map once the image has been added to the map
         if (map && imageLoaded) {
             if (!map.getLayer(`${id}-endpoints-img`)) {
                 map.addLayer({

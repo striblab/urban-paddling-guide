@@ -1,11 +1,9 @@
 <script>
     import { slugify, getBBox, getBBoxAspectRatio } from "../utilities";
-    let { popupData, routeData, map, lineWidth, changePopup } = $props();
+    let { popupData, routeData, map, loadRoute } = $props();
 
-    let routeIds = routeData.map((r) => slugify(r.headline));
-    let routeIdIndex = $derived(
-        routeIds.indexOf(slugify(popupData.headline ? popupData.headline : ""))
-    );
+    let routeIds = routeData.map((r) => r.routeID);
+    let routeIdIndex = $derived(routeIds.indexOf(popupData?.routeID));
     let nextRouteId = $derived(
         routeIds[routeIdIndex === routeIds.length - 1 ? 0 : routeIdIndex + 1]
     );
@@ -13,39 +11,9 @@
         routeIds[routeIdIndex === 0 ? routeIds.length - 1 : routeIdIndex - 1]
     );
 
-    const loadOtherRoute = (routeId) => {
-        if (map) {
-            const allLayers = map.getLayersOrder();
-            let lineLayers = allLayers.filter((l) => l.includes("-line"));
-            lineLayers.forEach((l) => {
-                map.setPaintProperty(l, "line-width", lineWidth);
-                map.setPaintProperty(l, "line-color", "#EA8B8B");
-            });
-            map.setPaintProperty(
-                `${routeId}-line`,
-                "line-width",
-                lineWidth + 1
-            );
-            map.setPaintProperty(`${routeId}-line`, "line-color", "#E36363");
-            const route = routeData.filter(
-                (r) => routeId === slugify(r.headline)
-            )[0];
-            changePopup(route);
-            let bbox = getBBox([JSON.parse(route.routeGeojson)]);
-            let bboxAspectRatio = getBBoxAspectRatio(bbox);
-            map.fitBounds(bbox, {
-                padding: 100,
-                offset: [
-                    bboxAspectRatio < 0.5 ? 0 : -20,
-                    bboxAspectRatio < 0.5 ? -50 : 0,
-                ],
-            });
-        }
-    };
-
     onkeydown = (e) => {
-        if (e.key === "ArrowLeft") loadOtherRoute(prevRouteId);
-        if (e.key === "ArrowRight") loadOtherRoute(nextRouteId);
+        if (e.key === "ArrowLeft") loadRoute(prevRouteId);
+        if (e.key === "ArrowRight") loadRoute(nextRouteId);
     };
 </script>
 
@@ -55,14 +23,16 @@
     >
         <button
             class="absolute left-0 bg-white p-2"
+            aria-label="previous route"
             onclick={() => {
-                loadOtherRoute(prevRouteId);
+                loadRoute(prevRouteId);
             }}><span class="strib-icon strib-arrow-left"></span></button
         >
         <button
             class="absolute right-0 bg-white p-2"
+            aria-label="next route"
             onclick={() => {
-                loadOtherRoute(nextRouteId);
+                loadRoute(nextRouteId);
             }}>Next-&gt;</button
         >
 
@@ -101,5 +71,4 @@
 
 <style type="text/css">
     @import url("https://static.startribune.com/assets/libs/strib-icons/1.0/strib-icons.min.css");
-    
 </style>
