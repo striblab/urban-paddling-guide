@@ -4,19 +4,24 @@
     import { onMount } from "svelte";
     import maplibregl from "maplibre-gl";
     import "maplibre-gl/dist/maplibre-gl.css";
-    import { slugify, getBBox, getBBoxAspectRatio } from "./utilities";
+    import { getBBox, getBBoxAspectRatio } from "./utilities";
     import basemap from "./data/urban_paddling_basemap.json";
     import MapLine from "./map-components/MapLine.svelte";
     import Popup from "./map-components/Popup.svelte";
 
     let mapContainer;
+
+    let lineWidth = 3;
+    let lineColor = "#EA8B8B";
+    let lineHighlightColor = "#E36363";
+
     let map = $state();
     let mapLoaded = $state(false);
     let imageLoaded = $state(false);
-    let lineWidth = 3;
     let popupData = $state({});
     let innerWidth = $state(0);
     let currentZoom = $state(0);
+    let selectedRoute = $state("");
 
     const isMobile = $derived(innerWidth < 640);
 
@@ -53,7 +58,12 @@
                 map.addImage("square", squareImage, { sdf: false });
                 imageLoaded = true;
             };
-            map.resize();
+            map.fitBounds(
+                getBBox(routeData.map((r) => JSON.parse(r.routeGeojson))),
+                {
+                    padding: 30,
+                }
+            );
         });
 
         map.on("click", clearMap);
@@ -63,7 +73,7 @@
         });
 
         map.on("zoomend", () => {
-            if (currentZoom < 10.3) clearMap();
+            if (currentZoom < 10) clearMap();
         });
 
         return () => {
@@ -82,12 +92,34 @@
         }
     });
 
+    const selectRoute = (routeID) => {
+        clearMap();
+        selectedRoute = routeID;
+        const route = routeData.filter((r) => r.routeID === routeID)[0];
+        map.setPaintProperty(`${routeID}-line`, "line-width", lineWidth + 1);
+        map.setPaintProperty(
+            `${routeID}-line`,
+            "line-color",
+            lineHighlightColor
+        );
+        popupData = route;
+        let bbox = getBBox([JSON.parse(route.routeGeojson)]);
+        let bboxAspectRatio = getBBoxAspectRatio(bbox);
+        map.fitBounds(bbox, {
+            padding: 100,
+            offset: [
+                bboxAspectRatio < 0.5 ? 0 : -20,
+                bboxAspectRatio < 0.5 ? -50 : 0,
+            ],
+        });
+    };
+
     const clearMap = () => {
         const allLayers = map.getLayersOrder();
         let lineLayers = allLayers.filter((l) => l.includes("-line"));
         lineLayers.forEach((l) => {
             map.setPaintProperty(l, "line-width", lineWidth);
-            map.setPaintProperty(l, "line-color", "#EA8B8B");
+            map.setPaintProperty(l, "line-color", lineColor);
         });
         popupData = {};
     };
@@ -122,9 +154,8 @@
             {popupData}
             {routeData}
             {map}
-            {lineWidth}
-            changePopup={(data) => {
-                popupData = data;
+            loadRoute={(routeID) => {
+                selectRoute(routeID);
             }}
         />{/if}
 </div>
@@ -132,22 +163,15 @@
     {#if mapLoaded}
         {#each routeData as route}
             <MapLine
-                geojson={JSON.parse(route.routeGeojson)}
-                id={slugify(route.headline)}
+                {route}
                 {map}
                 {imageLoaded}
                 {lineWidth}
-                routeClicked={() => {
-                    let bbox = getBBox([JSON.parse(route.routeGeojson)]);
-                    let bboxAspectRatio = getBBoxAspectRatio(bbox);
-                    map.fitBounds(bbox, {
-                        padding: 100,
-                        offset: [
-                            bboxAspectRatio < 0.5 ? 0 : -20,
-                            bboxAspectRatio < 0.5 ? -50 : 0,
-                        ],
-                    });
-                    popupData = route;
+                {lineColor}
+                {lineHighlightColor}
+                routeSelected={selectedRoute === route.routeID}
+                routeClicked={(routeID) => {
+                    selectRoute(routeID);
                 }}
             />
         {/each}
