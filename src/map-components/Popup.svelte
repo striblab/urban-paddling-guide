@@ -57,7 +57,7 @@
             class="absolute left-0 bg-white p-2"
             onclick={() => {
                 loadOtherRoute(prevRouteId);
-            }}>&lt;-Previous</button
+            }}><span class="strib-icon strib-arrow-left"></span></button
         >
         <button
             class="absolute right-0 bg-white p-2"
@@ -98,3 +98,8 @@
         </div>
     </div>
 {/if}
+
+<style type="text/css">
+    @import url("https://static.startribune.com/assets/libs/strib-icons/1.0/strib-icons.min.css");
+    
+</style>

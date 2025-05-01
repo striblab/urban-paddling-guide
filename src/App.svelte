@@ -112,7 +112,7 @@
                 }}
             />
             <div
-                class="route-preview-wrapper md:flex flex-wrap w-[90%] justify-between mx-auto max-w-7xl"
+                class="route-preview-wrapper md:flex flex-wrap w-[90%] justify-center gap-x-6 mx-auto max-w-7xl"
             >
                 {#each routeData.filter( (r) => (tagFilter ? r.tags.includes(tagFilter) : true) ) as route}
                     <a
@@ -170,12 +170,12 @@
         content: "";
         flex: auto;
     }
-    div.route-preview-wrapper a:last-child {
+    /*div.route-preview-wrapper a:last-child {
         margin-left: 2%;
     }
     @media only screen and (max-width: 1023px) {
         div.route-preview-wrapper a:last-child {
             margin-left: 0%;
         }
-    }
+    }*/
 </style>
