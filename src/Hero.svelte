@@ -126,4 +126,7 @@
         height: 100%;
         max-width: none;
     }
+    video {
+        object-fit: cover;
+    }
 </style>

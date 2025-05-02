@@ -191,10 +191,10 @@
 
         {#if mapUrl}
             <div
-                class="map mt-0 mb-4 w-[90%] mx-auto max-w-2xl overflow-x-auto font-graphik-regular text-[18px] border-[#b4c7c0] py-10 my-12"
+                class="map mt-0 mb-4 w-[100%] mx-auto max-w-2xl overflow-x-auto font-graphik-regular text-[18px] border-[#b4c7c0] py-10 my-12"
             >
                 <div
-                    class="flex-module mx-auto flex justify-start py-8 mb-8 flex-wrap text-left border-t border-b border-[#b4c7c0]"
+                    class="md:w-full w-[90%] mx-auto max-w-2xl flex-module mx-auto flex justify-start py-8 mb-8 flex-wrap text-left border-t border-b border-[#b4c7c0]"
                 >
                     <div
                         class="put-in item border-r border-[#b4c7c0] {endAddress
@@ -224,7 +224,7 @@
                     </div>
                     {#if endAddress}
                         <div
-                            class="take-out item border-b-0 md:border-r border-[#b4c7c0] w-1/2 md:w-2/5 mb-0 px-6 pr-0"
+                            class="take-out item border-b-0 md:border-r border-[#b4c7c0] w-1/2 md:w-2/5 mb-0 px-6"
                         >
                             <h5
                                 class="font-graphik-bold uppercase tracking-widest text-[12px] md:text-[14px] mb-2"
@@ -277,35 +277,37 @@
                 </div>
 
                 <RouteMap route={headline} />
-                <div
-                    class="font-utility-body-reg-05 flex flex-row flex-wrap justify-between mt-2"
-                >
-                    <p>
-                        <strong>Source</strong>
-                        {mapSource}
-                    </p>
-                </div>
+                <div class="md:w-full w-[90%] mx-auto max-w-2xl ">
+                    <div
+                        class="font-utility-body-reg-05 flex flex-row flex-wrap justify-between mt-2"
+                    >
+                        <p>
+                            <strong>Source</strong>
+                            {mapSource}
+                        </p>
+                    </div>
 
-                <div
-                    class="flex font-graphik-regular uppercase tracking-widest text-[12px] mt-8"
-                >
-                    <p class="mr-4 leading-[1.5]">
-                        <a
-                            href={gmapsRouteLink}
-                            class="border-b border-[#05442e]"
-                            >Show in Google Maps</a
-                        >
-                        •
-                        <a
-                            href={stravaRouteLink}
-                            class="border-b border-[#05442e]"
-                            >Show route in Strava</a
-                        >
-                        •
-                        <a href={gpxLink} class="border-b border-[#05442e]"
-                            >Download GPX</a
-                        >
-                    </p>
+                    <div
+                        class="flex font-graphik-regular uppercase tracking-widest text-[12px] mt-8"
+                    >
+                        <p class="mr-4 leading-[1.5]">
+                            <a
+                                href={gmapsRouteLink}
+                                class="border-b border-[#05442e]"
+                                >Show in Google Maps</a
+                            >
+                            •
+                            <a
+                                href={stravaRouteLink}
+                                class="border-b border-[#05442e]"
+                                >Show route in Strava</a
+                            >
+                            •
+                            <a href={gpxLink} class="border-b border-[#05442e]"
+                                >Download GPX</a
+                            >
+                        </p>
+                    </div>
                 </div>
             </div>
         {/if}
@@ -327,7 +329,7 @@
                     alt={secondaryPhotos[0].altText}
                 />
                 <p
-                    class="text-left caption mx-auto max-w-2xl font-graphik-regular text-[14px] mt-2 md:w-full w-[90%]"
+                    class="text-left caption mx-auto max-w-2xl font-graphik-regular text-[14px] mt-2 md:w-full"
                 >
                     {secondaryPhotos[0].caption}. Photo by {secondaryPhotos[0]
                         .credit}, {secondaryPhotos[0].Publication}.
@@ -339,14 +341,14 @@
             class="know-before flex-module w-[90%] mx-auto max-w-2xl md:flex border-[#05442e] py-6 my-4 flex-wrap"
         >
             <h5
-                class="font-publico-headline-medium text-[22px] md:text-[25px] mb-4 w-full"
+                class="font-graphik-bold uppercase tracking-widest text-[12px] md:text-[14px] mb-4"
             >
-                Know before you go
+                Know before you go  
             </h5>
             {#each grafify(knowBeforeYouGo) as know}
                 <ul>
                     <li
-                        class="font-graphik-regular text-[16px] md:text-[18px] leading-[1.3] mb-4 relative"
+                        class="font-graphik-regular text-[16px] md:text-[16px] leading-[1.3] mb-4 relative"
                     >
                         {@html know}
                     </li>

@@ -120,7 +120,7 @@
                         class="block md:w-[48%] xl:w-[31.5%] md:mb-0 mb-6"
                     >
                         <div
-                            class="route-preview font-publico-headline-medium bg-white border rounded-xl border-[#05442e]"
+                            class="route-preview font-publico-headline-medium bg-white border rounded-xl border-[#05442e] hover:bg-[#05442e] hover:text-[#fffbf4] transition-all duration-500"
                         >
                             <img
                                 src={route.heroImg
