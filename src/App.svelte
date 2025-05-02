@@ -90,9 +90,11 @@
         <Hero />
         <div bind:this={topEl}></div>
 
-        <div class="filters-sticky-wrapper relative">
+        
+
+        <div class="filters-sticky-wrapper relative pt-12">
             <h4
-                class="font-publico-headline-medium md:text-[24px] text-[20px] w-[90%] mx-auto max-w-2xl text-center"
+                class="font-graphik-medium md:text-[20px] text-[18px] w-[90%] mx-auto max-w-xl text-center"
             >
                 Click a route to read its detailed paddle guide, or use our
                 filters to narrow down the choice of routes.
@@ -112,7 +114,7 @@
                 }}
             />
             <div
-                class="route-preview-wrapper md:flex flex-wrap w-[90%] justify-start gap-6 mx-auto max-w-7xl"
+                class="route-preview-wrapper md:flex flex-wrap w-[90%] justify-start gap-8 mx-auto max-w-7xl"
             >
                 {#each routeData.filter( (r) => (tagFilter ? r.tags.includes(tagFilter) : true) ) as route}
                     <a
@@ -178,4 +180,17 @@
             margin-left: 0%;
         }
     }*/
+    li {
+        position: relative;
+    }
+    li:before {
+        content: "•";
+        position: absolute;
+        left: -15px;
+        height: 10px;
+    }
+
+    a.intro {
+        border-bottom: 1px solid #05442e;
+    }
 </style>

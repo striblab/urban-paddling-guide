@@ -5,7 +5,7 @@
 
 <div class="w-[90%] max-w-2xl mx-auto">
     <h4
-        class="font-graphik-bold uppercase tracking-widest text-[12px] md:text-[14px] mb-2 text-center py-10 border-t border-[#05442e] max-w-2xl mx-auto"
+        class="font-graphik-bold uppercase tracking-widest text-[12px] md:text-[14px] mb-2 text-center py-10 pb-6 border-t border-[#05442e] max-w-2xl mx-auto"
     >
         Explore more routes
     </h4>
@@ -19,7 +19,7 @@
                 <div
                     class="route-preview font-publico-headline-medium bg-white border rounded-xl border-[#05442e] overflow-hidden flex items-center relative w-full justify-between hover:bg-[#05442e] hover:text-[#fffbf4] transition-all duration-500"
                 >
-                    <div class="image block md:hidden w-[37.5%] min-h-[120px] md:min-h-[150px] h-full" style="background: url(https://ststatic.stimg.co/assets/outdoors/urban-paddling/hero/{route.heroImg}_vertical.jpg?w=400&h=400&fit=crop); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;">
+                    <div class="image block md:hidden w-[45%] min-h-[120px] md:min-h-[150px] h-full" style="background: url(https://ststatic.stimg.co/assets/outdoors/urban-paddling/hero/{route.heroImg}_vertical.jpg?w=400&h=400&fit=crop); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;">
                     </div>
                     <div class="image hidden md:block w-[45%] min-h-[150px] h-full" style="background: url(https://ststatic.stimg.co/assets/outdoors/urban-paddling/hero/{route.heroImg}.jpg?w=600&h=400&fit=crop); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;">
                     </div>
@@ -30,12 +30,12 @@
                         alt={route.heroImgAltText}
                         class="w-[50%] max-w-[250px]"
                     /> -->
-                    <div class="text-wrapper p-2 md:p-4 w-[62.5%] pl-[5%] pr-[5%] md:w-[55%]">
-                        <h3 class="text-[20px] md:text-[23px] mb-1 md:mb-2">
+                    <div class="text-wrapper p-2 md:p-4 w-[55%] pl-[5%] pr-[5%] md:w-[55%]">
+                        <h3 class="text-[20px] md:text-[23px] mb-0 md:mb-2 leading-[1.3]">
                             {route.headline}
                         </h3>
                         <h5
-                            class="text-[12px] md:text-[14px] uppercase font-graphik-regular tracking-widest"
+                            class="text-[12px] md:text-[14px] uppercase font-graphik-regular tracking-widest hidden md:block"
                         >
                             {route.subhead}
                         </h5>

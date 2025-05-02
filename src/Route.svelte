@@ -55,7 +55,7 @@
 </script>
 
 {#key newPage}
-    <div class="pt-[3vh] md:pt-[10vh] mb-12" bind:this={topElement}>
+    <div class="pt-[10vh] md:pt-[10vh] mb-12" bind:this={topElement}>
         <button
             class="block mb-1 ml-[5%] md:mx-auto md:text-center text-[#05442e] hover:opacity-50 border-[#05442e] border-b uppercase font-graphik-medium tracking-widest text-[12px] md:text-[14px] transition duration-500"
             onclick={() => {
@@ -83,7 +83,7 @@
         </div>
 
         <div
-            class="w-[90%] flex-module mx-auto max-w-4xl md:flex border-[#b4c7c0] py-4 my-4 md:py-8 md:my-8 mb-4 justify-start pt-4 border-t flex-wrap md:text-center text-left"
+            class="w-[90%] flex-module mx-auto max-w-4xl flex border-[#b4c7c0] py-4 my-4 md:py-8 md:my-8 mb-4 justify-start pt-4 border-t flex-wrap md:text-center text-left"
         >
             <div
                 class="completion-time item border-b md:border-b-0 md:border-r border-[#b4c7c0] w-full md:w-1/3 mb-4 md:mb-0 pb-4 md:px-8 md:pl-0"
@@ -98,7 +98,7 @@
                 </p>
             </div>
             <div
-                class="nearbyCities item border-b md:border-b-0 md:border-r border-[#b4c7c0] w-full md:w-1/3 mb-4 md:mb-0 pb-4 md:px-8"
+                class="nearbyCities item border-r border-[#b4c7c0] w-1/2 md:w-1/3 md:mb-0 pb-4 md:px-8 pr-6"
             >
                 <h5
                     class="font-graphik-bold uppercase tracking-widest text-[12px] md:text-[14px] mb-2"
@@ -110,7 +110,7 @@
                 </p>
             </div>
             <div
-                class="recommended-conditions item w-full md:w-1/3 md:px-6 md:pr-0 md:mb-0"
+                class="recommended-conditions item w-1/2 md:w-1/3 md:px-6 md:pr-0 md:mb-0 pl-6"
             >
                 <h5
                     class="font-graphik-bold uppercase tracking-widest text-[12px] md:text-[14px] mb-2"
@@ -166,7 +166,7 @@
             </div>
 
             <div
-                class="subhead font-publico-headline-roman text-[21px] md:text-[23px] leading-[1.8] mb-0"
+                class="subhead font-publico-headline-roman text-[20px] md:text-[23px] leading-[1.8] mb-0"
             >
                 <h3>{summary}</h3>
             </div>
@@ -224,7 +224,7 @@
                     </div>
                     {#if endAddress}
                         <div
-                            class="take-out item border-b-0 md:border-r border-[#b4c7c0] w-1/2 md:w-2/5 mb-0 px-6"
+                            class="take-out item border-b-0 md:border-r border-[#b4c7c0] w-1/2 md:w-2/5 mb-0 pl-6"
                         >
                             <h5
                                 class="font-graphik-bold uppercase tracking-widest text-[12px] md:text-[14px] mb-2"
@@ -365,7 +365,7 @@
 
     :global(.route li strong) {
         font-family: "graphik-bold";
-        display: inline-block;
+        display: inline;
     }
 
     li:before {
@@ -374,4 +374,11 @@
         content: "•";
         left: -12.5px;
     }
+
+    @media only screen and (max-width: 400px) {
+         li:before {
+            left: -10px;
+        }
+    }
+
 </style>

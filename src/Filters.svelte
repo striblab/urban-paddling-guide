@@ -5,7 +5,7 @@
 </script>
 
 <div
-    class="filters-wrapper w-[90%] mx-auto max-w-7xl py-4 mb-0 text-center sticky top-0 bg-[#fffbf4] z-[100] border-[#05442e] border-b"
+    class="filters-wrapper w-[100%] mx-auto max-w-7xl py-4 mb-0 text-center sticky top-0 bg-[#fffbf4] z-[100] border-[#05442e] border-b"
 >
     <div class="flex flex-wrap items-center justify-center mt-8">
         <h5

@@ -134,7 +134,7 @@
 <svelte:window onresize={resize} bind:innerWidth />
 <div
     bind:this={mapContainer}
-    class="map-container mx-auto h-[80vh] w-[90%] max-w-7xl mb-20 relative"
+    class="map-container mx-auto h-[80vh] w-full max-w-7xl mb-20 relative"
 >
     <button
         onclick={() => {
