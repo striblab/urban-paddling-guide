@@ -19,22 +19,30 @@
 
 {#if popupData.headline}
     <div
-        class="absolute right-[2.5%] md:right-[0px] bottom-[20%] md:bottom-[0px] z-10 w-[95%] md:w-[49%] lg:w-[32%] transition-all duration-500"
+        class="absolute right-[0%] md:right-[0px] bottom-[0%] md:bottom-[0px] z-10 w-[100%] md:w-[49%] lg:w-[32%] transition-all duration-500"
     >
         <button
-            class="absolute left-0 bg-white p-2"
+            class="absolute left-0 bg-[#05442e] hover:bg-[#fffbf4] transition-all duration-500 p-2 px-4 md:p-4 rounded-tl-xl border-[#05442e] border"
             aria-label="previous route"
             onclick={() => {
                 loadRoute(prevRouteId);
-            }}><span class="strib-icon strib-arrow-left"></span></button
+            }}>
+            <svg id="strib-arrow-left" viewBox="0 0 16 16" width="16" height="16" fill="#fffbf4" class="strib-icon strib-arrow-left hover:opacity-50" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15 7.314v1.372H3.627l4.221 4.226-.968.968L1 8l5.88-5.88.968.968-4.221 4.226z"/>
+            </svg>
+
+            </button
         >
         <button
-            class="absolute right-0 bg-white p-2"
+            class="absolute right-0 bg-[#05442e] hover:bg-[#fffbf4] transition-all duration-500 p-2 px-4 md:p-4 rounded-tr-xl border-[#05442e] border"
             aria-label="next route"
             onclick={() => {
                 loadRoute(nextRouteId);
-            }}>Next-&gt;</button
-        >
+            }}>
+            <svg id="strib-arrow-right" viewBox="0 0 16 16" width="16" height="16" fill="#fffbf4" class="strib-icon strib-arrow-right" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 7.314v1.372h11.373l-4.221 4.226.968.968L15 8 9.12 2.12l-.968.968 4.221 4.226z"/>
+            </svg>
+        </button>
 
         <div
             class="route-preview font-publico-headline-medium bg-white border rounded-xl border-[#05442e] overflow-hidden"
@@ -46,7 +54,7 @@
                 alt={popupData.heroImgAltText}
                 class="w-full hidden md:block"
             />
-            <div class="text-wrapper p-6 md:p-4">
+            <div class="text-wrapper p-6 pt-14 md:pt-6">
                 <h3 class="text-[24px] md:text-[28px] mb-2 leading-[1.2]">
                     {popupData.headline}
                 </h3>
@@ -70,5 +78,8 @@
 {/if}
 
 <style type="text/css">
-    @import url("https://static.startribune.com/assets/libs/strib-icons/1.0/strib-icons.min.css");
+    button:hover svg path {
+        fill: #05442e;
+        transition: 0.5s all;
+    }
 </style>
