@@ -93,65 +93,65 @@
 </div>
 
 <div
-            class="w-[90%] font-publico-text-roman text-[18px] md:text-[22px] leading-[1.6] text-left max-w-3xl mx-auto pt-0"
+    class="w-[90%] font-publico-text-roman text-[18px] md:text-[22px] leading-[1.6] max-w-2xl mx-auto pt-0"
+>
+    <p class="mb-6">
+        You don’t have to go to the Boundary Waters to have fun paddling
+        a canoe.
+    </p>
+    <p class="mb-6">
+        In Minnesota, we pride ourselves on being connected to water.
+        But getting out there is easier
+        said than done. Where do I put in my boat? How fast is too fast
+        for moving water? How long will this take? Are there rentals?
+        The information you need is all over the place, if you can find
+        it at all.
+    </p>
+    <p class="mb-6">
+        We think it could be easier, so some water-loving Minnesota Star
+        Tribune staff members set out to create an urban paddling guide.
+        We researched, paddled and mapped our favorite routes within the
+        metro area.
+    </p>
+    <p class="mb-6">
+        We hope this guide helps you see the Twin Cities in new ways: take a lazy river ride toward the Minneapolis skyline; explore a little-seen part of
+        St. Paul; practice portaging at Lebanon Hills in the southern
+        suburbs. See you on the water, and please tag <a href="http://instagram.com/startribune" target="_blank">@startribune</a> in your urban
+        paddling photos.
+    </p>
+    <div class="pt-2 pb-0">
+        <h5
+            class="font-graphik-bold uppercase tracking-widest text-[12px] md:text-[14px] my-4 text-left md:text-center"
         >
-            <p class="mb-6">
-                You don’t have to go to the Boundary Waters to have fun paddling
-                a canoe.
-            </p>
-            <p class="mb-6">
-                In Minnesota, we pride ourselves on being connected to water.
-                But getting out there is easier
-                said than done. Where do I put in my boat? How fast is too fast
-                for moving water? How long will this take? Are there rentals?
-                The information you need is all over the place, if you can find
-                it at all.
-            </p>
-            <p class="mb-6">
-                We think it could be easier, so some water-loving Minnesota Star
-                Tribune staff members set out to create an urban paddling guide.
-                We researched, paddled and mapped our favorite routes within the
-                metro area.
-            </p>
-            <p class="mb-6">
-                We hope this guide helps you see the Twin Cities in new ways: take a lazy river ride toward the Minneapolis skyline; explore a little-seen part of
-                St. Paul; practice portaging at Lebanon Hills in the southern
-                suburbs. See you on the water, and please tag <a href="http://instagram.com/startribune" target="_blank">@startribune</a> in your urban
-                paddling photos.
-            </p>
-            <div class="pt-2 pb-0">
-                <h5
-                    class="font-graphik-bold uppercase tracking-widest text-[12px] md:text-[14px] my-4"
+           While you’re out there, don’t forget to
+        </h5>
+        <ul class="mb-6 font-graphik-regular text-[16px] md:text-[18px] leading-[1.3] relative">
+            <li class="mb-2 md:mb-4">
+                <span class="font-publico-headline-bold"
+                    >Bring a life jacket.</span
+                > State law requires one for each person on board your watercraft.
+            </li>
+            <li class="mb-2 md:mb-4">
+                <span class="font-publico-headline-bold">Think twice</span>
+                before paddling in winds over 10 mph.
+            </li>
+            <li class="mb-2 md:mb-4">
+                <span class="font-publico-headline-bold"
+                    >Watch water levels</span
+                > on rivers and creeks.
+            </li>
+            <li class="mb-2 md:mb-4">
+                <span class="font-publico-headline-bold"
+                    >Swim with care.</span
                 >
-                   While you’re out there, don’t forget to
-                </h5>
-                <ul class="mb-6 font-graphik-regular text-[16px] md:text-[18px] leading-[1.3] relative">
-                    <li class="mb-2 md:mb-4">
-                        <span class="font-publico-headline-bold"
-                            >Bring a life jacket.</span
-                        > State law requires one for each person on board your watercraft.
-                    </li>
-                    <li class="mb-2 md:mb-4">
-                        <span class="font-publico-headline-bold">Think twice</span>
-                        before paddling in winds over 10 mph.
-                    </li>
-                    <li class="mb-2 md:mb-4">
-                        <span class="font-publico-headline-bold"
-                            >Watch water levels</span
-                        > on rivers and creeks.
-                    </li>
-                    <li class="mb-2 md:mb-4">
-                        <span class="font-publico-headline-bold"
-                            >Swim with care.</span
-                        >
-                    </li>
-                   <li class="mb-2 md:mb-4">
-                        <span class="font-publico-headline-bold">Be mindful</span> of
-                        private property.
-                    </li>
-                </ul>
-            </div>
-        </div>
+            </li>
+           <li class="mb-2 md:mb-4">
+                <span class="font-publico-headline-bold">Be mindful</span> of
+                private property.
+            </li>
+        </ul>
+    </div>
+</div>
 
 <style type="text/css">
     div.video-wrapper {

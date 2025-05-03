@@ -98,7 +98,7 @@
                 </p>
             </div>
             <div
-                class="nearbyCities item border-r border-[#b4c7c0] w-1/2 md:w-1/3 md:mb-0 pb-4 md:px-8 pr-6"
+                class="nearbyCities item border-r border-[#b4c7c0] w-1/2 md:w-1/3 md:mb-0 md:px-8 pr-6"
             >
                 <h5
                     class="font-graphik-bold uppercase tracking-widest text-[12px] md:text-[14px] mb-2"
