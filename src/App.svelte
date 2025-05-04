@@ -114,12 +114,12 @@
                 }}
             />
             <div
-                class="route-preview-wrapper md:flex flex-wrap w-[90%] justify-start gap-8 mx-auto max-w-7xl"
+                class="route-preview-wrapper sm:flex flex-wrap w-[90%] justify-start gap-6 mx-auto max-w-7xl"
             >
                 {#each routeData.filter( (r) => (tagFilter ? r.tags.includes(tagFilter) : true) ) as route}
                     <a
                         href="#/{slugify(route.headline)}"
-                        class="block md:w-[48%] xl:w-[31.5%] md:mb-0 mb-6"
+                        class="block w-full md:w-[48%] lg:w-[31.5%] md:mb-0 mb-6"
                     >
                         <div
                             class="route-preview font-publico-headline-medium bg-white border rounded-xl border-[#05442e] hover:bg-[#05442e] hover:text-[#fffbf4] transition-all duration-500"

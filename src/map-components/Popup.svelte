@@ -19,7 +19,7 @@
 
 {#if popupData.headline}
     <div
-        class="absolute right-[5%] md:right-[0px] bottom-[0%] md:bottom-[0px] z-10 w-[90%] md:w-[49%] lg:w-[32%] transition-all duration-500"
+        class="absolute right-[5%] xl:right-[0px] bottom-[0%] md:bottom-[0px] z-10 w-[90%] md:w-[44%] lg:w-[32%] transition-all duration-500"
     >
         <button
             class="absolute left-0 bg-[#05442e] hover:bg-[#fffbf4] transition-all duration-500 p-2 px-4 md:p-4 rounded-tl-xl border-[#05442e] border"
