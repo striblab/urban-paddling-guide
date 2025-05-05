@@ -39,9 +39,9 @@
                 data: { type: "FeatureCollection", features: endPoints },
             });
         }
-        if (!map.getLayer(`${id}-line`)) {
+        if (!map.getLayer(`${id}-rtline`)) {
             map.addLayer({
-                id: `${id}-line`,
+                id: `${id}-rtline`,
                 type: "line",
                 source: id,
                 layout: {
@@ -92,9 +92,11 @@
         });
 
         return () => {
-            [`${id}-line`, `${id}-endpoints-img`, `${id}-hit`].forEach((l) => {
-                if (map.getLayer(l)) map.removeLayer(l);
-            });
+            [`${id}-rtline`, `${id}-endpoints-img`, `${id}-hit`].forEach(
+                (l) => {
+                    if (map.getLayer(l)) map.removeLayer(l);
+                }
+            );
         };
     });
 

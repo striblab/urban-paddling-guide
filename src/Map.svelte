@@ -88,9 +88,9 @@
         clearMap();
         selectedRoute = routeID;
         const route = routeData.filter((r) => r.routeID === routeID)[0];
-        map.setPaintProperty(`${routeID}-line`, "line-width", lineWidth + 1);
+        map.setPaintProperty(`${routeID}-rtline`, "line-width", lineWidth + 1);
         map.setPaintProperty(
-            `${routeID}-line`,
+            `${routeID}-rtline`,
             "line-color",
             lineHighlightColor
         );
@@ -108,7 +108,7 @@
 
     const clearMap = () => {
         const allLayers = map.getLayersOrder();
-        let lineLayers = allLayers.filter((l) => l.includes("-line"));
+        let lineLayers = allLayers.filter((l) => l.includes("-rtline"));
         lineLayers.forEach((l) => {
             map.setPaintProperty(l, "line-width", lineWidth);
             map.setPaintProperty(l, "line-color", lineColor);
