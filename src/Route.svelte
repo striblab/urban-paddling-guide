@@ -224,7 +224,7 @@
                     </div>
                     {#if endAddress}
                         <div
-                            class="take-out item border-b-0 md:border-r border-[#b4c7c0] w-1/2 md:w-2/5 mb-0 pl-6"
+                            class="take-out item border-b-0 md:border-r border-[#b4c7c0] w-1/2 md:w-2/5 mb-0 pl-6 md:pr-6"
                         >
                             <h5
                                 class="font-graphik-bold uppercase tracking-widest text-[12px] md:text-[14px] mb-2"
