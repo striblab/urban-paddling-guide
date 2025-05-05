@@ -40,39 +40,45 @@
             });
         }
         if (!map.getLayer(`${id}-rtline`)) {
-            map.addLayer({
-                id: `${id}-rtline`,
-                type: "line",
-                source: id,
-                layout: {
-                    "line-join": "round",
-                    "line-cap": "round",
+            map.addLayer(
+                {
+                    id: `${id}-rtline`,
+                    type: "line",
+                    source: id,
+                    layout: {
+                        "line-join": "round",
+                        "line-cap": "round",
+                    },
+                    paint: {
+                        "line-color": lineColor,
+                        "line-width": lineWidth,
+                    },
                 },
-                paint: {
-                    "line-color": lineColor,
-                    "line-width": lineWidth,
-                },
-            });
+                "road_footway-case" // Add before this layer
+            );
         }
         if (!map.getLayer(`${id}-hit`)) {
-            map.addLayer({
-                id: `${id}-hit`,
-                type: "line",
-                source: id,
-                layout: { "line-join": "round", "line-cap": "round" },
-                paint: {
-                    "line-width": lineWidth + 12,
-                    "line-opacity": 0,
+            map.addLayer(
+                {
+                    id: `${id}-hit`,
+                    type: "line",
+                    source: id,
+                    layout: { "line-join": "round", "line-cap": "round" },
+                    paint: {
+                        "line-width": lineWidth + 12,
+                        "line-opacity": 0,
+                    },
                 },
-            });
+                "road_footway-case" // Add before this layer
+            );
         }
 
         map.on("mouseenter", `${id}-hit`, () => {
             map.getCanvas().style.cursor = "pointer";
             if (!routeSelected) {
-                map.setPaintProperty(`${id}-line`, "line-width", lineWidth + 1);
+                map.setPaintProperty(`${id}-rtline`, "line-width", lineWidth + 1);
                 map.setPaintProperty(
-                    `${id}-line`,
+                    `${id}-rtline`,
                     "line-color",
                     lineHighlightColor
                 );
@@ -80,10 +86,10 @@
         });
 
         map.on("mouseleave", `${id}-hit`, () => {
-            map.getCanvas().style.cursor = "pointer";
+            map.getCanvas().style.cursor = "";
             if (!routeSelected) {
-                map.setPaintProperty(`${id}-line`, "line-width", lineWidth);
-                map.setPaintProperty(`${id}-line`, "line-color", lineColor);
+                map.setPaintProperty(`${id}-rtline`, "line-width", lineWidth);
+                map.setPaintProperty(`${id}-rtline`, "line-color", lineColor);
             }
         });
 
