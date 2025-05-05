@@ -94,7 +94,7 @@
 
         <div class="filters-sticky-wrapper relative pt-12">
             <h4
-                class="font-graphik-medium md:text-[20px] text-[18px] w-[90%] mx-auto max-w-xl text-center"
+                class="font-graphik-medium md:text-[20px] text-[17px] w-[90%] mx-auto max-w-xl text-center"
             >
                 Click a route to read its detailed paddle guide, or use our
                 filters to narrow down the choice of routes.
@@ -105,14 +105,16 @@
                     tagFilter = tagFilter == tag ? "" : tag;
                 }}
             />
-            <Map
-                routeData={routeData.filter((r) =>
-                    tagFilter ? r.tags.includes(tagFilter) : true
-                )}
-                clearFilter={() => {
-                    tagFilter = "";
-                }}
-            />
+            <div class="map-wrapper w-full h-full">
+                <Map
+                    routeData={routeData.filter((r) =>
+                        tagFilter ? r.tags.includes(tagFilter) : true
+                    )}
+                    clearFilter={() => {
+                        tagFilter = "";
+                    }}
+                />
+            </div>
             <div
                 class="route-preview-wrapper sm:flex flex-wrap w-[90%] justify-start gap-6 mx-auto max-w-7xl"
             >

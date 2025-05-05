@@ -23,8 +23,8 @@
         <svg id="strib-chevron-down" viewBox="0 0 16 16" width="20" height="20" fill="white" class="strib-icon strib-chevron-down mx-auto mt-12 opacity-50" xmlns="http://www.w3.org/2000/svg">
           <path d="m15 5.125-1.251-1.25L8 9.623 2.251 3.875 1 5.125l7 7z"/>
         </svg>
-        <div class="max-w-xl w-[90%] mx-auto mb-[110vh] mt-[50vh] text-white text-center">
-            <h2 class="font-publico-headline-light text-[22px] md:text-[28px] leading-[1.6]">Canoe, kayak or paddleboard: Your ultimate guide to paddling in the Twin Cities metro area, whether you’re a beginner or a seasoned paddler</h2>
+        <div class="max-w-lg w-[90%] mx-auto mb-[110vh] mt-[50vh] text-white text-center">
+            <h2 class="font-publico-headline-light text-[20px] md:text-[24px] leading-[1.6] tracking-wide">Canoe, kayak or paddleboard: Your ultimate guide to paddling in the Twin Cities metro area, whether you’re a beginner or a seasoned paddler</h2>
             <p
                 class="byline text-center uppercase font-graphik-regular text-[13px] tracking-widest mt-8 hidden md:block "
             >
@@ -37,69 +37,18 @@
                 The Minnesota Star Tribune<br>May 12, 2025
             </p>
         </div>
-        <!-- <div
-            class="font-publico-text-roman text-[16px] md:text-[18px] leading-[1.6] text-left max-w-2xl mx-auto p-8 md:p-12 bg-white/95 mb-[110vh] rounded-3xl"
-        >
-            <p class="mb-6"> You don’t have to go to the Boundary Waters to have fun paddling
-                a canoe.
-                In Minnesota, we pride ourselves on being connected to water.
-                But getting out there is easier
-                said than done. Where do I put in my boat? How fast is too fast
-                for moving water? How long will this take? Are there rentals?
-                The information you need is all over the place, if you can find
-                it at all.
-            </p>
-            <p class="mb-6">
-                We think it could be easier, so some water-loving Minnesota Star
-                Tribune staff members set out to create an urban paddling guide.
-                We researched, paddled and mapped our favorite routes within the
-                metro area.
-            </p>
-            <p class="mb-6">
-               We hope this guide helps you see the Twin Cities in new ways: take a lazy river ride toward the Minneapolis skyline; explore a little-seen part of
-                St. Paul; practice portaging at Lebanon Hills in the southern
-                suburbs. See you on the water, and please tag <a href="http://instagram.com/startribune" target="_blank">@startribune</a> in your urban
-                paddling photos.
-            </p>
-            <p>While you’re out there, don’t forget to:</p>
-            <ul class="mb-6">
-                <li class="ml-4 md:ml-6">
-                    <span class="font-publico-text-bold"
-                        >Bring a life jacket.</span
-                    > State law requires one for each person on board your watercraft.
-                </li>
-                <li class="ml-4 md:ml-6">
-                    <span class="font-publico-text-bold">Think twice</span>
-                    before paddling in winds over 10 mph.
-                </li>
-                <li class="ml-4 md:ml-6">
-                    <span class="font-publico-text-bold"
-                        >Watch water levels</span
-                    > on rivers and creeks.
-                </li>
-                <li class="ml-4 md:ml-6">
-                    <span class="font-publico-text-bold"
-                        >Swim with care.</span
-                    >
-                </li>
-                <li class="ml-4 md:ml-6">
-                    <span class="font-publico-text-bold">Be mindful</span> of
-                    private property.
-                </li>
-            </ul>
-        </div> -->
     </div>
     
 </div>
 
 <div
-    class="w-[90%] font-publico-text-roman text-[18px] md:text-[22px] leading-[1.6] max-w-2xl mx-auto pt-0"
+    class="w-[90%] font-publico-text-roman text-[18px] md:text-[20px] leading-[1.6] max-w-2xl mx-auto pt-0"
 >
-    <p class="mb-6">
+    <p class="mb-4 ">
         You don’t have to go to the Boundary Waters to have fun paddling
         a canoe.
     </p>
-    <p class="mb-6">
+    <p class="mb-4">
         In Minnesota, we pride ourselves on being connected to water.
         But getting out there is easier
         said than done. Where do I put in my boat? How fast is too fast
@@ -107,7 +56,7 @@
         The information you need is all over the place, if you can find
         it at all.
     </p>
-    <p class="mb-6">
+    <p class="mb-4">
         We think it could be easier, so some water-loving Minnesota Star
         Tribune staff members set out to create an urban paddling guide.
         We researched, paddled and mapped our favorite routes within the

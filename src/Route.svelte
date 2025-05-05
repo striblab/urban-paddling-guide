@@ -191,7 +191,7 @@
 
         {#if mapUrl}
             <div
-                class="map mt-0 mb-4 w-[100%] mx-auto max-w-2xl overflow-x-auto font-graphik-regular text-[18px] border-[#b4c7c0] py-10 my-12"
+                class="map mt-0 mb-4 w-[100%] mx-auto max-w-2xl font-graphik-regular text-[18px] border-[#b4c7c0] py-10 my-12"
             >
                 <div
                     class="md:w-full w-[90%] mx-auto max-w-2xl flex-module mx-auto flex justify-start py-8 mb-8 flex-wrap text-left border-t border-b border-[#b4c7c0]"
@@ -275,8 +275,15 @@
                         </p>
                     </div>
                 </div>
-
-                <RouteMap route={headline} />
+                <div class="overflow-x-auto">
+                    <h5 class="font-graphik-regular uppercase tracking-widest text-[12px] ml-[5%] scroll-prompt mb-6">Scroll for full map 
+                        <svg id="strib-arrow-right" viewBox="0 0 16 16" width="14" height="14" fill="currentcolor" class="strib-icon strib-arrow-right inline ml-1" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M1 7.314v1.372h11.373l-4.221 4.226.968.968L15 8 9.12 2.12l-.968.968 4.221 4.226z"/>
+                        </svg>
+                    </h5>
+                    <RouteMap route={headline} />
+                </div>
+                
                 <div class="md:w-full w-[90%] mx-auto max-w-2xl ">
                     <div
                         class="font-utility-body-reg-05 flex flex-row flex-wrap justify-between mt-2"
