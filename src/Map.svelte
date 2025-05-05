@@ -148,6 +148,7 @@
             loadRoute={(routeID) => {
                 selectRoute(routeID);
             }}
+            closeRoute={clearMap}
         />{/if}
 </div>
 {#key routeData}

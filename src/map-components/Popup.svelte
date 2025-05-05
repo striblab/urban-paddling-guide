@@ -1,6 +1,6 @@
 <script>
     import { slugify } from "../utilities";
-    let { popupData, routeData, loadRoute } = $props();
+    let { popupData, routeData, loadRoute, closeRoute } = $props();
 
     let routeIds = routeData.map((r) => r.routeID);
     let routeIdIndex = $derived(routeIds.indexOf(popupData?.routeID));
@@ -28,49 +28,9 @@
     <div
         class="absolute right-[5%] xl:right-[0px] bottom-[0%] md:bottom-[0px] z-10 w-[90%] md:w-[44%] lg:w-[32%] transition-all duration-500"
     >
-        <button
-            class="absolute left-0 bg-[#05442e] hover:bg-[#fffbf4] transition-all duration-500 p-2 px-4 md:p-4 rounded-tl-xl border-[#05442e] border"
-            aria-label="previous route"
-            onclick={() => {
-                loadRoute(prevRouteId);
-            }}
-        >
-            <svg
-                id="strib-arrow-left"
-                viewBox="0 0 16 16"
-                width="16"
-                height="16"
-                fill="#fffbf4"
-                class="strib-icon strib-arrow-left hover:opacity-50"
-                xmlns="http://www.w3.org/2000/svg"
-            >
-                <path
-                    d="M15 7.314v1.372H3.627l4.221 4.226-.968.968L1 8l5.88-5.88.968.968-4.221 4.226z"
-                />
-            </svg>
+        <button class="float-right text-2xl text-red-500" onclick={closeRoute}>
+            X
         </button>
-        <button
-            class="absolute right-0 bg-[#05442e] hover:bg-[#fffbf4] transition-all duration-500 p-2 px-4 md:p-4 rounded-tr-xl border-[#05442e] border"
-            aria-label="next route"
-            onclick={() => {
-                loadRoute(nextRouteId);
-            }}
-        >
-            <svg
-                id="strib-arrow-right"
-                viewBox="0 0 16 16"
-                width="16"
-                height="16"
-                fill="#fffbf4"
-                class="strib-icon strib-arrow-right"
-                xmlns="http://www.w3.org/2000/svg"
-            >
-                <path
-                    d="M1 7.314v1.372h11.373l-4.221 4.226.968.968L15 8 9.12 2.12l-.968.968 4.221 4.226z"
-                />
-            </svg>
-        </button>
-
         <div
             class="route-preview font-publico-headline-medium bg-white border rounded-xl border-[#05442e] overflow-hidden"
         >
@@ -101,6 +61,48 @@
                 >
             </div>
         </div>
+        <button
+            class="absolute left-0 bottom-0 bg-[#05442e] hover:bg-[#fffbf4] transition-all duration-500 p-2 px-4 md:p-4 rounded-tl-xl border-[#05442e] border"
+            aria-label="previous route"
+            onclick={() => {
+                loadRoute(prevRouteId);
+            }}
+        >
+            <svg
+                id="strib-arrow-left"
+                viewBox="0 0 16 16"
+                width="16"
+                height="16"
+                fill="#fffbf4"
+                class="strib-icon strib-arrow-left hover:opacity-50"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    d="M15 7.314v1.372H3.627l4.221 4.226-.968.968L1 8l5.88-5.88.968.968-4.221 4.226z"
+                />
+            </svg>
+        </button>
+        <button
+            class="absolute right-0 bottom-0 bg-[#05442e] hover:bg-[#fffbf4] transition-all duration-500 p-2 px-4 md:p-4 rounded-tr-xl border-[#05442e] border"
+            aria-label="next route"
+            onclick={() => {
+                loadRoute(nextRouteId);
+            }}
+        >
+            <svg
+                id="strib-arrow-right"
+                viewBox="0 0 16 16"
+                width="16"
+                height="16"
+                fill="#fffbf4"
+                class="strib-icon strib-arrow-right"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    d="M1 7.314v1.372h11.373l-4.221 4.226.968.968L15 8 9.12 2.12l-.968.968 4.221 4.226z"
+                />
+            </svg>
+        </button>
     </div>
 {/if}
 
