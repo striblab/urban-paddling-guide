@@ -15,6 +15,13 @@
         if (e.key === "ArrowLeft") loadRoute(prevRouteId);
         if (e.key === "ArrowRight") loadRoute(nextRouteId);
     };
+
+    const getFirstSentence = (string) => {
+        let parts = string.split(".");
+        let out = parts[0];
+        if (out.slice(-2) == "St") out += parts[1];
+        return out + ".";
+    };
 </script>
 
 {#if popupData.headline}
@@ -86,7 +93,7 @@
                 <h3
                     class="text-[16px] my-4 font-graphik-regular leading-[1.3] md:block hidden"
                 >
-                    {popupData.summary}
+                    {getFirstSentence(popupData.summary)}
                 </h3>
                 <a
                     class="mb-1 mx-auto text-[#05442e] hover:opacity-50 border-[#05442e] border-b uppercase font-graphik-medium tracking-widest text-[12px] transition duration-500"
