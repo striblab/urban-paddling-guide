@@ -80,6 +80,7 @@
                     padding: 30,
                 }
             );
+            clearMap();
         }
     });
 
