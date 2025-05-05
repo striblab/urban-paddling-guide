@@ -18,9 +18,8 @@
     let map = $state();
     let mapLoaded = $state(false);
     let imageLoaded = $state(false);
-    let popupData = $state({});
+    let popupData = $state({ headline: false });
     let innerWidth = $state(0);
-    let currentZoom = $state(0);
     let selectedRoute = $state("");
 
     const isMobile = $derived(innerWidth < 640);
@@ -68,14 +67,6 @@
 
         map.on("click", clearMap);
 
-        map.on("zoom", () => {
-            currentZoom = map.getZoom();
-        });
-
-        map.on("zoomend", () => {
-            if (currentZoom < 10) clearMap();
-        });
-
         return () => {
             map.remove();
         }; // cleanup on destroy
@@ -121,7 +112,7 @@
             map.setPaintProperty(l, "line-width", lineWidth);
             map.setPaintProperty(l, "line-color", lineColor);
         });
-        popupData = {};
+        popupData = { headline: false };
     };
 
     const resize = () => {
@@ -150,10 +141,9 @@
         class="font-utility-button-02 text-[#434343] absolute top-2.5 left-12 bg-white/95 px-3 py-2 shadow-[0_1px_4px_rgba(0,0,0,0.3)] rounded-md z-50 text-sm hover:bg-gray-100"
         >Reset View</button
     >
-    {#if popupData}<Popup
+    {#if popupData.headline}<Popup
             {popupData}
             {routeData}
-            {map}
             loadRoute={(routeID) => {
                 selectRoute(routeID);
             }}

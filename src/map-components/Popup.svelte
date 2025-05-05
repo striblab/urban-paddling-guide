@@ -1,6 +1,6 @@
 <script>
-    import { slugify, getBBox, getBBoxAspectRatio } from "../utilities";
-    let { popupData, routeData, map, loadRoute } = $props();
+    import { slugify } from "../utilities";
+    let { popupData, routeData, loadRoute } = $props();
 
     let routeIds = routeData.map((r) => r.routeID);
     let routeIdIndex = $derived(routeIds.indexOf(popupData?.routeID));
@@ -26,21 +26,41 @@
             aria-label="previous route"
             onclick={() => {
                 loadRoute(prevRouteId);
-            }}>
-            <svg id="strib-arrow-left" viewBox="0 0 16 16" width="16" height="16" fill="#fffbf4" class="strib-icon strib-arrow-left hover:opacity-50" xmlns="http://www.w3.org/2000/svg">
-              <path d="M15 7.314v1.372H3.627l4.221 4.226-.968.968L1 8l5.88-5.88.968.968-4.221 4.226z"/>
-            </svg>
-
-            </button
+            }}
         >
+            <svg
+                id="strib-arrow-left"
+                viewBox="0 0 16 16"
+                width="16"
+                height="16"
+                fill="#fffbf4"
+                class="strib-icon strib-arrow-left hover:opacity-50"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    d="M15 7.314v1.372H3.627l4.221 4.226-.968.968L1 8l5.88-5.88.968.968-4.221 4.226z"
+                />
+            </svg>
+        </button>
         <button
             class="absolute right-0 bg-[#05442e] hover:bg-[#fffbf4] transition-all duration-500 p-2 px-4 md:p-4 rounded-tr-xl border-[#05442e] border"
             aria-label="next route"
             onclick={() => {
                 loadRoute(nextRouteId);
-            }}>
-            <svg id="strib-arrow-right" viewBox="0 0 16 16" width="16" height="16" fill="#fffbf4" class="strib-icon strib-arrow-right" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 7.314v1.372h11.373l-4.221 4.226.968.968L15 8 9.12 2.12l-.968.968 4.221 4.226z"/>
+            }}
+        >
+            <svg
+                id="strib-arrow-right"
+                viewBox="0 0 16 16"
+                width="16"
+                height="16"
+                fill="#fffbf4"
+                class="strib-icon strib-arrow-right"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    d="M1 7.314v1.372h11.373l-4.221 4.226.968.968L15 8 9.12 2.12l-.968.968 4.221 4.226z"
+                />
             </svg>
         </button>
 
