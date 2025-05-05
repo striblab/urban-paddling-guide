@@ -194,10 +194,10 @@
                 class="map mt-0 mb-4 w-[100%] mx-auto max-w-2xl font-graphik-regular text-[18px] border-[#b4c7c0] py-10 my-12"
             >
                 <div
-                    class="md:w-full w-[90%] mx-auto max-w-2xl flex-module mx-auto flex justify-start py-8 mb-8 flex-wrap text-left border-t border-b border-[#b4c7c0]"
+                    class="md:w-full w-[90%] max-w-2xl flex-module mx-auto flex justify-start py-8 mb-8 flex-wrap text-left border-t border-b border-[#b4c7c0]"
                 >
                     <div
-                        class="put-in item border-r border-[#b4c7c0] {endAddress
+                        class="put-in item md:border-r border-[#b4c7c0] {endAddress
                             ? 'w-1/2'
                             : 'w-full'} {endAddress
                             ? 'md:w-2/5'
