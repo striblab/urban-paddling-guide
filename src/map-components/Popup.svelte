@@ -58,8 +58,8 @@
             alt={popupData.heroImgAltText}
             class="w-full hidden md:block"
         />
-        <div class="text-wrapper p-6 py-14 md:pt-6">
-            <h3 class="text-[24px] md:text-[28px] mb-2 leading-[1.2]">
+        <div class="text-wrapper p-6 pt-6 pb-14 md:pt-6">
+            <h3 class="text-[24px] md:text-[28px] mb-2 leading-[1.2] w-[95%]">
                 {popupData.headline}
             </h3>
             <h5
@@ -68,7 +68,7 @@
                 {popupData.subhead}
             </h5>
             <h3
-                class="text-[14px] md:text-[16px] my-4 font-graphik-regular leading-[1.3]"
+                class="text-[14px] md:text-[16px] mt-4 font-graphik-regular leading-[1.3]"
             >
                 {getFirstSentence(popupData.summary)}
             </h3>
@@ -133,6 +133,10 @@
     @media only screen and (max-width: 767px) {
         #strib-close path {
             fill: #05442e;
+        }
+        button:hover svg path {
+            fill: #fffbf4;
+            transition: 0s all;
         }
     }
 </style>
