@@ -90,8 +90,6 @@
         <Hero />
         <div bind:this={topEl}></div>
 
-        
-
         <div class="filters-sticky-wrapper relative pt-12">
             <h4
                 class="font-graphik-medium md:text-[20px] text-[17px] w-[90%] mx-auto max-w-xl text-center"
@@ -168,31 +166,5 @@
 
     div.route-preview {
         overflow: hidden;
-    }
-
-    /*div.route-preview-wrapper::after {
-        content: "";
-        flex: auto;
-    }*/
-    /*div.route-preview-wrapper a:last-child {
-        margin-left: 2%;
-    }
-    @media only screen and (max-width: 1023px) {
-        div.route-preview-wrapper a:last-child {
-            margin-left: 0%;
-        }
-    }*/
-    li {
-        position: relative;
-    }
-    li:before {
-        content: "•";
-        position: absolute;
-        left: -15px;
-        height: 10px;
-    }
-
-    a.intro {
-        border-bottom: 1px solid #05442e;
     }
 </style>

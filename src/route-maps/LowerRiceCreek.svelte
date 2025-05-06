@@ -416,10 +416,6 @@
         display: block;
         width: 100% !important;
     }
-    .g-aiSymbol {
-        position: absolute;
-        box-sizing: border-box;
-    }
     .g-aiPointText p {
         white-space: nowrap;
     }
