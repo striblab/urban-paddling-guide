@@ -85,7 +85,7 @@
     });
 
     const scrollToTargetAdjusted = (node) => {
-        var headerOffset = 45;
+        var headerOffset = 90;
         var elementPosition = node.getBoundingClientRect().top;
         var offsetPosition =
             elementPosition + window.pageYOffset - headerOffset;
