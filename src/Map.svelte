@@ -68,7 +68,7 @@
         map.on("click", clearMap);
 
         return () => {
-            map.remove();
+            if (map) map.remove();
         }; // cleanup on destroy
     });
 
