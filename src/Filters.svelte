@@ -23,15 +23,6 @@
             }}
         />
         <FilterButton
-            tag={"intermediate paddlers"}
-            label={"Intermediate"}
-            mobileLabel={"Intermediate"}
-            {activeFilter}
-            doFilter={(tag) => {
-                filterByTag(tag);
-            }}
-        />
-        <FilterButton
             tag={"rentals"}
             label={"Rentals available"}
             mobileLabel={"Rentals"}
