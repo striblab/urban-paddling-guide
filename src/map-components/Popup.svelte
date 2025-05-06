@@ -29,25 +29,47 @@
     in:fade={{ duration: 500 }}
     class="absolute right-[5%] xl:right-[0px] bottom-[0%] md:bottom-[0px] z-10 w-[90%] md:w-[44%] lg:w-[32%] transition-all duration-500"
 >
-    <button
-        aria-label="close"
-        class="absolute right-0 top-0 md:hover:opacity-50 transition-all duration-500 p-4 rounded-tr-xl md:p-4"
-        onclick={closeRoute}
-    >
-        <svg
-            id="strib-close"
-            viewBox="0 0 16 16"
-            width="16"
-            height="16"
-            fill="#05442e"
-            class="strib-icon strib-close"
-            xmlns="http://www.w3.org/2000/svg"
+    {#if popupData.headline == "Upper Rice Creek"}
+        <button
+            aria-label="close"
+            class="absolute right-0 top-0 md:hover:opacity-50 transition-all duration-500 p-4 rounded-tr-xl md:p-4 upperrice"
+            onclick={closeRoute}
         >
-            <path
-                d="m8 7.037-5.5-5.5-.963.963 5.5 5.5-5.5 5.5.963.963 5.5-5.5 5.5 5.5.963-.963-5.5-5.5 5.5-5.5-.963-.963z"
-            />
-        </svg>
-    </button>
+            <svg
+                id="strib-close"
+                viewBox="0 0 16 16"
+                width="16"
+                height="16"
+                fill="#05442e"
+                class="strib-icon strib-close"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    d="m8 7.037-5.5-5.5-.963.963 5.5 5.5-5.5 5.5.963.963 5.5-5.5 5.5 5.5.963-.963-5.5-5.5 5.5-5.5-.963-.963z"
+                />
+            </svg>
+        </button>
+    {:else}
+        <button
+            aria-label="close"
+            class="absolute right-0 top-0 md:hover:opacity-50 transition-all duration-500 p-4 rounded-tr-xl md:p-4"
+            onclick={closeRoute}
+        >
+            <svg
+                id="strib-close"
+                viewBox="0 0 16 16"
+                width="16"
+                height="16"
+                fill="#05442e"
+                class="strib-icon strib-close"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    d="m8 7.037-5.5-5.5-.963.963 5.5 5.5-5.5 5.5.963.963 5.5-5.5 5.5 5.5.963-.963-5.5-5.5 5.5-5.5-.963-.963z"
+                />
+            </svg>
+        </button>
+    {/if}
     <div
         class="route-preview font-publico-headline-medium bg-white border rounded-xl border-[#05442e] overflow-hidden"
     >
@@ -127,8 +149,15 @@
         fill: #05442e;
         transition: 0.5s all;
     }
+    button.upperrice:hover svg path {
+        fill: #fffbf4;
+        transition: 0.5s all;
+    }
     #strib-close path {
         fill: white;
+    }
+    button.upperrice #strib-close path {
+        fill: #05442e;
     }
     @media only screen and (max-width: 767px) {
         #strib-close path {
@@ -137,6 +166,9 @@
         button:hover svg path {
             fill: #fffbf4;
             transition: 0s all;
+        }
+        button.upperrice #strib-close path {
+            fill: #05442e;
         }
     }
 </style>
