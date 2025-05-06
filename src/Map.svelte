@@ -84,6 +84,18 @@
         }
     });
 
+    const scrollToTargetAdjusted = (node) => {
+        var headerOffset = 45;
+        var elementPosition = node.getBoundingClientRect().top;
+        var offsetPosition =
+            elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+        });
+    };
+
     const selectRoute = (routeID) => {
         clearMap();
         selectedRoute = routeID;
@@ -95,6 +107,7 @@
             lineHighlightColor
         );
         popupData = route;
+        scrollToTargetAdjusted(mapContainer);
         let bbox = getBBox([JSON.parse(route.routeGeojson)]);
         let bboxAspectRatio = getBBoxAspectRatio(bbox);
         map.fitBounds(bbox, {
