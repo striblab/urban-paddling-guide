@@ -176,10 +176,10 @@
 
     div.route-preview {
         overflow: hidden;
-        transition: 1s all;
+        transition: 0.5s all;
     }
 
     div.route-preview {
-        transition: 1s all;
+        transition: 0.5s all;
     }
 </style>
