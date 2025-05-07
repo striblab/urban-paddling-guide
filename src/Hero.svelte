@@ -15,9 +15,9 @@
     </div>
     <div class="subhead w-[90%] mx-auto">
         <h1
-            class="font-publico-banner-black text-[45px] md:text-[55px] text-center mx-auto text-white mt-[-100vh] pt-[37.5vh] md:pt-[45vh] max-w-[250px] md:max-w-4xl headline leading-[1.2]"
+            class="font-publico-banner-black text-[45px] md:text-[55px] text-center mx-auto text-white mt-[-100vh] pt-[37.5vh] md:pt-[45vh] max-w-[325px] md:max-w-4xl headline leading-[1.2]"
         >
-            Paddling the city
+            Paddling the Twin Cities
         </h1>
         <svg
             id="strib-chevron-down"
@@ -49,7 +49,7 @@
             <p
                 class="byline text-center uppercase font-graphik-regular text-[13px] tracking-widest mt-8 block md:hidden"
             >
-                The Minnesota Star Tribune<br />May 12, 2025
+                The Minnesota Star Tribune<br />May 15, 2025
             </p>
         </div>
     </div>
@@ -78,10 +78,12 @@
         We hope this guide helps you see the Twin Cities in new ways: take a
         lazy river ride toward the Minneapolis skyline; explore a little-seen
         part of St. Paul; practice portaging at Lebanon Hills in the southern
-        suburbs. See you on the water, and please tag <a
+        suburbs. Please tag <a
             href="http://instagram.com/startribune"
             target="_blank">@startribune</a
-        > in your urban paddling photos.
+        > in your urban paddling photos, and submit any questions about urban paddling to us <a
+            href="http://instagram.com/startribune"
+            target="_blank">using this form.</a> See you on the water.
     </p>
     <div class="pt-2 pb-0">
         <h5
