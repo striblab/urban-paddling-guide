@@ -1,6 +1,7 @@
 <script>
     import { slugify } from "./utilities";
     let { routes } = $props();
+    let hovered = $state("");
 </script>
 
 <div class="w-[90%] max-w-2xl mx-auto">
@@ -15,23 +16,33 @@
             <a
                 href="#/{slugify(route.headline)}"
                 class="block mb-4 md:mb-6 relative"
+                onmouseenter={() => {
+                    hovered = route.routeID;
+                }}
+                onmouseleave={() => {
+                    hovered = "";
+                }}
             >
                 <div
-                    class="route-preview font-publico-headline-medium bg-white border rounded-xl border-[#05442e] overflow-hidden flex items-center relative w-full justify-between hover:bg-[#05442e] hover:text-[#fffbf4] transition-all duration-500"
+                    class="route-preview font-publico-headline-medium bg-white border rounded-xl border-[#05442e] overflow-hidden flex items-center relative w-full justify-between transition-all duration-500 {hovered &&
+                    hovered !== route.routeID
+                        ? 'opacity-60 saturate-0'
+                        : 'opacity-100'}"
                 >
-                    <div class="image block md:hidden w-[45%] min-h-[120px] md:min-h-[150px] h-full" style="background: url(https://ststatic.stimg.co/assets/outdoors/urban-paddling/hero/{route.heroImg}_vertical.jpg?w=400&h=400&fit=crop); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;">
-                    </div>
-                    <div class="image hidden md:block w-[45%] min-h-[150px] h-full" style="background: url(https://ststatic.stimg.co/assets/outdoors/urban-paddling/hero/{route.heroImg}.jpg?w=600&h=400&fit=crop); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;">
-                    </div>
-                    <!-- <img
-                        src={route.heroImg
-                            ? `https://ststatic.stimg.co/assets/outdoors/urban-paddling/hero/${route.heroImg}.jpg?w=400&h=266&fit=crop`
-                            : "https://placehold.co/400x266"}
-                        alt={route.heroImgAltText}
-                        class="w-[50%] max-w-[250px]"
-                    /> -->
-                    <div class="text-wrapper p-2 md:p-4 w-[55%] pl-[5%] pr-[5%] md:w-[55%]">
-                        <h3 class="text-[20px] md:text-[23px] mb-0 md:mb-2 leading-[1.3]">
+                    <div
+                        class="image block md:hidden w-[45%] min-h-[120px] md:min-h-[150px] h-full"
+                        style="background: url(https://ststatic.stimg.co/assets/outdoors/urban-paddling/hero/{route.heroImg}_vertical.jpg?w=400&h=400&fit=crop); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+                    ></div>
+                    <div
+                        class="image hidden md:block w-[45%] min-h-[150px] h-full"
+                        style="background: url(https://ststatic.stimg.co/assets/outdoors/urban-paddling/hero/{route.heroImg}.jpg?w=600&h=400&fit=crop); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+                    ></div>
+                    <div
+                        class="text-wrapper p-2 md:p-4 w-[55%] pl-[5%] pr-[5%] md:w-[55%]"
+                    >
+                        <h3
+                            class="text-[20px] md:text-[23px] mb-0 md:mb-2 leading-[1.3]"
+                        >
                             {route.headline}
                         </h3>
                         <h5
@@ -46,10 +57,9 @@
     </div>
 </div>
 
-
 <style type="text/css">
-    div.route-preview:hover {
+    /* div.route-preview:hover {
         transition: 1s all;
         transform: scale(104%);
-    }
+    } */
 </style>

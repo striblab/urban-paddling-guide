@@ -16,6 +16,7 @@
     let hashCount = $state(0);
     let tagFilter = $state("");
     let hash = $state(window.location.hash);
+    let hovered = $state("");
 
     const loadRoutes = async () => {
         const req = await fetch(
@@ -120,9 +121,18 @@
                     <a
                         href="#/{slugify(route.headline)}"
                         class="block w-full md:w-[48%] lg:w-[31.5%] md:mb-0 mb-6"
+                        onmouseenter={() => {
+                            hovered = route.routeID;
+                        }}
+                        onmouseleave={() => {
+                            hovered = "";
+                        }}
                     >
                         <div
-                            class="route-preview font-publico-headline-medium bg-white border rounded-xl border-[#05442e] hover:bg-[#05442e] hover:text-[#fffbf4] transition-all duration-1000"
+                            class="route-preview font-publico-headline-medium bg-white border rounded-xl border-[#05442e] transition-all duration-1000 {hovered &&
+                            hovered !== route.routeID
+                                ? 'opacity-60 saturate-0'
+                                : 'opacity-100'}"
                         >
                             <img
                                 src={route.heroImg
@@ -171,10 +181,5 @@
 
     div.route-preview {
         transition: 1s all;
-    }
-
-    div.route-preview:hover {
-        transition: 1s all;
-        transform: scale(102.5%);
     }
 </style>
