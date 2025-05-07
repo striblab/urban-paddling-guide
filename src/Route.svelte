@@ -275,7 +275,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="overflow-x-auto">
+                <div class="overflow-x-scroll md:overflow-x-hidden">
                     <h5 class="font-graphik-regular uppercase tracking-widest text-[12px] ml-[5%] scroll-prompt mb-6">Scroll for full map 
                         <svg id="strib-arrow-right" viewBox="0 0 16 16" width="14" height="14" fill="currentcolor" class="strib-icon strib-arrow-right inline ml-1" xmlns="http://www.w3.org/2000/svg">
                           <path d="M1 7.314v1.372h11.373l-4.221 4.226.968.968L15 8 9.12 2.12l-.968.968 4.221 4.226z"/>

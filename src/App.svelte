@@ -122,7 +122,7 @@
                         class="block w-full md:w-[48%] lg:w-[31.5%] md:mb-0 mb-6"
                     >
                         <div
-                            class="route-preview font-publico-headline-medium bg-white border rounded-xl border-[#05442e] hover:bg-[#05442e] hover:text-[#fffbf4] transition-all duration-500"
+                            class="route-preview font-publico-headline-medium bg-white border rounded-xl border-[#05442e] hover:bg-[#05442e] hover:text-[#fffbf4] transition-all duration-1000"
                         >
                             <img
                                 src={route.heroImg
@@ -166,5 +166,15 @@
 
     div.route-preview {
         overflow: hidden;
+        transition: 1s all;
+    }
+
+    div.route-preview {
+        transition: 1s all;
+    }
+
+    div.route-preview:hover {
+        transition: 1s all;
+        transform: scale(102.5%);
     }
 </style>

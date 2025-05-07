@@ -45,3 +45,11 @@
         {/each}
     </div>
 </div>
+
+
+<style type="text/css">
+    div.route-preview:hover {
+        transition: 1s all;
+        transform: scale(104%);
+    }
+</style>
