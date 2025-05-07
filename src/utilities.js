@@ -1,3 +1,5 @@
+import { writable } from "svelte/store";
+
 export const slugify = (routeTitle) =>
     routeTitle.toLowerCase().replace(/ /g, "-");
 
@@ -32,3 +34,6 @@ export const getBBoxAspectRatio = (bbox) => {
     const height = bbox[1][0] - bbox[0][0];
     return length / height;
 };
+
+export const navBarOffset = writable(0);
+export const stickyFiltersOffset = writable(0);

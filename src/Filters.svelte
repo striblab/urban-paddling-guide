@@ -1,6 +1,6 @@
 <script>
     import FilterButton from "./FilterButton.svelte";
-    let offset = $state(0);
+    import { navBarOffset, stickyFiltersOffset } from "./utilities";
 
     const { filterByTag, activeFilter } = $props();
 
@@ -9,7 +9,7 @@
     );
     const updateOffset = () => {
         if (navBar) {
-            offset = navBar.getBoundingClientRect().bottom;
+            $navBarOffset = navBar.getBoundingClientRect().bottom;
         }
     };
 </script>
@@ -18,7 +18,8 @@
 
 <div
     class="filters-wrapper w-[100%] mx-auto max-w-7xl py-4 mb-0 text-center sticky bg-[#fffbf4] z-[100] border-[#05442e] border-b"
-    style="top: {offset}px;"
+    style="top: {$navBarOffset}px;"
+    bind:clientHeight={$stickyFiltersOffset}
 >
     <div class="flex flex-wrap items-center justify-center">
         <h5
