@@ -1,11 +1,24 @@
 <script>
     import FilterButton from "./FilterButton.svelte";
+    let offset = $state(0);
 
     const { filterByTag, activeFilter } = $props();
+
+    const navBar = document.querySelector(
+        "[data-testid='global-navigation-header']"
+    );
+    const updateOffset = () => {
+        if (navBar) {
+            offset = navBar.getBoundingClientRect().bottom;
+        }
+    };
 </script>
 
+<svelte:window onscroll={updateOffset} />
+
 <div
-    class="filters-wrapper w-[100%] mx-auto max-w-7xl py-4 mb-0 text-center sticky top-0 bg-[#fffbf4] z-[100] border-[#05442e] border-b"
+    class="filters-wrapper w-[100%] mx-auto max-w-7xl py-4 mb-0 text-center sticky bg-[#fffbf4] z-[100] border-[#05442e] border-b"
+    style="top: {offset}px;"
 >
     <div class="flex flex-wrap items-center justify-center mt-8">
         <h5
