@@ -4,7 +4,12 @@
     import { onMount } from "svelte";
     import maplibregl from "maplibre-gl";
     import "maplibre-gl/dist/maplibre-gl.css";
-    import { getBBox, getBBoxAspectRatio } from "./utilities";
+    import {
+        getBBox,
+        getBBoxAspectRatio,
+        navBarOffset,
+        stickyFiltersOffset,
+    } from "./utilities";
     import basemap from "./data/urban_paddling_basemap.json";
     import MapLine from "./map-components/MapLine.svelte";
     import Popup from "./map-components/Popup.svelte";
@@ -85,7 +90,7 @@
     });
 
     const scrollToTargetAdjusted = (node) => {
-        var headerOffset = 90;
+        var headerOffset = $navBarOffset + $stickyFiltersOffset;
         var elementPosition = node.getBoundingClientRect().top;
         var offsetPosition =
             elementPosition + window.pageYOffset - headerOffset;
