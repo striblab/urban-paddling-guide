@@ -56,7 +56,7 @@
 </div>
 
 <div
-    class="w-[90%] font-publico-text-roman text-[18px] md:text-[20px] leading-[1.6] max-w-2xl mx-auto pt-0"
+    class="w-[90%] font-publico-text-roman text-[18px] md:text-[20px] leading-[1.6] max-w-2xl mx-auto pt-0 intro"
 >
     <p class="mb-4">
         You don’t have to go to the Boundary Waters to have fun paddling a
@@ -120,6 +120,16 @@
 </div>
 
 <style type="text/css">
+
+    :global(.intro p a) {
+        border-bottom: 1px solid #05442e;
+        transition:  0.5s opacity;
+    }
+    :global(.intro p a:hover) {
+        opacity: 0.5;
+        transition:  0.5s opacity;
+    }
+
     div.video-wrapper {
         position: sticky;
         width: 100%;
