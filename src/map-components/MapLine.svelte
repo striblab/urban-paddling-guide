@@ -25,6 +25,7 @@
             geometry: { type: "Point", coordinates: coords[coords.length - 1] },
         },
     ];
+    let innerWidth;
 
     onMount(() => {
         if (!map.getSource(id)) {
@@ -65,7 +66,7 @@
                     source: id,
                     layout: { "line-join": "round", "line-cap": "round" },
                     paint: {
-                        "line-width": lineWidth + 12,
+                        "line-width": lineWidth + innerWidth < 600 ? 36 : 12,
                         "line-opacity": 0,
                     },
                 },
@@ -76,7 +77,11 @@
         map.on("mouseenter", `${id}-hit`, () => {
             map.getCanvas().style.cursor = "pointer";
             if (!routeSelected) {
-                map.setPaintProperty(`${id}-rtline`, "line-width", lineWidth + 1);
+                map.setPaintProperty(
+                    `${id}-rtline`,
+                    "line-width",
+                    lineWidth + 1
+                );
                 map.setPaintProperty(
                     `${id}-rtline`,
                     "line-color",
@@ -124,3 +129,5 @@
         }
     });
 </script>
+
+<svelte:window bind:innerWidth />
