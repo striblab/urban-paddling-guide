@@ -176,13 +176,26 @@
                     class="max-w-2xl m-auto pt-8 mt-8 border-t border-[#b4c7c0] font-graphik-regular leading-[1.6] text-[18px]"
                 >
                     <div class="flex items-start">
-                        <svg id="strib-error-filled" viewBox="0 0 16 16" width="16" height="16" fill="rgb(214, 83, 83)" class="strib-icon strib-error-filled w-[25px] h-[25px] mt-[-2px] mr-2" xmlns="http://www.w3.org/2000/svg">
-                          <!-- <path d="M8 12a.74.74 0 0 0 .416-.127.74.74 0 0 0 .319-.77.746.746 0 0 0-1.358-.269.75.75 0 0 0 .093.946c.141.141.331.22.53.22m-.666-8h1.334v5H7.334z"/>
+                        <svg
+                            id="strib-error-filled"
+                            viewBox="0 0 16 16"
+                            width="16"
+                            height="16"
+                            fill="rgb(214, 83, 83)"
+                            class="strib-icon strib-error-filled w-[25px] h-[25px] mt-[-2px] mr-2"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <!-- <path d="M8 12a.74.74 0 0 0 .416-.127.74.74 0 0 0 .319-.77.746.746 0 0 0-1.358-.269.75.75 0 0 0 .093.946c.141.141.331.22.53.22m-.666-8h1.334v5H7.334z"/>
                             <path d="M8 15a7.005 7.005 0 0 1-6.467-4.321A7 7 0 1 1 15 8a7 7 0 0 1-2.051 4.949A7 7 0 0 1 8 15M8 2a6 6 0 1 0-.001 12.002A6 6 0 0 0 8 2"/> -->
-                            <path d="M8 1C4.15 1 1 4.15 1 8s3.15 7 7 7 7-3.15 7-7-3.15-7-7-7m-.55 3h1.1v5.5h-1.1zM8 12.5c-.4 0-.75-.35-.75-.75S7.6 11 8 11s.75.35.75.75-.35.75-.75.75"/>
-
+                            <path
+                                d="M8 1C4.15 1 1 4.15 1 8s3.15 7 7 7 7-3.15 7-7-3.15-7-7-7m-.55 3h1.1v5.5h-1.1zM8 12.5c-.4 0-.75-.35-.75-.75S7.6 11 8 11s.75.35.75.75-.35.75-.75.75"
+                            />
                         </svg>
-                        <h5 class="font-graphik-bold uppercase tracking-widest text-[12px] md:text-[14px] mb-2 text-[#d65353]">Paddler&rsquo;s alert</h5>
+                        <h5
+                            class="font-graphik-bold uppercase tracking-widest text-[12px] md:text-[14px] mb-2 text-[#d65353]"
+                        >
+                            Paddler&rsquo;s alert
+                        </h5>
                     </div>
                     <p>{@html grafify(paddlerAlert)}</p>
                 </div>
@@ -275,16 +288,31 @@
                         </p>
                     </div>
                 </div>
-                <div class="overflow-x-scroll md:overflow-x-hidden">
-                    <h5 class="font-graphik-regular uppercase tracking-widest text-[12px] ml-[5%] scroll-prompt mb-6">Scroll for full map 
-                        <svg id="strib-arrow-right" viewBox="0 0 16 16" width="14" height="14" fill="currentcolor" class="strib-icon strib-arrow-right inline ml-1" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M1 7.314v1.372h11.373l-4.221 4.226.968.968L15 8 9.12 2.12l-.968.968 4.221 4.226z"/>
+                <div
+                    class="overflow-x-scroll md:overflow-x-hidden md:overflow-y-hidden"
+                >
+                    <h5
+                        class="font-graphik-regular uppercase tracking-widest text-[12px] ml-[5%] scroll-prompt mb-6"
+                    >
+                        Scroll for full map
+                        <svg
+                            id="strib-arrow-right"
+                            viewBox="0 0 16 16"
+                            width="14"
+                            height="14"
+                            fill="currentcolor"
+                            class="strib-icon strib-arrow-right inline ml-1"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M1 7.314v1.372h11.373l-4.221 4.226.968.968L15 8 9.12 2.12l-.968.968 4.221 4.226z"
+                            />
                         </svg>
                     </h5>
                     <RouteMap route={headline} />
                 </div>
-                
-                <div class="md:w-full w-[90%] mx-auto max-w-2xl ">
+
+                <div class="md:w-full w-[90%] mx-auto max-w-2xl">
                     <div
                         class="font-utility-body-reg-05 flex flex-row flex-wrap justify-between mt-2"
                     >
@@ -350,7 +378,7 @@
             <h5
                 class="font-graphik-bold uppercase tracking-widest text-[12px] md:text-[14px] mb-4"
             >
-                Know before you go  
+                Know before you go
             </h5>
             {#each grafify(knowBeforeYouGo) as know}
                 <ul>
@@ -383,7 +411,7 @@
     }
 
     @media only screen and (max-width: 400px) {
-         li:before {
+        li:before {
             left: -10px;
         }
     }
@@ -397,5 +425,4 @@
             display: block;
         }
     }
-
 </style>

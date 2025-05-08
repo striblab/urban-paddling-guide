@@ -14,26 +14,28 @@
     import EastMetroLakes from "./route-maps/EastMetroLakes.svelte";
 </script>
 
-{#if route === "Upper Mississippi River"}
-    <UpperMississippi />
-{:else if route === "Mississippi River Gorge"}
-    <MississippiRiverGorge />
-{:else if route === "Upper Minnehaha Creek"}
-    <UpperMinnehahaCreek />
-{:else if route === "Lower Minnehaha Creek"}
-    <LowerMinnehahaCreek />
-{:else if route === "Lower Mississippi River"}
-    <LowerMississippi />
-{:else if route === "Minnesota River"}
-    <MinnesotaRiver />
-{:else if route === "Upper Rice Creek"}
-    <UpperRiceCreek />
-{:else if route === "Lower Rice Creek"}
-    <LowerRiceCreek />
-{:else if route === "Lebanon Hills"}
-    <LebanonHills />
-{:else if route === "Minneapolis Chain of Lakes"}
-    <MinneapolisLakes />
-{:else if route === "East Metro Chain of Lakes"}
-    <EastMetroLakes />
-{/if}
+<div class="mb-[-2px] overflow-y-hidden">
+    {#if route === "Upper Mississippi River"}
+        <UpperMississippi />
+    {:else if route === "Mississippi River Gorge"}
+        <MississippiRiverGorge />
+    {:else if route === "Upper Minnehaha Creek"}
+        <UpperMinnehahaCreek />
+    {:else if route === "Lower Minnehaha Creek"}
+        <LowerMinnehahaCreek />
+    {:else if route === "Lower Mississippi River"}
+        <LowerMississippi />
+    {:else if route === "Minnesota River"}
+        <MinnesotaRiver />
+    {:else if route === "Upper Rice Creek"}
+        <UpperRiceCreek />
+    {:else if route === "Lower Rice Creek"}
+        <LowerRiceCreek />
+    {:else if route === "Lebanon Hills"}
+        <LebanonHills />
+    {:else if route === "Minneapolis Chain of Lakes"}
+        <MinneapolisLakes />
+    {:else if route === "East Metro Chain of Lakes"}
+        <EastMetroLakes />
+    {/if}
+</div>
