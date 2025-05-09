@@ -329,6 +329,11 @@
                         >
                     </p>
                 </div>
+                <div  class="font-utility-body-reg-05 flex flex-row flex-wrap justify-between mt-2">
+                    <p class="mr-4 leading-[1.5]">
+                        Upload to a GPS-enabled device or app to get turn-by-turn directions.
+                    </p>
+                </div>
             </div>
         </div>
 
