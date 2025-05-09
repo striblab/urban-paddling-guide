@@ -3,18 +3,7 @@
     import { navBarOffset, stickyFiltersOffset } from "./utilities";
 
     const { filterByTag, activeFilter } = $props();
-
-    const navBar = document.querySelector(
-        "[data-testid='global-navigation-header']"
-    );
-    const updateOffset = () => {
-        if (navBar) {
-            $navBarOffset = navBar.getBoundingClientRect().bottom;
-        }
-    };
 </script>
-
-<svelte:window onscroll={updateOffset} />
 
 <div
     class="filters-wrapper w-[100%] mx-auto max-w-7xl py-4 mb-0 text-center sticky bg-[#fffbf4] z-[100] border-[#05442e] border-b"

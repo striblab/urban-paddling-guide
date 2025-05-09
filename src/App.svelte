@@ -5,7 +5,7 @@
     import Filters from "./Filters.svelte";
     import RoutePageNav from "./RoutePageNav.svelte";
     import Map from "./Map.svelte";
-    import { slugify } from "./utilities";
+    import { slugify, navBarOffset } from "./utilities";
 
     let selectedRoute = $state("");
     let routesLoaded = $state(false);
@@ -63,6 +63,15 @@
 
     loadRoutes();
     loadPhotos();
+
+    const navBar = document.querySelector(
+        "[data-testid='global-navigation-header']"
+    );
+    const updateOffset = () => {
+        if (navBar) {
+            $navBarOffset = navBar.getBoundingClientRect().bottom;
+        }
+    };
 </script>
 
 <svelte:window
@@ -70,6 +79,7 @@
         hash = window.location.hash;
         hashCount += 1;
     }}
+    onscroll={updateOffset}
 />
 
 <main class="bg-[#fffbf4] pb-12">
