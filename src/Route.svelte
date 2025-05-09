@@ -147,7 +147,7 @@
                 <p class="byline block md:hidden">
                     Guide by <span class="font-graphik-semibold"
                         >{@html getAuthorMarkup(authors)}</span
-                    ><br />Photo by
+                    ><br />Photo{secondaryPhotos.length > 0 ? "s" : ""} by
                     <span class="font-graphik-semibold">{heroImgCredit}</span
                     ><br />
                 </p>
@@ -351,8 +351,7 @@
                 <p
                     class="text-left caption mx-auto max-w-2xl font-graphik-regular text-[14px] mt-2 md:w-full"
                 >
-                    {secondaryPhotos[0].caption}. Photo by {secondaryPhotos[0]
-                        .credit}, {secondaryPhotos[0].Publication}.
+                    {secondaryPhotos[0].caption}.
                 </p>
             </div>
         {/if}
