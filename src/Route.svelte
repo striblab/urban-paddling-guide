@@ -1,6 +1,7 @@
 <script>
     import { fade } from "svelte/transition";
     import RouteMap from "./RouteMap.svelte";
+    import { scrollToTargetAdjusted, navBarOffset } from "./utilities";
 
     let topElement = $state();
     let newPage = $state("");
@@ -45,7 +46,7 @@
     $effect(() => {
         if (headline) {
             newPage = headline;
-            topElement.scrollIntoView();
+            scrollToTargetAdjusted(topElement, $navBarOffset);
         }
     });
 </script>
@@ -221,7 +222,9 @@
                     >
                         {endAddress ? "Put in" : "Boat launch"}
                     </h5>
-                    <p class="font-graphik-regular text-[16px] md:text-[18px] mb-0">
+                    <p
+                        class="font-graphik-regular text-[16px] md:text-[18px] mb-0"
+                    >
                         <a
                             href="https://www.google.com/maps?q={startAddressLinkOverride
                                 ? startAddressLinkOverride
@@ -329,9 +332,12 @@
                         >
                     </p>
                 </div>
-                <div  class="font-utility-body-reg-05 flex flex-row flex-wrap justify-between mt-2">
+                <div
+                    class="font-utility-body-reg-05 flex flex-row flex-wrap justify-between mt-2"
+                >
                     <p class="mr-4 leading-[1.5]">
-                        Upload to a GPS-enabled device or app to get turn-by-turn directions.
+                        Upload to a GPS-enabled device or app to get
+                        turn-by-turn directions.
                     </p>
                 </div>
             </div>

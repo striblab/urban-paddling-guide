@@ -9,6 +9,7 @@
         getBBoxAspectRatio,
         navBarOffset,
         stickyFiltersOffset,
+        scrollToTargetAdjusted,
     } from "./utilities";
     import basemap from "./data/urban_paddling_basemap.json";
     import MapLine from "./map-components/MapLine.svelte";
@@ -89,18 +90,6 @@
         }
     });
 
-    const scrollToTargetAdjusted = (node) => {
-        var headerOffset = $navBarOffset + $stickyFiltersOffset;
-        var elementPosition = node.getBoundingClientRect().top;
-        var offsetPosition =
-            elementPosition + window.pageYOffset - headerOffset;
-
-        window.scrollTo({
-            top: offsetPosition,
-            behavior: "smooth",
-        });
-    };
-
     const selectRoute = (routeID) => {
         clearMap();
         selectedRoute = routeID;
@@ -112,7 +101,10 @@
             lineHighlightColor
         );
         popupData = route;
-        scrollToTargetAdjusted(mapContainer);
+        scrollToTargetAdjusted(
+            mapContainer,
+            $navBarOffset + $stickyFiltersOffset
+        );
         let bbox = getBBox([JSON.parse(route.routeGeojson)]);
         let bboxAspectRatio = getBBoxAspectRatio(bbox);
         map.fitBounds(bbox, {

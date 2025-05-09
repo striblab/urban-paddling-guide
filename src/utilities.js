@@ -37,3 +37,13 @@ export const getBBoxAspectRatio = (bbox) => {
 
 export const navBarOffset = writable(0);
 export const stickyFiltersOffset = writable(0);
+
+export const scrollToTargetAdjusted = (node, offset) => {
+    var elementPosition = node.getBoundingClientRect().top;
+    var offsetPosition = elementPosition + window.pageYOffset - offset;
+
+    window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+    });
+};
