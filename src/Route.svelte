@@ -208,7 +208,9 @@
                 class="md:w-full w-[90%] max-w-2xl flex-module mx-auto flex justify-start py-8 mb-8 flex-wrap text-left border-t border-b border-[#b4c7c0]"
             >
                 <div
-                    class="put-in item border-r border-[#b4c7c0] {endAddress
+                    class="put-in item {endAddress
+                        ? 'border-r'
+                        : ''} md:border-r border-[#b4c7c0] {endAddress
                         ? 'w-1/2'
                         : 'w-full'} {endAddress
                         ? 'md:w-2/5'
