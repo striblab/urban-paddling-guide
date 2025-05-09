@@ -205,7 +205,7 @@
             class="map mt-0 mb-4 w-[100%] mx-auto max-w-2xl font-graphik-regular text-[18px] border-[#b4c7c0] py-10 my-12"
         >
             <div
-                class="md:w-full w-[90%] max-w-2xl flex-module mx-auto flex justify-start py-8 mb-8 flex-wrap text-left border-t border-b border-[#b4c7c0]"
+                class="md:w-full w-[90%] max-w-2xl flex-module mx-auto flex justify-start py-6 mb-6 flex-wrap text-left border-t border-b border-[#b4c7c0]"
             >
                 <div
                     class="put-in item {endAddress
@@ -221,7 +221,7 @@
                     >
                         {endAddress ? "Put in" : "Boat launch"}
                     </h5>
-                    <p class="font-graphik-regular text-[16px] md:text-[18px]">
+                    <p class="font-graphik-regular text-[16px] md:text-[18px] mb-0">
                         <a
                             href="https://www.google.com/maps?q={startAddressLinkOverride
                                 ? startAddressLinkOverride
@@ -243,7 +243,7 @@
                             Take out
                         </h5>
                         <p
-                            class="tag font-graphik-regular text-[16px] md:text-[18px]"
+                            class="tag font-graphik-regular text-[16px] md:text-[18px] mb-0"
                         >
                             <a
                                 href="https://www.google.com/maps?q={endAddressLinkOverride
@@ -272,7 +272,7 @@
                     </p>
                 </div>
                 <div
-                    class="w-full border-[#b4c7c0] border-t mt-4 pt-4 md:pt-8 md:mt-8"
+                    class="w-full border-[#b4c7c0] border-t mt-6 pt-6 md:pt-8 md:mt-8"
                 >
                     <h5
                         class="font-graphik-bold uppercase tracking-widest text-[12px] md:text-[14px] mb-2"
