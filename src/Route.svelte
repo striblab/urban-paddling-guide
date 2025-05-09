@@ -19,16 +19,12 @@
         timeToComplete,
         nearbyCities,
         recommendedConditions,
-        mapUrl,
-        mapCredit,
         mapSource,
         startAddress,
         startAddressLinkOverride,
         endAddress,
         endAddressLinkOverride,
         mileage,
-        gmapsRouteLink,
-        stravaRouteLink,
         gpxLink,
         narrative,
         knowBeforeYouGo,
@@ -185,8 +181,6 @@
                             class="strib-icon strib-error-filled w-[25px] h-[25px] mt-[-2px] mr-2"
                             xmlns="http://www.w3.org/2000/svg"
                         >
-                            <!-- <path d="M8 12a.74.74 0 0 0 .416-.127.74.74 0 0 0 .319-.77.746.746 0 0 0-1.358-.269.75.75 0 0 0 .093.946c.141.141.331.22.53.22m-.666-8h1.334v5H7.334z"/>
-                            <path d="M8 15a7.005 7.005 0 0 1-6.467-4.321A7 7 0 1 1 15 8a7 7 0 0 1-2.051 4.949A7 7 0 0 1 8 15M8 2a6 6 0 1 0-.001 12.002A6 6 0 0 0 8 2"/> -->
                             <path
                                 d="M8 1C4.15 1 1 4.15 1 8s3.15 7 7 7 7-3.15 7-7-3.15-7-7-7m-.55 3h1.1v5.5h-1.1zM8 12.5c-.4 0-.75-.35-.75-.75S7.6 11 8 11s.75.35.75.75-.35.75-.75.75"
                             />
@@ -202,150 +196,134 @@
             {/if}
         </div>
 
-        {#if mapUrl}
+        <div
+            class="map mt-0 mb-4 w-[100%] mx-auto max-w-2xl font-graphik-regular text-[18px] border-[#b4c7c0] py-10 my-12"
+        >
             <div
-                class="map mt-0 mb-4 w-[100%] mx-auto max-w-2xl font-graphik-regular text-[18px] border-[#b4c7c0] py-10 my-12"
+                class="md:w-full w-[90%] max-w-2xl flex-module mx-auto flex justify-start py-8 mb-8 flex-wrap text-left border-t border-b border-[#b4c7c0]"
             >
                 <div
-                    class="md:w-full w-[90%] max-w-2xl flex-module mx-auto flex justify-start py-8 mb-8 flex-wrap text-left border-t border-b border-[#b4c7c0]"
+                    class="put-in item border-r border-[#b4c7c0] {endAddress
+                        ? 'w-1/2'
+                        : 'w-full'} {endAddress
+                        ? 'md:w-2/5'
+                        : 'md:w-1/2'} mb-0 md:px-6 px-4 pl-0 md:pl-0"
                 >
+                    <h5
+                        class="font-graphik-bold uppercase tracking-widest text-[12px] md:text-[14px] mb-2"
+                    >
+                        {endAddress ? "Put in" : "Boat launch"}
+                    </h5>
+                    <p class="font-graphik-regular text-[16px] md:text-[18px]">
+                        <a
+                            href="https://www.google.com/maps?q={startAddressLinkOverride
+                                ? startAddressLinkOverride
+                                : startAddress.replace('\n', ',')}"
+                            target="_blank"
+                            rel="noreferrer noopener"
+                        >
+                            {@html startAddress.replace("\n", "<br/>")}
+                        </a>
+                    </p>
+                </div>
+                {#if endAddress}
                     <div
-                        class="put-in item border-r border-[#b4c7c0] {endAddress
-                            ? 'w-1/2'
-                            : 'w-full'} {endAddress
-                            ? 'md:w-2/5'
-                            : 'md:w-1/2'} mb-0 md:px-6 px-4 pl-0 md:pl-0"
+                        class="take-out item border-b-0 md:border-r border-[#b4c7c0] w-1/2 md:w-2/5 mb-0 pl-6 md:pr-6"
                     >
                         <h5
                             class="font-graphik-bold uppercase tracking-widest text-[12px] md:text-[14px] mb-2"
                         >
-                            {endAddress ? "Put in" : "Boat launch"}
+                            Take out
                         </h5>
                         <p
-                            class="font-graphik-regular text-[16px] md:text-[18px]"
+                            class="tag font-graphik-regular text-[16px] md:text-[18px]"
                         >
                             <a
-                                href="https://www.google.com/maps?q={startAddressLinkOverride
-                                    ? startAddressLinkOverride
-                                    : startAddress.replace('\n', ',')}"
+                                href="https://www.google.com/maps?q={endAddressLinkOverride
+                                    ? endAddressLinkOverride
+                                    : endAddress.replace('\n', ',')}"
                                 target="_blank"
                                 rel="noreferrer noopener"
                             >
-                                {@html startAddress.replace("\n", "<br/>")}
+                                {@html endAddress.replace("\n", "<br/>")}
                             </a>
                         </p>
                     </div>
-                    {#if endAddress}
-                        <div
-                            class="take-out item border-b-0 md:border-r border-[#b4c7c0] w-1/2 md:w-2/5 mb-0 pl-6 md:pr-6"
-                        >
-                            <h5
-                                class="font-graphik-bold uppercase tracking-widest text-[12px] md:text-[14px] mb-2"
-                            >
-                                Take out
-                            </h5>
-                            <p
-                                class="tag font-graphik-regular text-[16px] md:text-[18px]"
-                            >
-                                <a
-                                    href="https://www.google.com/maps?q={endAddressLinkOverride
-                                        ? endAddressLinkOverride
-                                        : endAddress.replace('\n', ',')}"
-                                    target="_blank"
-                                    rel="noreferrer noopener"
-                                >
-                                    {@html endAddress.replace("\n", "<br/>")}
-                                </a>
-                            </p>
-                        </div>
-                    {/if}
-                    <div
-                        class="distance item w-full md:w-1/5 pl-0 md:px-6 pr-0 mb-0 border-t md:border-t-0 border-[#b4c7c0] pt-6 mt-6 md:pl-6 md:pt-0 md:mt-0 pb-0"
-                    >
-                        <h5
-                            class="font-graphik-bold uppercase tracking-widest text-[12px] md:text-[14px] mb-2"
-                        >
-                            Distance
-                        </h5>
-                        <p
-                            class="tag font-graphik-regular text-[16px] md:text-[18px] mb-0"
-                        >
-                            <span>{mileage} miles</span>
-                        </p>
-                    </div>
-                    <div
-                        class="w-full border-[#b4c7c0] border-t mt-4 pt-4 md:pt-8 md:mt-8"
-                    >
-                        <h5
-                            class="font-graphik-bold uppercase tracking-widest text-[12px] md:text-[14px] mb-2"
-                        >
-                            Recommended conditions
-                        </h5>
-                        <p
-                            class="max-w-3xl mx-auto font-graphik-regular text-[16px] md:text-[18px] mb-0"
-                        >
-                            {@html recommendedConditions}
-                        </p>
-                    </div>
-                </div>
+                {/if}
                 <div
-                    class="overflow-x-scroll md:overflow-x-hidden md:overflow-y-hidden"
+                    class="distance item w-full md:w-1/5 pl-0 md:px-6 pr-0 mb-0 border-t md:border-t-0 border-[#b4c7c0] pt-6 mt-6 md:pl-6 md:pt-0 md:mt-0 pb-0"
                 >
                     <h5
-                        class="font-graphik-regular uppercase tracking-widest text-[12px] ml-[5%] scroll-prompt mb-6"
+                        class="font-graphik-bold uppercase tracking-widest text-[12px] md:text-[14px] mb-2"
                     >
-                        Scroll for full map
-                        <svg
-                            id="strib-arrow-right"
-                            viewBox="0 0 16 16"
-                            width="14"
-                            height="14"
-                            fill="currentcolor"
-                            class="strib-icon strib-arrow-right inline ml-1"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                d="M1 7.314v1.372h11.373l-4.221 4.226.968.968L15 8 9.12 2.12l-.968.968 4.221 4.226z"
-                            />
-                        </svg>
+                        Distance
                     </h5>
-                    <RouteMap route={headline} />
+                    <p
+                        class="tag font-graphik-regular text-[16px] md:text-[18px] mb-0"
+                    >
+                        <span>{mileage} miles</span>
+                    </p>
                 </div>
-
-                <div class="md:w-full w-[90%] mx-auto max-w-2xl">
-                    <div
-                        class="font-utility-body-reg-05 flex flex-row flex-wrap justify-between mt-2"
+                <div
+                    class="w-full border-[#b4c7c0] border-t mt-4 pt-4 md:pt-8 md:mt-8"
+                >
+                    <h5
+                        class="font-graphik-bold uppercase tracking-widest text-[12px] md:text-[14px] mb-2"
                     >
-                        <p>
-                            <strong>Source</strong>
-                            {mapSource}
-                        </p>
-                    </div>
-
-                    <div
-                        class="flex font-graphik-regular uppercase tracking-widest text-[12px] mt-8"
+                        Recommended conditions
+                    </h5>
+                    <p
+                        class="max-w-3xl mx-auto font-graphik-regular text-[16px] md:text-[18px] mb-0"
                     >
-                        <p class="mr-4 leading-[1.5]">
-                            <a
-                                href={gmapsRouteLink}
-                                class="border-b border-[#05442e]"
-                                >Show in Google Maps</a
-                            >
-                            •
-                            <a
-                                href={stravaRouteLink}
-                                class="border-b border-[#05442e]"
-                                >Show route in Strava</a
-                            >
-                            •
-                            <a href={gpxLink} class="border-b border-[#05442e]"
-                                >Download GPX</a
-                            >
-                        </p>
-                    </div>
+                        {@html recommendedConditions}
+                    </p>
                 </div>
             </div>
-        {/if}
+            <div
+                class="overflow-x-scroll md:overflow-x-hidden md:overflow-y-hidden"
+            >
+                <h5
+                    class="font-graphik-regular uppercase tracking-widest text-[12px] ml-[5%] scroll-prompt mb-6"
+                >
+                    Scroll for full map
+                    <svg
+                        id="strib-arrow-right"
+                        viewBox="0 0 16 16"
+                        width="14"
+                        height="14"
+                        fill="currentcolor"
+                        class="strib-icon strib-arrow-right inline ml-1"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M1 7.314v1.372h11.373l-4.221 4.226.968.968L15 8 9.12 2.12l-.968.968 4.221 4.226z"
+                        />
+                    </svg>
+                </h5>
+                <RouteMap route={headline} />
+            </div>
+
+            <div class="md:w-full w-[90%] mx-auto max-w-2xl">
+                <div
+                    class="font-utility-body-reg-05 flex flex-row flex-wrap justify-between mt-2"
+                >
+                    <p>
+                        <strong>Source</strong>
+                        {mapSource}
+                    </p>
+                </div>
+
+                <div
+                    class="flex font-graphik-regular uppercase tracking-widest text-[12px] mt-8"
+                >
+                    <p class="mr-4 leading-[1.5]">
+                        <a href={gpxLink} class="border-b border-[#05442e]"
+                            >Download GPX</a
+                        >
+                    </p>
+                </div>
+            </div>
+        </div>
 
         <div class="narrative w-[90%] mx-auto max-w-2xl">
             {#each grafify(narrative) as graf}

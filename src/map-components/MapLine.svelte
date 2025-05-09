@@ -25,7 +25,7 @@
             geometry: { type: "Point", coordinates: coords[coords.length - 1] },
         },
     ];
-    let innerWidth;
+    let innerWidth = $state(0);
 
     onMount(() => {
         if (!map.getSource(id)) {
