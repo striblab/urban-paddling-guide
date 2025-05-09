@@ -36,9 +36,7 @@
             <h2
                 class="font-publico-headline-light text-[20px] md:text-[24px] leading-[1.6] tracking-wide"
             >
-                Canoe, kayak or paddleboard: Your ultimate guide to paddling in
-                the Twin Cities metro area, whether you’re a beginner or a
-                seasoned paddler
+                Canoe, kayak or paddleboard: Your ultimate guide to paddling routes in the Twin Cities metro area, whether you’re a beginner or a seasoned pro
             </h2>
             <p
                 class="byline text-center uppercase font-graphik-regular text-[13px] tracking-widest mt-8 hidden md:block"

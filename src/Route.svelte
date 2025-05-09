@@ -121,10 +121,15 @@
             </div>
         </div>
         <picture
-            class="hero-photo w-full mb-10 md:mb-12 md:max-w-full md:mx-auto relative"
+            class="hero-photo w-full max-w-[2000px] mb-10 md:mb-12 md:max-w-full md:mx-auto relative"
         >
             <source
-                media="(min-width:901px)"
+                media="(max-width:2000px)"
+                srcset="https://ststatic.stimg.co/assets/outdoors/urban-paddling/hero/{heroImg}.jpg?w=2000"
+            />
+
+            <source
+                media="(max-width:1400px)"
                 srcset="https://ststatic.stimg.co/assets/outdoors/urban-paddling/hero/{heroImg}.jpg?w=1500"
             />
             <source
