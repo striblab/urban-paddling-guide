@@ -80,7 +80,7 @@
             href="http://instagram.com/startribune"
             target="_blank">@startribune</a
         > in your urban paddling photos, and submit any questions about urban paddling to us <a
-            href="http://instagram.com/startribune"
+            href="https://star-tribune.forms.fm/urban-paddling/forms/9999"
             target="_blank">using this form.</a> See you on the water.
     </p>
     <div class="pt-2 pb-0">
