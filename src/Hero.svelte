@@ -68,7 +68,7 @@
         can find it at all.
     </p>
     <p class="mb-4">
-        We think it could be easier, so some water-loving Minnesota Star Tribune
+        We thought it could be easier, so some water-loving Minnesota Star Tribune
         staff members set out to create an urban paddling guide. We researched,
         paddled and mapped our favorite routes within the metro area.
     </p>
