@@ -13,18 +13,9 @@
         >
         </video>
     </div>
-    <div class="hidden motion-reduce:block sticky top-0 h-[100vh] md:h-[160vh]">
-        <img
-            class="hidden md:block absolute bottom-0 left-[50%] -translate-x-[50%] h-[100%] w-[100%]"
-            src="https://ststatic.stimg.co/assets/outdoors/urban-paddling/hero/uppermississippiriver.jpg?w=2000"
-            alt=""
-        />
-        <img
-            class="block md:hidden absolute bottom-0 left-[50%] -translate-x-[50%] h-[100%] w-[100%]"
-            src="https://ststatic.stimg.co/assets/outdoors/urban-paddling/hero/uppermississippiriver_vertical.jpg?w=900"
-            alt=""
-        />
-    </div>
+    <div
+        class="hidden motion-reduce:block sticky top-0 h-[100svh] md:h-[180svh] bg-bottom bg-cover bg-[url('https://ststatic.stimg.co/assets/outdoors/urban-paddling/hero/uppermississippiriver_vertical.jpg?w=900')] md:bg-[url('https://ststatic.stimg.co/assets/outdoors/urban-paddling/hero/uppermississippiriver.jpg?w=2000')]"
+    ></div>
     <div class="subhead w-[90%] mx-auto">
         <h1
             class="font-publico-banner-black text-[45px] md:text-[55px] text-center mx-auto text-white mt-[-100vh] pt-[37.5vh] md:pt-[45vh] max-w-[325px] md:max-w-4xl headline leading-[1.2]"
