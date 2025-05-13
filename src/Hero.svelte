@@ -2,7 +2,7 @@
 </script>
 
 <div class="hero bg-[#fffbf4] pb-20">
-    <div class="video-wrapper relative w-full">
+    <div class="video-wrapper relative w-full motion-reduce:hidden">
         <video
             src="https://static.startribune.com/assets/outdoors/urban-paddling/MinneapolisMississippi_1_1.mp4"
             autoplay
@@ -12,6 +12,18 @@
             id="bgVideo"
         >
         </video>
+    </div>
+    <div class="hidden motion-reduce:block sticky top-0 h-[100vh] md:h-[160vh]">
+        <img
+            class="hidden md:block absolute bottom-0 left-[50%] -translate-x-[50%] h-[100%] w-[100%]"
+            src="https://ststatic.stimg.co/assets/outdoors/urban-paddling/hero/uppermississippiriver.jpg?w=2000"
+            alt=""
+        />
+        <img
+            class="block md:hidden absolute bottom-0 left-[50%] -translate-x-[50%] h-[100%] w-[100%]"
+            src="https://ststatic.stimg.co/assets/outdoors/urban-paddling/hero/uppermississippiriver_vertical.jpg?w=900"
+            alt=""
+        />
     </div>
     <div class="subhead w-[90%] mx-auto">
         <h1
@@ -36,7 +48,9 @@
             <h2
                 class="font-publico-headline-light text-[20px] md:text-[24px] leading-[1.6] tracking-wide"
             >
-                Canoe, kayak or paddleboard: Your ultimate guide to paddling routes in the Twin Cities metro area, whether you’re a beginner or a seasoned pro
+                Canoe, kayak or paddleboard: Your ultimate guide to paddling
+                routes in the Twin Cities metro area, whether you’re a beginner
+                or a seasoned pro
             </h2>
             <p
                 class="byline text-center uppercase font-graphik-regular text-[13px] tracking-widest mt-8 hidden md:block"
@@ -79,9 +93,13 @@
         suburbs. Please tag <a
             href="http://instagram.com/startribune"
             target="_blank">@startribune</a
-        > in your urban paddling photos, and submit any questions about urban paddling to us <a
+        >
+        in your urban paddling photos, and submit any questions about urban paddling
+        to us
+        <a
             href="https://star-tribune.forms.fm/urban-paddling/forms/9999"
-            target="_blank">using this form.</a> See you on the water.
+            target="_blank">using this form.</a
+        > See you on the water.
     </p>
     <div class="pt-2 pb-0">
         <h5
@@ -118,14 +136,13 @@
 </div>
 
 <style type="text/css">
-
     :global(.intro p a) {
         border-bottom: 1px solid #05442e;
-        transition:  0.5s opacity;
+        transition: 0.5s opacity;
     }
     :global(.intro p a:hover) {
         opacity: 0.5;
-        transition:  0.5s opacity;
+        transition: 0.5s opacity;
     }
 
     div.video-wrapper {
