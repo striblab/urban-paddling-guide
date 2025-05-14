@@ -72,6 +72,7 @@
             $navBarOffset = navBar.getBoundingClientRect().bottom;
         }
     };
+    updateOffset();
 </script>
 
 <svelte:window
@@ -79,7 +80,6 @@
         hash = window.location.hash;
         hashCount += 1;
     }}
-    onscroll={updateOffset}
 />
 
 <main class="bg-[#fffbf4] pb-12">

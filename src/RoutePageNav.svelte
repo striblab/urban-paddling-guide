@@ -2,8 +2,10 @@
     import { slugify } from "./utilities";
     let { routes } = $props();
     let hovered = $state("");
+    let innerWidth = $state(0);
 </script>
 
+<svelte:window bind:innerWidth />
 <div class="w-[90%] max-w-2xl mx-auto">
     <h4
         class="font-graphik-bold uppercase tracking-widest text-[12px] md:text-[14px] mb-2 text-center py-10 pb-6 border-t border-[#05442e] max-w-2xl mx-auto"
@@ -17,10 +19,14 @@
                 href="#/{slugify(route.headline)}"
                 class="block mb-4 md:mb-6 relative"
                 onmouseenter={() => {
-                    hovered = route.routeID;
+                    if (innerWidth > 500) {
+                        hovered = route.routeID;
+                    }
                 }}
                 onmouseleave={() => {
-                    hovered = "";
+                    if (innerWidth > 500) {
+                        hovered = "";
+                    }
                 }}
             >
                 <div

@@ -46,7 +46,7 @@
     $effect(() => {
         if (headline) {
             newPage = headline;
-            scrollToTargetAdjusted(topElement, 200);
+            scrollToTargetAdjusted(topElement, $navBarOffset);
         }
     });
 </script>
