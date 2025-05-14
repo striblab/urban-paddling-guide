@@ -35,7 +35,7 @@
         <LebanonHills />
     {:else if route === "Minneapolis Chain of Lakes"}
         <MinneapolisLakes />
-    {:else if route === "East Metro Chain of Lakes"}
+    {:else if route === "East metro Chain of Lakes"}
         <EastMetroLakes />
     {/if}
 </div>
