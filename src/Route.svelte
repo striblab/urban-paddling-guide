@@ -125,18 +125,20 @@
             class="hero-photo w-full max-w-[2000px] mb-10 md:mb-12 md:max-w-full md:mx-auto relative"
         >
             <source
-                media="(max-width:2000px)"
-                srcset="https://ststatic.stimg.co/assets/outdoors/urban-paddling/hero/{heroImg}.jpg?w=2000"
+                media="(max-width:900px)"
+                srcset="https://ststatic.stimg.co/assets/outdoors/urban-paddling/hero/{heroImg}_vertical.jpg?w=900"
             />
 
             <source
                 media="(max-width:1400px)"
                 srcset="https://ststatic.stimg.co/assets/outdoors/urban-paddling/hero/{heroImg}.jpg?w=1500"
             />
+
             <source
-                media="(max-width:900px)"
-                srcset="https://ststatic.stimg.co/assets/outdoors/urban-paddling/hero/{heroImg}_vertical.jpg?w=900"
+                media="(max-width:2000px)"
+                srcset="https://ststatic.stimg.co/assets/outdoors/urban-paddling/hero/{heroImg}.jpg?w=2000"
             />
+
             <img
                 src="https://ststatic.stimg.co/assets/outdoors/urban-paddling/hero/{heroImg}.jpg?fit=crop&crop=edges&w=1400&h=1000"
                 class="w-full"
