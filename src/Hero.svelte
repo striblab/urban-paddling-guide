@@ -46,13 +46,13 @@
             <p
                 class="byline text-center uppercase font-graphik-regular text-[13px] tracking-widest mt-8 hidden md:block"
             >
-                The Minnesota Star Tribune • May 12, 2025
+                The Minnesota Star Tribune • May 14, 2025
             </p>
 
             <p
                 class="byline text-center uppercase font-graphik-regular text-[13px] tracking-widest mt-8 block md:hidden"
             >
-                The Minnesota Star Tribune<br />May 15, 2025
+                The Minnesota Star Tribune<br />May 14, 2025
             </p>
         </div>
     </div>
@@ -73,9 +73,10 @@
         can find it at all.
     </p>
     <p class="mb-4">
-        We thought it could be easier, so some water-loving Minnesota Star Tribune
-        staff members set out to create an urban paddling guide. We researched,
-        paddled and mapped our favorite routes within the metro area.
+        We thought it could be easier, so some water-loving Minnesota Star
+        Tribune staff members set out to create an urban paddling guide. We
+        researched, paddled and mapped our favorite routes within the metro
+        area.
     </p>
     <p class="mb-6">
         We hope this guide helps you see the Twin Cities in new ways: take a
