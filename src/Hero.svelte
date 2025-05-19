@@ -156,7 +156,7 @@
     }
 
     div.subhead {
-        z-index: 100;
+        z-index: 5;
         position: relative;
         margin: 0 auto;
     }
