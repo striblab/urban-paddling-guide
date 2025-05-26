@@ -4,7 +4,7 @@
     import Credits from "./Credits.svelte";
     import Filters from "./Filters.svelte";
     import RoutePageNav from "./RoutePageNav.svelte";
-    import Map from "./Map.svelte";
+    // import Map from "./Map.svelte";
     import { slugify, navBarOffset } from "./utilities";
 
     let selectedRoute = $state("");
