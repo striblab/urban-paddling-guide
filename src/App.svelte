@@ -114,7 +114,7 @@
                     tagFilter = tagFilter == tag ? "" : tag;
                 }}
             />
-            <div class="map-wrapper w-full h-full">
+            <!-- <div class="map-wrapper w-full h-full">
                 <Map
                     routeData={routeData.filter((r) =>
                         tagFilter ? r.tags.includes(tagFilter) : true
@@ -123,9 +123,9 @@
                         tagFilter = "";
                     }}
                 />
-            </div>
+            </div> -->
             <div
-                class="route-preview-wrapper sm:flex flex-wrap w-[90%] justify-start gap-6 mx-auto max-w-7xl"
+                class="route-preview-wrapper mt-6 sm:flex flex-wrap w-[90%] justify-start gap-6 mx-auto max-w-7xl"
             >
                 {#each routeData.filter( (r) => (tagFilter ? r.tags.includes(tagFilter) : true) ) as route}
                     <a
