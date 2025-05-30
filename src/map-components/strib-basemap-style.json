@@ -6,7 +6,7 @@
         "protomaps": {
             "type": "vector",
             "url": "pmtiles://https://static.startribune.com/protomaps/twin_cities_5-14.pmtiles",
-            "minzoom": 0,
+            "minzoom": 5,
             "maxzoom": 14,
             "attribution": "<a href=\"https://protomaps.com\">Protomaps</a> © <a href=\"https://openstreetmap.org\">OpenStreetMap</a>"
         }
@@ -365,6 +365,7 @@
             "type": "line",
             "source": "protomaps",
             "source-layer": "roads",
+            "minzoom": 12,
             "filter": [
                 "all",
                 ["has", "is_tunnel"],
@@ -402,29 +403,20 @@
             "type": "line",
             "source": "protomaps",
             "source-layer": "roads",
+            "minzoom": 0,
             "filter": ["all", ["has", "is_tunnel"], ["has", "is_link"]],
             "paint": {
                 "line-color": "#E1E1E1",
                 "line-dasharray": [3, 2],
-                "line-gap-width": [
-                    "interpolate",
-                    ["exponential", 1.6],
-                    ["zoom"],
-                    13,
-                    0,
-                    13.5,
-                    1,
-                    18,
-                    11
-                ],
                 "line-width": [
-                    "interpolate",
-                    ["exponential", 1.6],
-                    ["zoom"],
-                    12,
-                    0,
-                    12.5,
-                    1
+                "interpolate", ["exponential", 1.5], ["zoom"],
+                6, 0.75,
+                14, 1.25
+                ],
+                "line-gap-width": [
+                "interpolate", ["exponential", 1.5], ["zoom"],
+                6, 0.25,
+                14, 3
                 ]
             }
         },
@@ -433,10 +425,13 @@
             "type": "line",
             "source": "protomaps",
             "source-layer": "roads",
+            "minzoom": 10,
             "filter": [
                 "all",
-                ["!has", "is_tunnel"],
+                ["has", "is_tunnel"],
                 ["!has", "is_bridge"],
+                ["!=", "kind_detail", "trunk"],
+                ["!=", "kind_detail", "trunk_link"],
                 ["==", "kind", "major_road"]
             ],
             "paint": {
@@ -470,11 +465,21 @@
             "source": "protomaps",
             "source-layer": "roads",
             "filter": [
+                "any",
+                [
                 "all",
-                ["!has", "is_tunnel"],
+                ["has", "is_tunnel"],
                 ["!has", "is_bridge"],
                 ["==", "kind", "highway"],
                 ["!has", "is_link"]
+                ],
+                [
+                "all",
+                ["has", "is_tunnel"],
+                ["!has", "is_bridge"],
+                ["==", "kind", "major_road"],
+                ["==", "kind_detail", "trunk"]
+                ]
             ],
             "paint": {
                 "line-color": "#E1E1E1",
@@ -532,6 +537,7 @@
             "type": "line",
             "source": "protomaps",
             "source-layer": "roads",
+            "minzoom": 12,
             "filter": [
                 "all",
                 ["has", "is_tunnel"],
@@ -570,6 +576,7 @@
             "type": "line",
             "source": "protomaps",
             "source-layer": "roads",
+            "minzoom": 10,
             "filter": [
                 "all",
                 ["has", "is_tunnel"],
@@ -589,24 +596,27 @@
             }
         },
         {
-            "id": "roads_tunnels_highway",
-            "type": "line",
-            "source": "protomaps",
-            "source-layer": "roads",
-            "filter": [
-                "any",
-                [
-                    "all",
-                    ["!has", "is_bridge"],
-                    ["==", "kind", "highway"],
-                    ["!has", "is_link"]
-                ],
-                [
-                    "all",
-                    ["==", "kind", "major_road"],
-                    ["==", "kind_detail", "trunk"]
-                ]
+        "id": "roads_tunnels_highway",
+        "type": "line",
+        "source": "protomaps",
+        "source-layer": "roads",
+        "filter": [
+            "any",
+            [
+            "all",
+            ["has", "is_tunnel"],
+            ["!has", "is_bridge"],
+            ["==", "kind", "highway"],
+            ["!has", "is_link"]
             ],
+            [
+            "all",
+            ["has", "is_tunnel"],
+            ["!has", "is_bridge"],
+            ["==", "kind", "major_road"],
+            ["==", "kind_detail", "trunk"]
+            ]
+        ],
             "paint": {
                 "line-color": "#E1E1E1",
                 "line-width": {
@@ -690,6 +700,7 @@
             "type": "line",
             "source": "protomaps",
             "source-layer": "roads",
+            "minzoom": 12,
             "filter": [
                 "all",
                 ["!has", "is_tunnel"],
@@ -728,30 +739,20 @@
             "type": "line",
             "source": "protomaps",
             "source-layer": "roads",
-            "minzoom": 13,
+            "minzoom": 10,
             "filter": ["has", "is_link"],
             "paint": {
                 "line-color": "#E1E1E1",
-                "line-gap-width": [
-                    "interpolate",
-                    ["exponential", 1.6],
-                    ["zoom"],
-                    13,
-                    0,
-                    13.5,
-                    1,
-                    18,
-                    11
-                ],
                 "line-width": [
-                    "interpolate",
-                    ["exponential", 1.6],
-                    ["zoom"],
-                    13,
-                    0,
-                    13.5,
-                    1.5
-                ]
+            "interpolate", ["exponential", 1.5], ["zoom"],
+            6, 0.75,
+            14, 1.25
+            ],
+            "line-gap-width": [
+            "interpolate", ["exponential", 1.5], ["zoom"],
+            6, 0.25,
+            14, 3
+            ]
             }
         },
         {
@@ -759,12 +760,14 @@
             "type": "line",
             "source": "protomaps",
             "source-layer": "roads",
-            "minzoom": 12,
+            "minzoom": 10,
             "filter": [
                 "all",
                 ["!has", "is_tunnel"],
                 ["!has", "is_bridge"],
-                ["==", "kind", "major_road"]
+                ["==", "kind", "major_road"],
+                ["!=", "kind_detail", "trunk"],
+                ["!=", "kind_detail", "trunk_link"]
             ],
             "paint": {
                 "line-color": "#E1E1E1",
@@ -798,12 +801,22 @@
             "source": "protomaps",
             "source-layer": "roads",
             "minzoom": 12,
-            "filter": [
+           "filter": [
+                "any",
+                [
                 "all",
                 ["!has", "is_tunnel"],
                 ["!has", "is_bridge"],
                 ["==", "kind", "highway"],
                 ["!has", "is_link"]
+                ],
+                [
+                "all",
+                ["!has", "is_tunnel"],
+                ["!has", "is_bridge"],
+                ["==", "kind", "major_road"],
+                ["==", "kind_detail", "trunk"]
+                ]
             ],
             "paint": {
                 "line-color": "#E1E1E1",
@@ -862,6 +875,7 @@
             "type": "line",
             "source": "protomaps",
             "source-layer": "roads",
+            "minzoom": 10,
             "filter": [
                 "any",
                 ["has", "is_link"],
@@ -908,6 +922,7 @@
             "type": "line",
             "source": "protomaps",
             "source-layer": "roads",
+            "minzoom": 12,
             "filter": [
                 "all",
                 ["!has", "is_tunnel"],
@@ -939,12 +954,14 @@
             "type": "line",
             "source": "protomaps",
             "source-layer": "roads",
-            "maxzoom": 12,
+            "minzoom": 10,
             "filter": [
                 "all",
                 ["!has", "is_tunnel"],
                 ["!has", "is_bridge"],
-                ["==", "kind", "major_road"]
+                ["==", "kind", "major_road"],
+                ["!=", "kind_detail", "trunk"],
+                ["!=", "kind_detail", "trunk_link"]
             ],
             "paint": {
                 "line-color": "#E1E1E1",
@@ -975,6 +992,7 @@
             "type": "line",
             "source": "protomaps",
             "source-layer": "roads",
+            "minzoom": 10,
             "filter": [
                 "all",
                 ["!has", "is_tunnel"],
@@ -1001,12 +1019,22 @@
             "source-layer": "roads",
             "maxzoom": 12,
             "filter": [
-                "all",
-                ["!has", "is_tunnel"],
-                ["!has", "is_bridge"],
-                ["==", "kind", "highway"],
-                ["!has", "is_link"]
-            ],
+                    "any",
+                    [
+                    "all",
+                    ["!has", "is_tunnel"],
+                    ["!has", "is_bridge"],
+                    ["==", "kind", "highway"],
+                    ["!has", "is_link"]
+                    ],
+                    [
+                    "all",
+                    ["!has", "is_tunnel"],
+                    ["!has", "is_bridge"],
+                    ["==", "kind", "major_road"],
+                    ["==", "kind_detail", "trunk"]
+                    ]
+                ],
             "paint": {
                 "line-color": "#E1E1E1",
                 "line-gap-width": [
@@ -1036,19 +1064,21 @@
             "type": "line",
             "source": "protomaps",
             "source-layer": "roads",
-            "filter": [
+           "filter": [
                 "any",
                 [
-                    "all",
-                    ["!has", "is_tunnel"],
-                    ["!has", "is_bridge"],
-                    ["==", "kind", "highway"],
-                    ["!has", "is_link"]
+                "all",
+                ["!has", "is_tunnel"],
+                ["!has", "is_bridge"],
+                ["==", "kind", "highway"],
+                ["!has", "is_link"]
                 ],
                 [
-                    "all",
-                    ["==", "kind", "major_road"],
-                    ["==", "kind_detail", "trunk"]
+                "all",
+                ["!has", "is_tunnel"],
+                ["!has", "is_bridge"],
+                ["==", "kind", "major_road"],
+                ["==", "kind_detail", "trunk"]
                 ]
             ],
             "paint": {
@@ -1146,29 +1176,19 @@
             "type": "line",
             "source": "protomaps",
             "source-layer": "roads",
-            "minzoom": 12,
+            "minzoom": 0,
             "filter": ["all", ["has", "is_bridge"], ["has", "is_link"]],
             "paint": {
                 "line-color": "#E1E1E1",
-                "line-gap-width": [
-                    "interpolate",
-                    ["exponential", 1.6],
-                    ["zoom"],
-                    13,
-                    0,
-                    13.5,
-                    1,
-                    18,
-                    11
-                ],
                 "line-width": [
-                    "interpolate",
-                    ["exponential", 1.6],
-                    ["zoom"],
-                    12,
-                    0,
-                    12.5,
-                    1.5
+                "interpolate", ["exponential", 1.5], ["zoom"],
+                6, 0.75,
+                14, 1.25
+                ],
+                "line-gap-width": [
+                "interpolate", ["exponential", 1.5], ["zoom"],
+                6, 0.25,
+                14, 3
                 ]
             }
         },
@@ -1214,11 +1234,13 @@
             "type": "line",
             "source": "protomaps",
             "source-layer": "roads",
-            "minzoom": 12,
+            "minzoom": 10,
             "filter": [
                 "all",
                 ["has", "is_bridge"],
-                ["==", "kind", "major_road"]
+                ["==", "kind", "major_road"],
+                ["!=", "kind_detail", "trunk"],
+                ["!=", "kind_detail", "trunk_link"]
             ],
             "paint": {
                 "line-color": "#E1E1E1",
@@ -1281,7 +1303,7 @@
                 ["==", "kind", "minor_road"]
             ],
             "paint": {
-                "line-color": "#FFF9D1",
+                "line-color": "#FFFFFF",
                 "line-width": {
                     "base": 1.5,
                     "stops": [
@@ -1314,7 +1336,7 @@
             "type": "line",
             "source": "protomaps",
             "source-layer": "roads",
-            "minzoom": 12,
+            "minzoom": 10,
             "filter": [
                 "all",
                 ["has", "is_bridge"],
@@ -1338,12 +1360,22 @@
             "type": "line",
             "source": "protomaps",
             "source-layer": "roads",
-            "minzoom": 12,
             "filter": [
+                "any",
+                [
                 "all",
+                ["!has", "is_tunnel"],
                 ["has", "is_bridge"],
                 ["==", "kind", "highway"],
                 ["!has", "is_link"]
+                ],
+                [
+                "all",
+                ["!has", "is_tunnel"],
+                ["has", "is_bridge"],
+                ["==", "kind", "major_road"],
+                ["==", "kind_detail", "trunk"]
+                ]
             ],
             "paint": {
                 "line-color": "#E1E1E1",
@@ -1371,7 +1403,7 @@
                 ]
             }
         },
-        {
+         {
             "id": "roads_bridges_highway",
             "type": "line",
             "source": "protomaps",
@@ -1379,15 +1411,18 @@
             "filter": [
                 "any",
                 [
-                    "all",
-                    ["!has", "is_tunnel"],
-                    ["==", "kind", "highway"],
-                    ["!has", "is_link"]
+                "all",
+                ["!has", "is_tunnel"],
+                ["has", "is_bridge"],
+                ["==", "kind", "highway"],
+                ["!has", "is_link"]
                 ],
                 [
-                    "all",
-                    ["==", "kind", "major_road"],
-                    ["==", "kind_detail", "trunk"]
+                "all",
+                ["!has", "is_tunnel"],
+                ["has", "is_bridge"],
+                ["==", "kind", "major_road"],
+                ["==", "kind_detail", "trunk"]
                 ]
             ],
             "paint": {
@@ -1847,7 +1882,7 @@
             "type": "symbol",
             "source": "protomaps",
             "source-layer": "roads",
-            "minzoom": 15,
+            "minzoom": 14,
             "filter": ["in", "kind", "minor_road", "other", "path"],
             "layout": {
                 "symbol-sort-key": ["get", "min_zoom"],
