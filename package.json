@@ -22,6 +22,7 @@
     "vite-plugin-compression": "^0.5.1"
   },
   "dependencies": {
-    "maplibre-gl": "^5.4.0"
+    "maplibre-gl": "^5.4.0",
+    "pmtiles": "^4.3.0"
   }
 }

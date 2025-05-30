@@ -4,6 +4,8 @@
     import { onMount } from "svelte";
     import maplibregl from "maplibre-gl";
     import "maplibre-gl/dist/maplibre-gl.css";
+    import { Protocol } from "pmtiles";
+    import style from "./map-components/strib-basemap-style.json";
     import {
         getBBox,
         getBBoxAspectRatio,
@@ -11,9 +13,11 @@
         stickyFiltersOffset,
         scrollToTargetAdjusted,
     } from "./utilities";
-    import basemap from "./data/urban_paddling_basemap.json";
     import MapLine from "./map-components/MapLine.svelte";
     import Popup from "./map-components/Popup.svelte";
+
+    const protocol = new Protocol();
+    maplibregl.addProtocol("pmtiles", protocol.tile);
 
     let mapContainer;
 
@@ -40,7 +44,7 @@
         map = new maplibregl.Map({
             container: mapContainer,
             // @ts-ignore
-            style: basemap,
+            style: style,
             // @ts-ignore
             center: initialView.center,
             zoom: isMobile ? mobileZoom : initialView.zoom,

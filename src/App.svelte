@@ -4,7 +4,7 @@
     import Credits from "./Credits.svelte";
     import Filters from "./Filters.svelte";
     import RoutePageNav from "./RoutePageNav.svelte";
-    // import Map from "./Map.svelte";
+    import Map from "./Map.svelte";
     import { slugify, navBarOffset } from "./utilities";
 
     let selectedRoute = $state("");
@@ -114,7 +114,7 @@
                     tagFilter = tagFilter == tag ? "" : tag;
                 }}
             />
-            <!-- <div class="map-wrapper w-full h-full">
+            <div class="map-wrapper w-full h-full">
                 <Map
                     routeData={routeData.filter((r) =>
                         tagFilter ? r.tags.includes(tagFilter) : true
@@ -123,7 +123,7 @@
                         tagFilter = "";
                     }}
                 />
-            </div> -->
+            </div>
             <div
                 class="route-preview-wrapper mt-6 sm:flex flex-wrap w-[90%] justify-start gap-6 mx-auto max-w-7xl"
             >
