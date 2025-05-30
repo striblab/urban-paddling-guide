@@ -55,23 +55,20 @@
                         "line-width": lineWidth,
                     },
                 },
-                "road_footway-case" // Add before this layer
+                "boundaries" // Add before this layer
             );
         }
         if (!map.getLayer(`${id}-hit`)) {
-            map.addLayer(
-                {
-                    id: `${id}-hit`,
-                    type: "line",
-                    source: id,
-                    layout: { "line-join": "round", "line-cap": "round" },
-                    paint: {
-                        "line-width": lineWidth + innerWidth < 600 ? 36 : 12,
-                        "line-opacity": 0,
-                    },
+            map.addLayer({
+                id: `${id}-hit`,
+                type: "line",
+                source: id,
+                layout: { "line-join": "round", "line-cap": "round" },
+                paint: {
+                    "line-width": lineWidth + innerWidth < 600 ? 36 : 12,
+                    "line-opacity": 0,
                 },
-                "road_footway-case" // Add before this layer
-            );
+            });
         }
 
         map.on("mouseenter", `${id}-hit`, () => {
