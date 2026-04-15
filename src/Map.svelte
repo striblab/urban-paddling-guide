@@ -9,7 +9,6 @@
     import {
         getBBox,
         getBBoxAspectRatio,
-        navBarOffset,
         stickyFiltersOffset,
         scrollToTargetAdjusted,
     } from "./utilities";
@@ -71,7 +70,7 @@
                 getBBox(routeData.map((r) => JSON.parse(r.routeGeojson))),
                 {
                     padding: 30,
-                }
+                },
             );
         });
 
@@ -88,7 +87,7 @@
                 getBBox(routeData.map((r) => JSON.parse(r.routeGeojson))),
                 {
                     padding: 30,
-                }
+                },
             );
             clearMap();
         }
@@ -102,13 +101,10 @@
         map.setPaintProperty(
             `${routeID}-rtline`,
             "line-color",
-            lineHighlightColor
+            lineHighlightColor,
         );
         popupData = route;
-        scrollToTargetAdjusted(
-            mapContainer,
-            $navBarOffset + $stickyFiltersOffset
-        );
+        scrollToTargetAdjusted(mapContainer, $stickyFiltersOffset);
         let bbox = getBBox([JSON.parse(route.routeGeojson)]);
         let bboxAspectRatio = getBBoxAspectRatio(bbox);
         map.fitBounds(bbox, {
@@ -150,7 +146,7 @@
                 getBBox(routeData.map((r) => JSON.parse(r.routeGeojson))),
                 {
                     padding: 30,
-                }
+                },
             );
         }}
         class="font-utility-button-02 text-[#434343] absolute top-2.5 left-12 bg-white/95 px-3 py-2 shadow-[0_1px_4px_rgba(0,0,0,0.3)] rounded-md z-50 text-sm hover:bg-gray-100"

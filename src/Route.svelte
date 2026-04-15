@@ -1,7 +1,7 @@
 <script>
     import { fade } from "svelte/transition";
     import RouteMap from "./RouteMap.svelte";
-    import { scrollToTargetAdjusted, navBarOffset } from "./utilities";
+    import { scrollToTargetAdjusted } from "./utilities";
 
     let topElement = $state();
     let newPage = $state("");
@@ -46,7 +46,7 @@
     $effect(() => {
         if (headline) {
             newPage = headline;
-            scrollToTargetAdjusted(topElement, $navBarOffset);
+            scrollToTargetAdjusted(topElement, 0);
         }
     });
 </script>

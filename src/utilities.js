@@ -35,7 +35,6 @@ export const getBBoxAspectRatio = (bbox) => {
     return length / height;
 };
 
-export const navBarOffset = writable(0);
 export const stickyFiltersOffset = writable(0);
 
 export const scrollToTargetAdjusted = (node, offset) => {

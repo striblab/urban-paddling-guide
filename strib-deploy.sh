@@ -30,32 +30,14 @@ if [ "$DEPLOY_PATH" != "" ]; then
 
     FONTS_PATH="$DEPLOY_PATH/fonts/"
 
-    # Check if the fonts directory exists in the S3 bucket
-    if ! (aws s3 ls "$FONTS_PATH" --profile default | { grep -q 'PRE' || true; }
-); then
-      echo "Fonts directory not found in S3. Syncing now..."
-      aws s3 sync ./dist/fonts $FONTS_PATH \
-        --profile default
-    else
-      echo "Fonts directory already exists in S3. No action taken."
-    fi
-
     echo "Syncing general assets..."
     aws s3 sync ./dist/ $DEPLOY_PATH \
       --profile default \
       --exclude ".DS_Store" \
       --exclude "strib-webfonts/*" \
       --exclude "assets/*" \
-      --exclude "assets/fonts/*"
-
-
-    echo "Syncing JavaScript .gz files..."
-    aws s3 sync ./dist/assets/ "$DEPLOY_PATH/assets" \
-      --exclude "*" \
-      --include "*.js.gz" \
-      --profile default \
-      --content-encoding "gzip" \
-      --content-type "application/javascript" \
+      --exclude "assets/fonts/*" \
+      --exclude "fragments/*"
 
     echo "Syncing JavaScript files..."
     aws s3 sync ./dist/assets/ "$DEPLOY_PATH/assets" \
@@ -64,20 +46,41 @@ if [ "$DEPLOY_PATH" != "" ]; then
       --profile default \
       --content-type "application/javascript" \
 
-    echo "Syncing CSS .gz files..."
-    aws s3 sync ./dist/assets/ "$DEPLOY_PATH/assets" \
-      --exclude "*" \
-      --include "*.css.gz" \
-      --profile default \
-      --content-encoding "gzip" \
-      --content-type "text/css" \
-
     echo "Syncing CSS files..."
     aws s3 sync ./dist/assets/ "$DEPLOY_PATH/assets" \
       --exclude "*" \
       --include "*.css" \
       --profile default \
       --content-type "text/css" \
+
+    JS_BUNDLE=$(basename dist/assets/index-*.js)
+    CSS_BUNDLE=$(basename dist/assets/index-*.css)
+    ASSET_BASE="${DEPLOY_PATH/s3:/https:}"
+
+    HERO_HTML=""
+    BODY_HTML=""
+    if [ -f "dist/fragments/hero.html" ]; then
+      HERO_HTML=$(cat dist/fragments/hero.html)
+    fi
+    if [ -f "dist/fragments/body.html" ]; then
+      BODY_HTML=$(cat dist/fragments/body.html)
+    fi
+
+    echo "
+
+    Deploy complete!
+
+    === HERO CODE BLOCK (paste into CMS hero area) ===
+
+    <link rel=\"stylesheet\" href=\"$ASSET_BASE/assets/$CSS_BUNDLE\">
+    <div id=\"proj-hero\">$HERO_HTML</div>
+    <script type=\"module\" crossorigin src=\"$ASSET_BASE/assets/$JS_BUNDLE\"></script>
+
+    === BODY CODE BLOCK (paste into CMS body area) ===
+
+    <div id=\"proj-body\">$BODY_HTML</div>
+
+    "
 
   else
     echo "No 'dist/' directory found. Do you need to run the build command?"

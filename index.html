@@ -1,51 +1,27 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Star Tribune svelte app</title>
-    <link rel="icon" href="https://www.startribune.com/icon.svg" type="image/svg+xml" sizes="any"/>
-  </head>
-  <body id="top" style="margin: 0;">
-    <div class="radix-themes">
-      <div style="height: auto;">
-        <main class="w-full">
-          <div class="rt-Box speechify-article w-full grid-cols-8 col-span-full editorial">
-            <div class="rt-Container col-span-full rt-r-size-4" data-testid="article-body">
-              <div class="rt-ContainerInner">
-                <div class="rt-Box">
-                  <div class="rt-Box pb-0 ">
-                    <div class="rt-Box">
-                      <div id="proj-container">
-                        <article id="no-js">
-                          <h3>Is your browser's JavaScript enabled?</h3>
-                          <p>This web page uses JavaScript to dynamically display certain elements. If you are seeing
-                            this message, it likely means that JavaScript is not enabled in your browser. To get the full experience,
-                            please <a href="https://www.enable-javascript.com/" target="_blank" rel="noreferrer noopener">enable 
-                            JavaScript</a> on this device if possible or access it on a different device.</p>
-                            <p>In Minnesota, we pride ourselves on being connected to water. But getting out there in the Twin Cities metro area is easier said than done. Where do I put in my boat? How fast is too fast for moving water? Are there rentals? The information you need is all over the place, if you can find it at all. We think it could be easier, so some Strib staff members set out to create an urban paddling guide. We researched, paddled and mapped our favorite routes within the metro area. Whether by canoe, kayak or paddleboard, we hope this guide helps you see the Twin Cities in new ways: take a lazy river ride toward Minneapolis; explore a little-seen part of St. Paul; practice portaging at Lebanon Hills in the southern suburbs. See you on the water.</p>
-                            <p>Minneapolis Chain of Lakes</p>
-                            <p>East Metro Chain of Lakes</p>
-                            <p>Minnesota River</p>
-                            <p>Upper Minnehaha Creek</p>  
-                            <p>Lower Minnehaha Creek</p>
-                            <p>Upper Mississippi River</p>
-                            <p>Lower Mississippi River</p>
-                            <p>Mississippi River Gorge</p>
-                            <p>Upper Rice Creek</p>
-                            <p>Lower Rice Creek</p>
-                            <p>Lebanon Hills</p>
-                        </article>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </main>
-      </div>
-    </div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="noindex,nofollow" />
+        <title>Star Tribune svelte app</title>
+
+        <link
+            rel="icon"
+            href="https://www.startribune.com/icon.svg"
+            type="image/svg+xml"
+            sizes="any"
+        />
+    </head>
+
+    <body id="top" style="margin: 0">
+        <div style="margin-bottom: 2rem" data-label="CMS Hero Code Block">
+            <div id="proj-hero"></div>
+        </div>
+
+        <div data-label="CMS Body Code Block">
+            <div id="proj-body"></div>
+        </div>
+        <script type="module" src="/src/main.js"></script>
+    </body>
 </html>
