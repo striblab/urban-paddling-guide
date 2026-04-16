@@ -5,7 +5,7 @@
     import maplibregl from "maplibre-gl";
     import "maplibre-gl/dist/maplibre-gl.css";
     import { Protocol } from "pmtiles";
-    import style from "./map-components/strib-basemap-style.json";
+    import style from "./map-components/strib-outdoors.json";
     import {
         getBBox,
         getBBoxAspectRatio,
