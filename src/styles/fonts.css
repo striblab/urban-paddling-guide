@@ -272,3 +272,131 @@
     font-style: normal;
     font-display: swap;
 }
+
+/* Graphik Compact fonts */
+@font-face {
+    font-family: "graphikcompact-superitalic";
+    src: url("https://static.startribune.com/fonts/GraphikCompactWebFonts/GraphikCompact-SuperItalic-Web.woff2")
+        format("woff2");
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "graphikcompact-super";
+    src: url("https://static.startribune.com/fonts/GraphikCompactWebFonts/GraphikCompact-Super-Web.woff2")
+        format("woff2");
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "graphikcompact-blackitalic";
+    src: url("https://static.startribune.com/fonts/GraphikCompactWebFonts/GraphikCompact-BlackItalic-Web.woff2")
+        format("woff2");
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "graphikcompact-black";
+    src: url("https://static.startribune.com/fonts/GraphikCompactWebFonts/GraphikCompact-Black-Web.woff2")
+        format("woff2");
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "graphikcompact-bolditalic";
+    src: url("https://static.startribune.com/fonts/GraphikCompactWebFonts/GraphikCompact-BoldItalic-Web.woff2")
+        format("woff2");
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "graphikcompact-bold";
+    src: url("https://static.startribune.com/fonts/GraphikCompactWebFonts/GraphikCompact-Bold-Web.woff2")
+        format("woff2");
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "graphikcompact-semibolditalic";
+    src: url("https://static.startribune.com/fonts/GraphikCompactWebFonts/GraphikCompact-SemiboldItalic-Web.woff2")
+        format("woff2");
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "graphikcompact-semibold";
+    src: url("https://static.startribune.com/fonts/GraphikCompactWebFonts/GraphikCompact-Semibold-Web.woff2")
+        format("woff2");
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "graphikcompact-mediumitalic";
+    src: url("https://static.startribune.com/fonts/GraphikCompactWebFonts/GraphikCompact-MediumItalic-Web.woff2")
+        format("woff2");
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "graphikcompact-medium";
+    src: url("https://static.startribune.com/fonts/GraphikCompactWebFonts/GraphikCompact-Medium-Web.woff2")
+        format("woff2");
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "graphikcompact-regularitalic";
+    src: url("https://static.startribune.com/fonts/GraphikCompactWebFonts/GraphikCompact-RegularItalic-Web.woff2")
+        format("woff2");
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "graphikcompact-regular";
+    src: url("https://static.startribune.com/fonts/GraphikCompactWebFonts/GraphikCompact-Regular-Web.woff2")
+        format("woff2");
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "graphikcompact-lightitalic";
+    src: url("https://static.startribune.com/fonts/GraphikCompactWebFonts/GraphikCompact-LightItalic-Web.woff2")
+        format("woff2");
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "graphikcompact-light";
+    src: url("https://static.startribune.com/fonts/GraphikCompactWebFonts/GraphikCompact-Light-Web.woff2")
+        format("woff2");
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "graphikcompact-extralightitalic";
+    src: url("https://static.startribune.com/fonts/GraphikCompactWebFonts/GraphikCompact-ExtralightItalic-Web.woff2")
+        format("woff2");
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "graphikcompact-extralight";
+    src: url("https://static.startribune.com/fonts/GraphikCompactWebFonts/GraphikCompact-Extralight-Web.woff2")
+        format("woff2");
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "graphikcompact-thinitalic";
+    src: url("https://static.startribune.com/fonts/GraphikCompactWebFonts/GraphikCompact-ThinItalic-Web.woff2")
+        format("woff2");
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "graphikcompact-thin";
+    src: url("https://static.startribune.com/fonts/GraphikCompactWebFonts/GraphikCompact-Thin-Web.woff2")
+        format("woff2");
+    font-style: normal;
+    font-display: swap;
+}
