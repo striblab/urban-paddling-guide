@@ -1,4 +1,5 @@
 <script>
+    import NewBadge from "./NewBadge.svelte";
     import { slugify } from "./utilities";
     let { routes } = $props();
     let hovered = $state("");
@@ -35,6 +36,9 @@
                         ? 'opacity-60 saturate-0'
                         : 'opacity-100'}"
                 >
+                {#if route.tags.includes("new")}
+                    <NewBadge wide={true}/>
+                {/if}
                     <div
                         class="image block md:hidden w-[45%] min-h-[175px] md:min-h-[150px] h-full"
                         style="background: url(https://ststatic.stimg.co/assets/outdoors/urban-paddling/hero/{route.heroImg}_vertical.jpg?w=400&h=400&fit=crop&crop=bottom); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
@@ -46,6 +50,11 @@
                     <div
                         class="text-wrapper p-2 md:p-4 w-[55%] pl-[5%] pr-[5%] md:w-[55%]"
                     >
+                        {#if route.tags.includes("new")}
+                            <div class="md:hidden">
+                                <h6><span>NEW ROUTE</span></h6>
+                            </div>
+                        {/if}
                         <h3
                             class="text-[21px] md:text-[23px] mb-2 leading-[1.2]"
                         >
@@ -64,8 +73,20 @@
 </div>
 
 <style type="text/css">
-    /* div.route-preview:hover {
-        transition: 1s all;
-        transform: scale(104%);
-    } */
+
+    h6 {
+        font-family: 'graphik-medium', sans-serif;
+        font-size: 13px;
+        letter-spacing: 0.75px;
+        font-weight: bold;
+        margin-bottom: 15px;
+        
+    }
+
+    span {
+        background: #05442e;
+        color: white;
+        padding: 5px 7.5px;
+        border-radius: 4px;
+    }
 </style>

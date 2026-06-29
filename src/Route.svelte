@@ -68,7 +68,7 @@
             class="headline-wrapper text-left md:text-center w-[90%] mx-auto max-w-2xl"
         >
             <h1
-                class="font-publico-headline-medium text-[35px] md:text-[50px] mb-4"
+                class="font-publico-headline-medium text-[35px] md:text-[50px] mb-4 leading-[1.2]"
             >
                 {headline}
             </h1>
@@ -117,7 +117,7 @@
                 <p
                     class="tag font-graphik-regular text-[16px] md:text-[18px] mb-0"
                 >
-                    {tags.join(", ")}
+                    {tags.filter(t => t !== "new").join(", ")}
                 </p>
             </div>
         </div>
@@ -146,7 +146,7 @@
             />
         </picture>
         <div class="headline-wrapper w-[90%] mx-auto max-w-2xl">
-            <div class="byline font-graphik-regular text-[16px] mt-12 mb-6">
+            <div class="byline font-graphik-regular text-[15px] mt-12 mb-6">
                 <p class="byline block md:hidden">
                     Guide by <span class="font-graphik-semibold"
                         >{@html getAuthorMarkup(authors)}</span

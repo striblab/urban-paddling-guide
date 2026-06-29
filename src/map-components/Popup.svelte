@@ -1,6 +1,7 @@
 <script>
     import { fade } from "svelte/transition";
     import { slugify } from "../utilities";
+    import NewBadge from "../NewBadge.svelte";
     let { popupData, routeData, loadRoute, closeRoute } = $props();
 
     let routeIds = routeData.map((r) => r.routeID);
@@ -73,6 +74,9 @@
     <div
         class="route-preview font-publico-headline-medium bg-white border rounded-xl border-[#05442e] overflow-hidden"
     >
+        {#if popupData.tags.includes("new")}
+            <NewBadge wide={true}/>
+        {/if}
         <img
             src={popupData.heroImg
                 ? `https://ststatic.stimg.co/assets/outdoors/urban-paddling/hero/${popupData.heroImg}.jpg?w=400&h=266&fit=crop`
@@ -81,6 +85,11 @@
             class="w-full hidden md:block"
         />
         <div class="text-wrapper p-6 pt-6 pb-14 md:pt-6">
+            {#if popupData.tags.includes("new")}
+                <div class="md:hidden">
+                    <h6><span>NEW ROUTE</span></h6>
+                </div>
+            {/if}
             <h3 class="text-[24px] md:text-[28px] mb-2 leading-[1.2] w-[95%]">
                 {popupData.headline}
             </h3>
@@ -158,6 +167,22 @@
     }
     button.upperrice #strib-close path {
         fill: #05442e;
+    }
+   
+    h6 {
+        font-family: 'graphik-medium', sans-serif;
+        font-size: 13px;
+        letter-spacing: 0.75px;
+        font-weight: bold;
+        margin-bottom: 15px;
+        
+    }
+
+    span {
+        background: #05442e;
+        color: white;
+        padding: 5px 7.5px;
+        border-radius: 4px;
     }
     @media only screen and (max-width: 767px) {
         #strib-close path {
