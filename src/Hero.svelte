@@ -4,7 +4,7 @@
 <div class="hero bg-[#fffbf4] pb-20">
     <div class="video-wrapper relative w-full motion-reduce:hidden">
         <video
-            src="https://static.startribune.com/assets/outdoors/urban-paddling/MinneapolisMississippi_1_1.mp4"
+            src="https://static.startribune.com/assets/outdoors/urban-paddling/paddlehero_2026_resized.mp4"
             autoplay
             muted
             loop
@@ -46,7 +46,7 @@
             <p
                 class="byline text-center uppercase font-graphik-regular text-[13px] tracking-widest mt-8 hidden md:block"
             >
-                The Minnesota Star Tribune • May 14, 2025
+                The Minnesota Star Tribune • Updated June 30, 2026
             </p>
 
             <p
