@@ -21,7 +21,7 @@
 
     const loadRoutes = async () => {
         const req = await fetch(
-            "https://static.startribune.com/staging/news/projects/all/urban-paddling-guide/data/routes.json",
+            "https://static.startribune.com/news/projects/all/urban-paddling-guide/data/routes.json",
         );
         if (req.ok) {
             routeData = await req.json();
