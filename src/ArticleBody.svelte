@@ -286,7 +286,7 @@
         column-gap: 60px;
     }
 
-    @media only screen and (max-width: 400px) {
+    @media only screen and (max-width: 510px) {
         li:before {
             left: -10px;
         }
