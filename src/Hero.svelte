@@ -14,7 +14,7 @@
         </video>
     </div>
     <div
-        class="hidden motion-reduce:block sticky top-0 h-[100svh] md:h-[180svh] bg-bottom bg-cover bg-[url('https://ststatic.stimg.co/assets/outdoors/urban-paddling/hero/uppermississippiriver_vertical.jpg?w=900')] md:bg-[url('https://ststatic.stimg.co/assets/outdoors/urban-paddling/hero/uppermississippiriver.jpg?w=2000')]"
+        class="hidden motion-reduce:block sticky top-0 h-[100svh] md:h-[180svh] bg-bottom bg-cover bg-[url('https://ststatic.stimg.co/assets/outdoors/urban-paddling/hero/paddling_social.jpg?fit=crop&w=900&h=1400')] md:bg-[url('https://ststatic.stimg.co/assets/outdoors/urban-paddling/hero/paddling_social.jpg?w=2000')]"
     ></div>
     <div class="subhead w-[90%] mx-auto">
         <h1
