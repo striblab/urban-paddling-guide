@@ -6,6 +6,7 @@
     import RoutePageNav from "./RoutePageNav.svelte";
     import Map from "./Map.svelte";
     import { slugify } from "./utilities";
+    import NewBadge from "./NewBadge.svelte";
 
     let selectedRoute = $state("");
     let routesLoaded = $state(false);
@@ -20,7 +21,7 @@
 
     const loadRoutes = async () => {
         const req = await fetch(
-            "https://static.startribune.com/news/projects/all/urban-paddling-guide/data/routes.json",
+            "https://static.startribune.com/staging/news/projects/all/urban-paddling-guide/data/routes.json",
         );
         if (req.ok) {
             routeData = await req.json();
@@ -198,7 +199,7 @@
                         }}
                     >
                         <div
-                            class="route-preview font-publico-headline-medium bg-white border rounded-xl border-[#05442e] transition-all duration-1000 {hovered &&
+                            class="route-preview font-publico-headline-medium bg-white border rounded-xl border-[#05442e] transition-all duration-1000 relative {hovered &&
                             hovered !== route.routeID
                                 ? 'opacity-60 saturate-0'
                                 : 'opacity-100'}"
@@ -210,6 +211,9 @@
                                 alt={route.heroImgAltText}
                                 class="w-full"
                             />
+                            {#if route.tags.includes("new")}
+                                <NewBadge />
+                            {/if}
                             <div class="text-wrapper p-6">
                                 <h3 class="text-[24px] md:text-[28px] mb-2">
                                     {route.headline}
@@ -225,6 +229,7 @@
                 {/each}
             </div>
         </div>
+
         <Credits wide={true} />
     {:else}
         <!--Todo: style loading thing-->
@@ -244,8 +249,14 @@
     }
 
     div.route-preview {
-        overflow: hidden;
+        /* overflow: hidden; */
         transition: 0.5s all;
+        position:relative;
+    }
+
+    div.route-preview img {
+        border-top-left-radius: 0.75rem;
+        border-top-right-radius: 0.75rem;
     }
 
     div.route-preview {
