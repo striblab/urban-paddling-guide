@@ -13,6 +13,7 @@
   import MinneapolisLakes from "./route-maps/MinneapolisLakes.svelte";
   import EastMetroLakes from "./route-maps/EastMetroLakes.svelte";
   import MississippiRiverBluffs from "./route-maps/MississippiRiverBluffs.svelte";
+  import RumRiver from "./route-maps/RumRiver.svelte";
 </script>
 
 <div class="mb-[-2px] overflow-y-hidden">
@@ -40,5 +41,7 @@
     <EastMetroLakes />
   {:else if route === "Mississippi River Bluffs"}
     <MississippiRiverBluffs />
+  {:else if route === "Rum River"}
+    <RumRiver />
   {/if}
 </div>
