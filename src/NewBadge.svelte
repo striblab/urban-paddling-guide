@@ -32,7 +32,10 @@
 
     div.type {
         padding: 25px 15px 15px 15px;
-        background-color: #05442e;
+        background-color: #e36363;
+        /* border-left: 1px solid white; */
+        /* border-right:1px solid white; */
+        /* border-bottom: 2px solid #05442e; */
     }
 
     div.new-badge.wide div.type {

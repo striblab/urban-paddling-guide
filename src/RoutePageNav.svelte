@@ -76,15 +76,15 @@
 
     h6 {
         font-family: 'graphik-medium', sans-serif;
-        font-size: 13px;
-        letter-spacing: 0.75px;
+        font-size: 12px;
+        letter-spacing: 1px;
         font-weight: bold;
         margin-bottom: 15px;
         
     }
 
-    span {
-        background: #05442e;
+    h6 span {
+        background: #e36363;
         color: white;
         padding: 5px 7.5px;
         border-radius: 4px;
