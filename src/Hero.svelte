@@ -52,7 +52,7 @@
       <p
         class="byline text-center uppercase font-graphik-regular text-[13px] tracking-widest mt-8 block md:hidden"
       >
-        The Minnesota Star Tribune<br />May 14, 2025
+        The Minnesota Star Tribune<br />Updated June 30, 2026
       </p>
     </div>
   </div>
