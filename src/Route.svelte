@@ -364,7 +364,7 @@
                 <p
                     class="text-left caption mx-auto max-w-2xl font-graphik-regular text-[14px] mt-2 md:w-full"
                 >
-                    {secondaryPhotos[0].caption}.
+                    {secondaryPhotos[0].caption}
                 </p>
             </div>
         {/if}
